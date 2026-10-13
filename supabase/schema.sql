@@ -1,0 +1,145 @@
+-- ==============================================================================
+-- Supabase Schema: Popularity Check Report-book
+-- ==============================================================================
+
+-- 1. Create Reports Table
+CREATE TABLE IF NOT EXISTS public.reports (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    slug TEXT UNIQUE NOT NULL DEFAULT 'latest',
+    title TEXT NOT NULL,
+    data JSONB NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- Trigger for updating updated_at timestamp automatically
+CREATE OR REPLACE FUNCTION update_modified_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = timezone('utc'::text, now());
+    RETURN NEW;
+END;
+$$ language 'plpgsql';
+
+DROP TRIGGER IF EXISTS set_reports_updated_at ON public.reports;
+CREATE TRIGGER set_reports_updated_at
+BEFORE UPDATE ON public.reports
+FOR EACH ROW
+EXECUTE FUNCTION update_modified_column();
+
+-- 2. Row Level Security (RLS)
+ALTER TABLE public.reports ENABLE ROW LEVEL SECURITY;
+
+-- Allow anyone with the anon key to read reports (public dashboard view)
+CREATE POLICY "Allow public read access"
+ON public.reports
+FOR SELECT
+TO anon, authenticated
+USING (true);
+
+-- Allow authenticated users (e.g. admins logged into Supabase) to insert/update/delete
+CREATE POLICY "Allow authenticated users to modify reports"
+ON public.reports
+FOR ALL
+TO authenticated
+USING (true)
+WITH CHECK (true);
+
+-- 3. Initial Seed: Insert Current Report Data
+INSERT INTO public.reports (slug, title, data)
+VALUES (
+    'latest',
+    'Popularity Check: Seven Candidates',
+    '{
+  "meta": {
+    "placeholder": false,
+    "sameContest": true,
+    "title": "Popularity Check: Seven Candidates",
+    "subtitle": "A field report on name recall, favourability and vote intent, prepared for Waris Punjab De.",
+    "client": "Waris Punjab De",
+    "constituency": "Constituency name (edit in data/report.json)",
+    "fieldDates": "01 Oct – 10 Oct 2026",
+    "sampleSize": 1240,
+    "marginOfError": 2.8,
+    "pulseLabels": ["P1","P2","P3","P4","P5","P6"],
+    "preparedBy": "Research desk"
+  },
+  "candidates": [
+    {"id":"W1","name":"Candidate W1","party":"Waris Punjab De","isClient":true,"firstTime":null,
+     "tagline":"Placeholder one-line description of this candidate.",
+     "age":41,"gender":"Male","education":"Post-graduate","profession":"Agriculturist and local organiser","hometown":"Village name","publicRole":"Add prior public role","languages":"Punjabi, Hindi, English","socialReach":"48K followers",
+     "recall":81,"favourable":47,"unfavourable":21,"intent":22,"trend":[18,19,20,21,21,22]},
+    {"id":"W2","name":"Candidate W2","party":"Waris Punjab De","isClient":true,"firstTime":null,
+     "tagline":"Placeholder one-line description of this candidate.",
+     "age":36,"gender":"Female","education":"Graduate","profession":"Educator","hometown":"Town name","publicRole":"Add prior public role","languages":"Punjabi, Hindi","socialReach":"22K followers",
+     "recall":58,"favourable":39,"unfavourable":14,"intent":14,"trend":[10,11,12,13,13,14]},
+    {"id":"W3","name":"Candidate W3","party":"Waris Punjab De","isClient":true,"firstTime":null,
+     "tagline":"Placeholder one-line description of this candidate.",
+     "age":48,"gender":"Male","education":"Graduate","profession":"Trader","hometown":"Town name","publicRole":"Add prior public role","languages":"Punjabi, Hindi","socialReach":"9K followers",
+     "recall":44,"favourable":28,"unfavourable":17,"intent":9,"trend":[9,9,8,9,9,9]},
+    {"id":"O1","name":"Candidate O1","party":"Party A","isClient":false,"firstTime":true,
+     "tagline":"Placeholder one-line description of this candidate.",
+     "age":34,"gender":"Male","education":"Post-graduate","profession":"Entrepreneur","hometown":"City name","publicRole":"First-time aspirant","languages":"Punjabi, Hindi, English","socialReach":"85K followers",
+     "recall":69,"favourable":44,"unfavourable":26,"intent":18,"trend":[12,14,15,16,17,18]},
+    {"id":"O2","name":"Candidate O2","party":"Party B","isClient":false,"firstTime":true,
+     "tagline":"Placeholder one-line description of this candidate.",
+     "age":38,"gender":"Female","education":"Professional degree","profession":"Lawyer","hometown":"City name","publicRole":"First-time aspirant","languages":"Punjabi, English","socialReach":"31K followers",
+     "recall":51,"favourable":36,"unfavourable":18,"intent":12,"trend":[11,11,12,12,12,12]},
+    {"id":"O3","name":"Candidate O3","party":"Party C","isClient":false,"firstTime":true,
+     "tagline":"Placeholder one-line description of this candidate.",
+     "age":45,"gender":"Male","education":"Graduate","profession":"Retired officer","hometown":"Town name","publicRole":"First-time aspirant","languages":"Punjabi, Hindi","socialReach":"12K followers",
+     "recall":37,"favourable":24,"unfavourable":16,"intent":8,"trend":[9,9,8,8,8,8]},
+    {"id":"O4","name":"Candidate O4","party":"Party D","isClient":false,"firstTime":true,
+     "tagline":"Placeholder one-line description of this candidate.",
+     "age":29,"gender":"Male","education":"Graduate","profession":"Student leader","hometown":"Village name","publicRole":"First-time aspirant","languages":"Punjabi, English","socialReach":"40K followers",
+     "recall":29,"favourable":19,"unfavourable":12,"intent":6,"trend":[3,4,5,5,6,6]}
+  ],
+  "segments": [
+    {"group":"Age","label":"18–25","values":{"W1":15,"W2":10,"W3":8,"O1":24,"O2":16,"O3":11,"O4":7}},
+    {"group":"Age","label":"26–35","values":{"W1":20,"W2":13,"W3":9,"O1":20,"O2":13,"O3":9,"O4":6}},
+    {"group":"Age","label":"36–50","values":{"W1":25,"W2":15,"W3":10,"O1":16,"O2":11,"O3":7,"O4":5}},
+    {"group":"Age","label":"51 and above","values":{"W1":28,"W2":16,"W3":9,"O1":14,"O2":9,"O3":5,"O4":4}},
+    {"group":"Gender","label":"Men","values":{"W1":23,"W2":15,"W3":9,"O1":17,"O2":12,"O3":8,"O4":6}},
+    {"group":"Gender","label":"Women","values":{"W1":21,"W2":13,"W3":9,"O1":19,"O2":12,"O3":8,"O4":6}},
+    {"group":"Area","label":"Urban","values":{"W1":17,"W2":11,"W3":8,"O1":24,"O2":15,"O3":10,"O4":7}},
+    {"group":"Area","label":"Semi-urban","values":{"W1":22,"W2":14,"W3":9,"O1":18,"O2":12,"O3":8,"O4":6}},
+    {"group":"Area","label":"Rural","values":{"W1":27,"W2":17,"W3":10,"O1":12,"O2":9,"O3":6,"O4":5}}
+  ],
+  "analystNotes": [
+    "Replace these notes with your own reading of the numbers.",
+    "Keep each note to one observation so it reads cleanly in the summary."
+  ],
+  "voices": [
+    {"id":"v1","name":"Reporter 1","type":"Reporter","outlet":"Regional daily","date":"2026-10-04","tone":"Mixed","mentions":["W1","O1"],
+     "bullets":["Placeholder: says W1 is the best-known name outside the cities.","Placeholder: notes O1 draws large youth crowds online but is thinner on the ground.","Placeholder: expects the outcome to hinge on turnout in the rural belt."]},
+    {"id":"v2","name":"Reporter 2","type":"Reporter","outlet":"Local TV channel","date":"2026-10-05","tone":"Positive","mentions":["W2","O2"],
+     "bullets":["Placeholder: W2 is seen as approachable and issue-focused.","Placeholder: O2 is respected but little known beyond professional circles."]},
+    {"id":"v3","name":"Reporter 3","type":"Reporter","outlet":"Digital news portal","date":"2026-10-06","tone":"Critical","mentions":["W3","O3","O4"],
+     "bullets":["Placeholder: W3 has low visibility despite a strong local business network.","Placeholder: O4 is the name to watch among first-time voters.","Placeholder: O3 relies on past service reputation rather than campaign activity."]},
+    {"id":"v4","name":"Opinion maker 1","type":"Opinion maker","outlet":"Retired academic","date":"2026-10-07","tone":"Mixed","mentions":["W1","W2","W3"],
+     "bullets":["Placeholder: the party brand is stronger than any single candidate.","Placeholder: warns against three candidates competing for the same loyal base."]},
+    {"id":"v5","name":"Opinion maker 2","type":"Opinion maker","outlet":"Farmers'' union representative","date":"2026-10-08","tone":"Positive","mentions":["W1"],
+     "bullets":["Placeholder: W1 is trusted on agrarian questions.","Placeholder: wants clearer commitments on water and procurement."]},
+    {"id":"v6","name":"Opinion maker 3","type":"Opinion maker","outlet":"Trade association member","date":"2026-10-09","tone":"Critical","mentions":["O1","O2"],
+     "bullets":["Placeholder: traders want a fresh face but need proof of delivery.","Placeholder: O1 is discussed most, though opinion is divided."]}
+  ],
+  "actions": [
+    {"priority":"High","title":"Close the recall gap for W3","detail":"Placeholder: W3''s recall trails the rest of the field. Plan a visibility push in the segments where recall is lowest."},
+    {"priority":"High","title":"Counter O1''s youth momentum","detail":"Placeholder: O1 leads among 18–25 voters and is rising across pulse checks. Design a youth-facing response."},
+    {"priority":"Medium","title":"Coordinate the three candidates","detail":"Placeholder: agree who speaks to which audience so the three profiles reinforce each other."},
+    {"priority":"Medium","title":"Reduce the undecided pool","detail":"Placeholder: target the segments with the highest undecided share with issue-led outreach."},
+    {"priority":"Watch","title":"Track O4","detail":"Placeholder: low base but steady upward movement in each pulse check."}
+  ],
+  "method": {
+    "mode": "Face-to-face interviews on tablets, collected with KoboToolbox.",
+    "sampling": "Placeholder: multi-stage random sample across urban, semi-urban and rural polling areas.",
+    "weighting": "Placeholder: weighted to age, gender and area of the electoral roll.",
+    "qualitative": "Six unstructured interviews with local reporters and opinion makers. Views are summarised as bullets and are not statistically representative.",
+    "limits": ["Vote intent is a snapshot, not a forecast.","Name recall depends on how names were read out to respondents.","Small sub-groups carry wider margins of error."]
+  }
+}'::jsonb
+)
+ON CONFLICT (slug) DO UPDATE
+SET data = EXCLUDED.data,
+    title = EXCLUDED.title,
+    updated_at = timezone('utc'::text, now());
