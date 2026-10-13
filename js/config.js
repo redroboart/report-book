@@ -1,8 +1,6 @@
-// Optional Supabase Configuration
-// Leave empty to use local data/report.json.
-// Populate these to load reports dynamically from Supabase database.
+// Supabase Configuration
 window.SUPABASE_CONFIG = {
-  url: '',       // e.g., 'https://xyzcompany.supabase.co'
-  anonKey: '',   // Supabase Project Settings -> API -> Project API keys -> 'anon' public key
+  url: 'https://wbhdflhommlcqsivykmg.supabase.co',
+  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndiaGRmbGhvbW1sY3FzaXZ5a21nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE4OTY0NTUsImV4cCI6MjEwNzQ3MjQ1NX0.efmbns2dC6g-QCy47IG8FKM9IgPKI2bYXjbsnD3sqBM',
   reportSlug: 'latest'
 };
