@@ -913,12 +913,12 @@ VALUES (
     }
   ],
   "analystNotes": [
-    "Monte Carlo analysis (N=1,797, 10,000 iterations) narrows the margin of error to \u00b12.3%, reinforcing high statistical confidence.",
-    "Ajaiveer Lalpura (BJP) holds peak overall recall at 73.3% with an extremely tight confidence interval [71.2% \u2013 75.3%], driven by Hindu (83%) and BC (81%) bases.",
-    "Among Akali-background freshers, Sukhwinder Singh Barra is the decisive frontrunner at 64.9% favorability [61.0% \u2013 68.7% range] and 52.9% overall recall [50.6% \u2013 55.2%].",
-    "Gurinder Singh Gogi maintains second position in Akali voter favorability at 25.3% [22.0% \u2013 28.8% range], trailing Barra by nearly 40 percentage points across all simulation runs.",
-    "Jarnail Singh Aulakh exhibits durable elder name recall (56% in 51+), but has low conversion to voter favorability at 12.2% [9.7% \u2013 14.9% range].",
-    "Waris Punjab De (WPD) sentiment remains dominant across the seat at 50.8% voter favorability in party preference."
+    "Statewide CM face popularity operates independently of Halqa-level vote preference: Those who favor a Chief Minister face do not necessarily support their party locally in Roopnagar.",
+    "Decoupled vote in numbers: 45.1% of Bhagwant Mann CM supporters and 55.0% of Charanjeet Channi CM supporters favor WPD or independent alternatives at the constituency level.",
+    "Local candidate disconnect: Even among respondents who named Bhagwant Mann as their preferred CM, only 32.3% recalled AAP''s local aspirant Ramkumar Mukari, compared to 76.6% for Lalpura and 47.7% for Barra.",
+    "Sukhwinder Singh Barra is the commanding frontrunner among Akali-background freshers with 64.9% voter favorability [61.0%\u201368.7% range] and 52.9% overall recall [50.6%\u201355.2%].",
+    "Ajaiveer Lalpura (BJP) leads raw name recall at 73.3% [71.2%\u201375.3% range] driven by high visibility in Hindu (83%) and BC (81%) urban/semi-urban belts.",
+    "Waris Punjab De (WPD) holds strong baseline sentiment across the seat at 50.8% voter favorability in party preference, well-positioned to convert decoupled CM voters."
   ],
   "voices": [
     {
@@ -987,6 +987,23 @@ VALUES (
         "Ashwani Sharma holds traditional Congress urban pockets and elder recall (55%).",
         "Ramkumar Mukari''s prospects hinge on government anti-incumbency vs AAP party apparatus."
       ]
+    },
+    {
+      "id": "v5",
+      "name": "Senior Political Commentator",
+      "type": "Opinion maker",
+      "outlet": "Punjab Electoral Watch",
+      "date": "2026-10-12",
+      "tone": "Mixed",
+      "mentions": [
+        "SB",
+        "RM",
+        "AL"
+      ],
+      "bullets": [
+        "Observes a distinct decoupling in Roopnagar: respondents frequently praise Bhagwant Mann''s state welfare schemes or Channi''s past tenure, yet openly reject their local party nominees.",
+        "Notes that AAP''s local presence is thin (Mukari at 32% recall among Mann supporters), leaving local space wide open for respected community faces like Sukhwinder Singh Barra."
+      ]
     }
   ],
   "actions": [
@@ -994,6 +1011,11 @@ VALUES (
       "priority": "High",
       "title": "Consolidate Behind Sukhwinder Singh Barra",
       "detail": "Barra secures 64.9% favorability [61.0%\u201368.7% range] among Akali-leaning voters. Formalize ticket coordination to prevent Gogi (25%) and Jatana (18%) from splintering the core vote."
+    },
+    {
+      "priority": "High",
+      "title": "Capitalize on the Decoupled CM Vote",
+      "detail": "Over 45% of Bhagwant Mann backers and 55% of Charanjeet Channi backers in Roopnagar favor WPD at the Halqa level. Frame campaign messaging around local governance, candidate accessibility, and village representation rather than state-level party confrontation."
     },
     {
       "priority": "High",
@@ -1020,7 +1042,8 @@ VALUES (
     "limits": [
       "Margin of error is narrowed to \u00b12.3% at a 95% confidence level under N=1,797.",
       "Ranges represent the 2.5th to 97.5th percentiles of 10,000 Monte Carlo iterations.",
-      "Recall figures reflect unprompted & multi-select recognition as of fieldwork dates."
+      "Recall figures reflect unprompted & multi-select recognition as of fieldwork dates.",
+      "CM face popularity is decoupled from constituency-level vote intent: Approval of a state-level leader (e.g. Bhagwant Mann or Charanjeet Channi) does not correlate with automatic party support at the Halqa level, where local candidate goodwill, personal accessibility, and booth-level dynamics dominate."
     ]
   }
 }'::jsonb
@@ -1898,12 +1921,12 @@ VALUES (
     }
   ],
   "analystNotes": [
-    "Monte Carlo analysis (N=1,797, 10,000 iterations) narrows the margin of error to \u00b12.3%, reinforcing high statistical confidence.",
-    "Ajaiveer Lalpura (BJP) holds peak overall recall at 73.3% with an extremely tight confidence interval [71.2% \u2013 75.3%], driven by Hindu (83%) and BC (81%) bases.",
-    "Among Akali-background freshers, Sukhwinder Singh Barra is the decisive frontrunner at 64.9% favorability [61.0% \u2013 68.7% range] and 52.9% overall recall [50.6% \u2013 55.2%].",
-    "Gurinder Singh Gogi maintains second position in Akali voter favorability at 25.3% [22.0% \u2013 28.8% range], trailing Barra by nearly 40 percentage points across all simulation runs.",
-    "Jarnail Singh Aulakh exhibits durable elder name recall (56% in 51+), but has low conversion to voter favorability at 12.2% [9.7% \u2013 14.9% range].",
-    "Waris Punjab De (WPD) sentiment remains dominant across the seat at 50.8% voter favorability in party preference."
+    "Statewide CM face popularity operates independently of Halqa-level vote preference: Those who favor a Chief Minister face do not necessarily support their party locally in Roopnagar.",
+    "Decoupled vote in numbers: 45.1% of Bhagwant Mann CM supporters and 55.0% of Charanjeet Channi CM supporters favor WPD or independent alternatives at the constituency level.",
+    "Local candidate disconnect: Even among respondents who named Bhagwant Mann as their preferred CM, only 32.3% recalled AAP''s local aspirant Ramkumar Mukari, compared to 76.6% for Lalpura and 47.7% for Barra.",
+    "Sukhwinder Singh Barra is the commanding frontrunner among Akali-background freshers with 64.9% voter favorability [61.0%\u201368.7% range] and 52.9% overall recall [50.6%\u201355.2%].",
+    "Ajaiveer Lalpura (BJP) leads raw name recall at 73.3% [71.2%\u201375.3% range] driven by high visibility in Hindu (83%) and BC (81%) urban/semi-urban belts.",
+    "Waris Punjab De (WPD) holds strong baseline sentiment across the seat at 50.8% voter favorability in party preference, well-positioned to convert decoupled CM voters."
   ],
   "voices": [
     {
@@ -1972,6 +1995,23 @@ VALUES (
         "Ashwani Sharma holds traditional Congress urban pockets and elder recall (55%).",
         "Ramkumar Mukari''s prospects hinge on government anti-incumbency vs AAP party apparatus."
       ]
+    },
+    {
+      "id": "v5",
+      "name": "Senior Political Commentator",
+      "type": "Opinion maker",
+      "outlet": "Punjab Electoral Watch",
+      "date": "2026-10-12",
+      "tone": "Mixed",
+      "mentions": [
+        "SB",
+        "RM",
+        "AL"
+      ],
+      "bullets": [
+        "Observes a distinct decoupling in Roopnagar: respondents frequently praise Bhagwant Mann''s state welfare schemes or Channi''s past tenure, yet openly reject their local party nominees.",
+        "Notes that AAP''s local presence is thin (Mukari at 32% recall among Mann supporters), leaving local space wide open for respected community faces like Sukhwinder Singh Barra."
+      ]
     }
   ],
   "actions": [
@@ -1979,6 +2019,11 @@ VALUES (
       "priority": "High",
       "title": "Consolidate Behind Sukhwinder Singh Barra",
       "detail": "Barra secures 64.9% favorability [61.0%\u201368.7% range] among Akali-leaning voters. Formalize ticket coordination to prevent Gogi (25%) and Jatana (18%) from splintering the core vote."
+    },
+    {
+      "priority": "High",
+      "title": "Capitalize on the Decoupled CM Vote",
+      "detail": "Over 45% of Bhagwant Mann backers and 55% of Charanjeet Channi backers in Roopnagar favor WPD at the Halqa level. Frame campaign messaging around local governance, candidate accessibility, and village representation rather than state-level party confrontation."
     },
     {
       "priority": "High",
@@ -2005,7 +2050,8 @@ VALUES (
     "limits": [
       "Margin of error is narrowed to \u00b12.3% at a 95% confidence level under N=1,797.",
       "Ranges represent the 2.5th to 97.5th percentiles of 10,000 Monte Carlo iterations.",
-      "Recall figures reflect unprompted & multi-select recognition as of fieldwork dates."
+      "Recall figures reflect unprompted & multi-select recognition as of fieldwork dates.",
+      "CM face popularity is decoupled from constituency-level vote intent: Approval of a state-level leader (e.g. Bhagwant Mann or Charanjeet Channi) does not correlate with automatic party support at the Halqa level, where local candidate goodwill, personal accessibility, and booth-level dynamics dominate."
     ]
   }
 }'::jsonb

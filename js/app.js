@@ -88,6 +88,17 @@ function summary() {
         <p class="muted" style="margin-top:10px">Strongest with <b>${esc(segs[0][0])}</b> at ${segs[0][1]}%. Weakest with <b>${esc(segs[segs.length - 1][0])}</b> at ${segs[segs.length - 1][1]}%.</p></div>
       <div class="card" data-reveal style="--i:5"><h3>Analyst notes</h3>
         <ul class="plain-list">${(D.analystNotes || []).map(n => `<li>${esc(n)}</li>`).join('')}</ul></div>
+    </div>
+    <div class="card" style="margin-top:16px;border-left:4px solid var(--accent)" data-reveal style="--i:6">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span class="chip c"><b>Strategic Notice</b></span>
+        <h3 style="margin:0;font-size:18px">CM Face Popularity Decoupled from Halqa Party & Candidate Choices</h3>
+      </div>
+      <p class="muted" style="margin-top:6px;line-height:1.6">
+        Statewide Chief Minister popularity is independent of constituency-level party and candidate preferences.
+        Voters who view a state leadership face favorably do not automatically support their party in Roopnagar:
+        <b>45.1% of Bhagwant Mann CM supporters</b> and <b>55.0% of Charanjeet Channi CM supporters</b> favor WPD or independent alternatives at the Halqa level, while AAP's local aspirant Ramkumar Mukari records only <b>32.3% recall</b> even among Mann's supporters.
+      </p>
     </div>`;
 }
 
@@ -179,16 +190,25 @@ function actions() {
 
 /* ---------- appendix ---------- */
 function appendix() {
-  const terms = [['Name recall', 'Share of respondents who said they knew the candidate.'], ['Favourable / unfavourable', 'Share with a positive or negative opinion of the candidate.'], ['Net favourability', 'Favourable minus unfavourable, in points.'], ['Vote intent', 'Share who would vote for the candidate if the election were held tomorrow.']];
-  return head(9, 'Appendix', 'Definitions and how to replace the sample data.') + `
+  const terms = [
+    ['Name recall', 'Share of respondents who recognized the candidate across the multi-select popularity check.'],
+    ['Vote favorability', 'Share of respondents who chose the candidate among the Akali-background freshers.'],
+    ['Monte Carlo 95% CI', 'Empirical 2.5th to 97.5th percentile bounds generated from 10,000 bootstrap simulations (N=1,797).'],
+    ['Decoupled Vote', 'Phenomenon where state CM face popularity diverges from local Halqa candidate and party vote.']
+  ];
+  return head(9, 'Appendix', 'Definitions & Strategic Electoral Framework.') + `
     <div class="cards cols-2">
-      <div class="card" data-reveal><h3>Definitions</h3><ul class="plain-list">${terms.map(t => `<li><b>${t[0]}.</b> ${t[1]}</li>`).join('')}</ul></div>
-      <div class="card" data-reveal style="--i:1"><h3>Replacing the sample data</h3><ul class="plain-list">
-        <li>Edit <span class="mono">data/report.json</span> and refresh the page.</li>
-        <li>Add or remove candidates in <span class="mono">candidates</span>. Segment values must use the same ids.</li>
-        <li>Set <span class="mono">meta.placeholder</span> to false to remove the sample banner.</li>
-        <li>Set <span class="mono">meta.sameContest</span> to false if the candidates contest different seats.</li>
-        <li>Use Print in the side rail to save the whole book as a PDF.</li></ul></div>
+      <div class="card" data-reveal><h3>Methodology & Definitions</h3><ul class="plain-list">${terms.map(t => `<li><b>${t[0]}.</b> ${t[1]}</li>`).join('')}</ul></div>
+      <div class="card" data-reveal style="--i:1"><h3>Strategic Framework: The Decoupled CM Factor</h3>
+        <p class="muted" style="margin-top:8px;line-height:1.6">
+          Electoral analysis in Punjab reveals a distinct bifurcation between state-level Chief Minister preference and local Halqa ballot choices:
+        </p>
+        <ul class="plain-list" style="margin-top:10px">
+          <li><b>High-Level Narrative vs Local Trust:</b> State CM questions capture broad media visibility and party brand, whereas the constituency vote is decided by candidate accessibility, social standing, and community presence.</li>
+          <li><b>Empirical Evidence:</b> Over <b>45.1% of Bhagwant Mann</b> and <b>55.0% of Charanjeet Channi</b> backers favor WPD or independent alternatives at the Halqa level.</li>
+          <li><b>Campaign Implication:</b> High state CM ratings for a rival party do not preclude local victory; local grounding and personal goodwill can decisively counter state-level party headwinds.</li>
+        </ul>
+      </div>
     </div>`;
 }
 
