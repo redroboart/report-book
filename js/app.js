@@ -116,7 +116,7 @@ function roster() {
       <button class="cand" data-id="${c.id}" data-kind="${c.isClient ? 'client' : 'field'}" data-reveal style="--i:${i}">
         <div class="card"><div class="avatar ${c.isClient ? 'client' : 'field'}">${esc(initials(c))}</div>
           <h3>${esc(c.name)}</h3><div class="party">${esc(c.party)}${c.firstTime ? ' &middot; first-time aspirant' : ''}</div>
-          <dl><dt>Age</dt><dd>${c.age}</dd><dt>Profession</dt><dd>${esc(c.profession)}</dd><dt>Vote intent</dt><dd class="mono">${c.intent}%</dd></dl>
+          <dl><dt>Age</dt><dd>${c.age}</dd><dt>Profession</dt><dd>${esc(c.profession)}</dd><dt>Vote intent</dt><dd class="mono">${c.intent}%${c.intentRange ? ` <small class="muted" style="font-size:11px">(${c.intentRange[0]}%–${c.intentRange[1]}%)</small>` : ''}</dd></dl>
           <div class="open">Open dossier</div></div></button>`).join('')}</div>`;
 }
 
@@ -125,14 +125,14 @@ function results() {
   const byI = [...D.candidates].sort((a, b) => b.intent - a.intent);
   const cs = sum(D.candidates.filter(c => c.isClient).map(c => c.intent)), os = sum(D.candidates.filter(c => !c.isClient).map(c => c.intent)), und = 100 - cs - os;
   const row = (name, sub, v, cls, i) => `<div class="bar-row"><div class="bar-name">${esc(name)}<small>${esc(sub)}</small></div><div class="bar"><i class="${cls}" style="--w:${v / 30 * 100}%;--i:${i}"></i></div><div class="bar-val">${v}%</div></div>`;
-  return head(5, 'Popularity at a glance', 'If the election were held tomorrow, whom would you vote for?') + `
+  return head(5, 'Popularity at a glance', 'If the election were held tomorrow, whom would you vote for? Figures include Monte Carlo 95% confidence intervals.') + `
     <div class="card" data-reveal>${byI.map((c, i) => row(c.name, c.party, c.intent, c.isClient ? 'client' : '', i)).join('')}${row('Undecided', 'No candidate named', und, 'hatch', byI.length)}</div>
     ${D.meta.sameContest ? `<div class="card" style="margin-top:16px" data-reveal><h3>${esc(D.meta.client)} against the field</h3>
       <div class="stack"><span style="--w:${cs}%;background:var(--client)">${cs}%</span><span style="--w:${os}%;background:var(--field)">${os}%</span><span style="--w:${und}%;background:#9AA7BB">${und}%</span></div>
       <div class="legend"><span><i style="background:var(--client)"></i>${esc(D.meta.client)}</span><span><i style="background:var(--field)"></i>Other parties</span><span><i style="background:#9AA7BB"></i>Undecided</span></div></div>` : ''}
-    <div class="card tbl" style="margin-top:16px" data-reveal><h3 style="margin-bottom:10px">Recall and favourability</h3>
-      <table><thead><tr><th>Candidate</th><th class="n">Name recall</th><th class="n">Favourable</th><th class="n">Unfavourable</th><th class="n">Net</th></tr></thead><tbody>
-      ${D.candidates.map(c => { const n = c.favourable - c.unfavourable; return `<tr><td>${chip(c.id)} ${esc(c.name)}</td><td class="n">${c.recall}%</td><td class="n">${c.favourable}%</td><td class="n">${c.unfavourable}%</td><td class="n" style="color:${n >= 0 ? 'var(--good)' : 'var(--bad)'}">${n > 0 ? '+' : ''}${n}</td></tr>`; }).join('')}
+    <div class="card tbl" style="margin-top:16px" data-reveal><h3 style="margin-bottom:10px">Recall and favourability (Monte Carlo 95% Confidence Bounds)</h3>
+      <table><thead><tr><th>Candidate</th><th class="n">Name recall (95% CI)</th><th class="n">Favourable</th><th class="n">Unfavourable</th><th class="n">Net</th></tr></thead><tbody>
+      ${D.candidates.map(c => { const n = c.favourable - c.unfavourable; return `<tr><td>${chip(c.id)} ${esc(c.name)}</td><td class="n"><b>${c.recall}%</b>${c.recallRange ? ` <small class="muted mono">(${c.recallRange[0]}%–${c.recallRange[1]}%)</small>` : ''}</td><td class="n"><b>${c.favourable}%</b>${c.favourableRange ? ` <small class="muted mono">(${c.favourableRange[0]}%–${c.favourableRange[1]}%)</small>` : ''}</td><td class="n">${c.unfavourable}%</td><td class="n" style="color:${n >= 0 ? 'var(--good)' : 'var(--bad)'}">${n > 0 ? '+' : ''}${n}</td></tr>`; }).join('')}
       </tbody></table></div>
     <h3 style="margin:30px 0 12px" data-reveal>Movement across ${D.meta.pulseLabels.length} pulse checks</h3>
     <div class="cards cols-4">${D.candidates.map((c, i) => { const d = c.trend[c.trend.length - 1] - c.trend[0]; return `<div class="card" data-reveal style="--i:${i}">
@@ -147,8 +147,9 @@ function segments() {
     body += `<tr class="grp"><td colspan="${D.candidates.length + 3}">${esc(g)}</td></tr>`;
     D.segments.filter(s => s.group === g).forEach(s => {
       const vals = D.candidates.map(c => s.values[c.id]), top = Math.max(...vals), tot = sum(vals);
-      body += `<tr><td>${esc(s.label)}</td>${D.candidates.map(c => { const v = s.values[c.id]; const a = Math.round(v / 30 * 85);
-        return `<td class="cell ${v === top ? 'lead' : ''}" style="background:color-mix(in srgb, ${c.isClient ? 'var(--client)' : 'var(--field)'} ${a}%, transparent)">${v}</td>`; }).join('')}
+      body += `<tr><td>${esc(s.label)} <small class="muted" style="font-size:11px">(N=${s.n || '–'})</small></td>${D.candidates.map(c => { const v = s.values[c.id]; const a = Math.round(v / 30 * 85);
+        const rng = s.ranges && s.ranges[c.id] ? ` title="${esc(c.name)}: ${s.ranges[c.id][0]}%–${s.ranges[c.id][1]}% (95% CI)"` : '';
+        return `<td class="cell ${v === top ? 'lead' : ''}" style="background:color-mix(in srgb, ${c.isClient ? 'var(--client)' : 'var(--field)'} ${a}%, transparent)"${rng}>${v}</td>`; }).join('')}
         <td class="n">${100 - tot}</td></tr>`;
     });
   });
@@ -242,7 +243,11 @@ function openDrawer(id) {
     <div class="avatar ${c.isClient ? 'client' : 'field'}">${esc(c.id)}</div>
     <span class="chip ${c.isClient ? 'c' : 'f'}">${esc(c.party)}</span>
     <h3>${esc(c.name)}</h3><p class="muted">${esc(c.tagline)}</p>
-    <div class="stat-row"><div><div class="big">${c.intent}%</div><div class="small muted">vote intent</div></div><div><div class="big">${c.recall}%</div><div class="small muted">name recall</div></div><div><div class="big">${c.favourable - c.unfavourable > 0 ? '+' : ''}${c.favourable - c.unfavourable}</div><div class="small muted">net favourability</div></div></div>
+    <div class="stat-row">
+      <div><div class="big">${c.intent}%</div><div class="small muted">vote intent</div>${c.intentRange ? `<div style="font-size:11px;color:var(--accent);margin-top:3px" class="mono">${c.intentRange[0]}%–${c.intentRange[1]}%</div>` : ''}</div>
+      <div><div class="big">${c.recall}%</div><div class="small muted">name recall</div>${c.recallRange ? `<div style="font-size:11px;color:var(--accent);margin-top:3px" class="mono">${c.recallRange[0]}%–${c.recallRange[1]}%</div>` : ''}</div>
+      <div><div class="big">${c.favourable - c.unfavourable > 0 ? '+' : ''}${c.favourable - c.unfavourable}</div><div class="small muted">net favourability</div>${c.favourableRange ? `<div style="font-size:11px;color:var(--good);margin-top:3px" class="mono">${c.favourableRange[0]}%–${c.favourableRange[1]}% fav</div>` : ''}</div>
+    </div>
     <h4>Pulse checks</h4>${spark(c.trend, c.isClient)}
     <h4>Profile</h4><dl>${infobox(c)}</dl>
     <h4>In the interviews</h4>${vs.length ? vs.map(v => `<p class="small"><b>${esc(v.name)}</b> <span class="muted">(${esc(v.outlet)})</span></p><ul class="plain-list">${v.bullets.filter(b => b.includes(c.id)).map(b => `<li class="small">${esc(b)}</li>`).join('') || `<li class="small muted">Mentioned alongside others. See the Voices chapter.</li>`}</ul>`).join('') : '<p class="muted small">Not mentioned.</p>'}

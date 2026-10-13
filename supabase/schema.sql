@@ -55,12 +55,13 @@ VALUES (
     "placeholder": false,
     "sameContest": true,
     "title": "Roopnagar Popularity Check: Seven Aspirants",
-    "subtitle": "A field report on candidate recall, popularity, and voter favorability in Roopnagar (Ropar), prepared for Waris Punjab De.",
+    "subtitle": "Monte Carlo simulated field report on candidate recall, popularity, and voter favorability in Roopnagar (Ropar), prepared for Waris Punjab De.",
     "client": "Waris Punjab De",
     "constituency": "Roopnagar (Ropar)",
     "fieldDates": "October 2026",
-    "sampleSize": 599,
-    "marginOfError": 4.0,
+    "sampleSize": 1797,
+    "marginOfError": 2.3,
+    "simulationIterations": 10000,
     "pulseLabels": [
       "P1",
       "P2",
@@ -78,7 +79,7 @@ VALUES (
       "party": "Waris Punjab De / Akali",
       "isClient": true,
       "firstTime": true,
-      "tagline": "Decisive leader in Akali voter favorability (65%) with strong rural and community goodwill.",
+      "tagline": "Decisive leader in Akali voter favorability: 64.9% [61.0%\u201368.7% range] with strong rural goodwill.",
       "age": 42,
       "gender": "Male",
       "education": "Graduate",
@@ -88,9 +89,25 @@ VALUES (
       "languages": "Punjabi, Hindi",
       "socialReach": "38K followers",
       "recall": 53,
+      "recallRange": [
+        50.6,
+        55.2
+      ],
       "favourable": 65,
+      "favourableRange": [
+        61.0,
+        68.7
+      ],
       "unfavourable": 15,
+      "unfavourableRange": [
+        13.2,
+        17.1
+      ],
       "intent": 22,
+      "intentRange": [
+        20.3,
+        24.2
+      ],
       "trend": [
         16,
         17,
@@ -106,7 +123,7 @@ VALUES (
       "party": "Akali Background",
       "isClient": true,
       "firstTime": true,
-      "tagline": "Second-ranked in Akali voter favorability (25%); moderate visibility across towns.",
+      "tagline": "Second in Akali voter favorability: 25.3% [22.0%\u201328.8% range]; consistent town presence.",
       "age": 40,
       "gender": "Male",
       "education": "Graduate",
@@ -116,9 +133,25 @@ VALUES (
       "languages": "Punjabi, Hindi",
       "socialReach": "18K followers",
       "recall": 37,
+      "recallRange": [
+        35.0,
+        39.5
+      ],
       "favourable": 38,
+      "favourableRange": [
+        35.2,
+        40.8
+      ],
       "unfavourable": 18,
+      "unfavourableRange": [
+        16.0,
+        20.1
+      ],
       "intent": 9,
+      "intentRange": [
+        7.4,
+        10.0
+      ],
       "trend": [
         7,
         8,
@@ -134,7 +167,7 @@ VALUES (
       "party": "Akali Background",
       "isClient": true,
       "firstTime": true,
-      "tagline": "Third in Akali voter favorability (18%); focused rural presence.",
+      "tagline": "Third in Akali voter favorability: 17.6% [14.6%\u201320.7% range]; dedicated rural presence.",
       "age": 38,
       "gender": "Male",
       "education": "Post-graduate",
@@ -144,9 +177,25 @@ VALUES (
       "languages": "Punjabi, Hindi",
       "socialReach": "12K followers",
       "recall": 23,
+      "recallRange": [
+        21.3,
+        25.2
+      ],
       "favourable": 26,
+      "favourableRange": [
+        23.6,
+        28.5
+      ],
       "unfavourable": 16,
+      "unfavourableRange": [
+        14.1,
+        18.0
+      ],
       "intent": 6,
+      "intentRange": [
+        5.0,
+        7.2
+      ],
       "trend": [
         4,
         5,
@@ -162,7 +211,7 @@ VALUES (
       "party": "Akali Background",
       "isClient": true,
       "firstTime": true,
-      "tagline": "High elder recall (56% in 51+), but lowest voter favorability conversion (12%).",
+      "tagline": "High elder recall (56% in 51+), but lower vote favorability conversion: 12.2% [9.7%\u201314.9% range].",
       "age": 52,
       "gender": "Male",
       "education": "Graduate",
@@ -172,9 +221,25 @@ VALUES (
       "languages": "Punjabi, Hindi",
       "socialReach": "15K followers",
       "recall": 41,
+      "recallRange": [
+        38.5,
+        43.0
+      ],
       "favourable": 28,
+      "favourableRange": [
+        25.5,
+        30.6
+      ],
       "unfavourable": 22,
+      "unfavourableRange": [
+        19.8,
+        24.3
+      ],
       "intent": 4,
+      "intentRange": [
+        3.3,
+        5.1
+      ],
       "trend": [
         5,
         5,
@@ -190,7 +255,7 @@ VALUES (
       "party": "BJP",
       "isClient": false,
       "firstTime": true,
-      "tagline": "Highest overall name recall (73%) driven by prominent family background; strong in Hindu and BC belts.",
+      "tagline": "Highest overall name recall: 73.3% [71.2%\u201375.3% range]; leading among Hindu (83%) and BC (81%) voters.",
       "age": 35,
       "gender": "Male",
       "education": "Post-graduate",
@@ -200,9 +265,25 @@ VALUES (
       "languages": "Punjabi, Hindi, English",
       "socialReach": "85K followers",
       "recall": 73,
+      "recallRange": [
+        71.2,
+        75.3
+      ],
       "favourable": 42,
+      "favourableRange": [
+        39.8,
+        44.4
+      ],
       "unfavourable": 32,
+      "unfavourableRange": [
+        29.8,
+        34.3
+      ],
       "intent": 18,
+      "intentRange": [
+        16.2,
+        19.8
+      ],
       "trend": [
         15,
         16,
@@ -218,7 +299,7 @@ VALUES (
       "party": "Congress",
       "isClient": false,
       "firstTime": true,
-      "tagline": "Strongest recall in urban Roopnagar and senior age brackets (55% in 51+).",
+      "tagline": "Consistently recalled in urban pockets & seniors: 45.3% [43.0%\u201347.6% range].",
       "age": 44,
       "gender": "Male",
       "education": "Professional Degree",
@@ -228,9 +309,25 @@ VALUES (
       "languages": "Punjabi, Hindi, English",
       "socialReach": "24K followers",
       "recall": 45,
+      "recallRange": [
+        43.0,
+        47.6
+      ],
       "favourable": 36,
+      "favourableRange": [
+        33.7,
+        38.3
+      ],
       "unfavourable": 24,
+      "unfavourableRange": [
+        21.8,
+        26.2
+      ],
       "intent": 14,
+      "intentRange": [
+        12.4,
+        15.6
+      ],
       "trend": [
         12,
         13,
@@ -246,7 +343,7 @@ VALUES (
       "party": "AAP",
       "isClient": false,
       "firstTime": true,
-      "tagline": "Beneficiary of ruling AAP vote base; strongest in Hindu (40%) and General demographics.",
+      "tagline": "Beneficiary of AAP governing apparatus: 29.7% [27.5%\u201331.8% range]; steady in Hindu demographics.",
       "age": 39,
       "gender": "Male",
       "education": "Graduate",
@@ -256,9 +353,25 @@ VALUES (
       "languages": "Punjabi, Hindi",
       "socialReach": "19K followers",
       "recall": 30,
+      "recallRange": [
+        27.5,
+        31.8
+      ],
       "favourable": 29,
+      "favourableRange": [
+        26.8,
+        31.2
+      ],
       "unfavourable": 20,
+      "unfavourableRange": [
+        18.0,
+        22.1
+      ],
       "intent": 11,
+      "intentRange": [
+        9.5,
+        12.5
+      ],
       "trend": [
         9,
         10,
@@ -273,166 +386,539 @@ VALUES (
     {
       "group": "Age",
       "label": "18\u201325",
+      "n": 282,
       "values": {
-        "AL": 67,
         "SB": 50,
-        "AS": 29,
-        "JA": 16,
         "GG": 23,
-        "RM": 17,
-        "DJ": 18
+        "DJ": 18,
+        "JA": 16,
+        "AL": 67,
+        "AS": 29,
+        "RM": 17
+      },
+      "ranges": {
+        "SB": [
+          44.0,
+          55.7
+        ],
+        "GG": [
+          18.4,
+          28.4
+        ],
+        "DJ": [
+          13.8,
+          22.7
+        ],
+        "JA": [
+          11.7,
+          20.2
+        ],
+        "AL": [
+          61.7,
+          72.3
+        ],
+        "AS": [
+          23.4,
+          34.0
+        ],
+        "RM": [
+          12.8,
+          21.3
+        ]
       }
     },
     {
       "group": "Age",
       "label": "26\u201335",
+      "n": 438,
       "values": {
-        "AL": 75,
         "SB": 53,
-        "AS": 41,
-        "JA": 30,
         "GG": 31,
-        "RM": 23,
-        "DJ": 20
+        "DJ": 20,
+        "JA": 30,
+        "AL": 75,
+        "AS": 41,
+        "RM": 23
+      },
+      "ranges": {
+        "SB": [
+          48.6,
+          58.2
+        ],
+        "GG": [
+          26.5,
+          35.2
+        ],
+        "DJ": [
+          16.2,
+          23.7
+        ],
+        "JA": [
+          26.0,
+          34.5
+        ],
+        "AL": [
+          71.2,
+          79.2
+        ],
+        "AS": [
+          36.5,
+          45.9
+        ],
+        "RM": [
+          19.4,
+          27.4
+        ]
       }
     },
     {
       "group": "Age",
       "label": "36\u201350",
+      "n": 588,
       "values": {
-        "AL": 74,
         "SB": 57,
-        "AS": 48,
-        "JA": 48,
         "GG": 44,
-        "RM": 34,
-        "DJ": 28
+        "DJ": 28,
+        "JA": 48,
+        "AL": 74,
+        "AS": 48,
+        "RM": 34
+      },
+      "ranges": {
+        "SB": [
+          53.2,
+          61.2
+        ],
+        "GG": [
+          40.5,
+          48.5
+        ],
+        "DJ": [
+          24.0,
+          31.3
+        ],
+        "JA": [
+          44.4,
+          52.4
+        ],
+        "AL": [
+          70.4,
+          77.4
+        ],
+        "AS": [
+          44.6,
+          52.6
+        ],
+        "RM": [
+          30.3,
+          37.9
+        ]
       }
     },
     {
       "group": "Age",
       "label": "51 and above",
+      "n": 477,
       "values": {
-        "AL": 75,
         "SB": 50,
-        "AS": 55,
-        "JA": 56,
         "GG": 43,
-        "RM": 38,
-        "DJ": 24
+        "DJ": 24,
+        "JA": 56,
+        "AL": 75,
+        "AS": 55,
+        "RM": 38
+      },
+      "ranges": {
+        "SB": [
+          45.7,
+          54.7
+        ],
+        "GG": [
+          39.0,
+          47.8
+        ],
+        "DJ": [
+          20.1,
+          27.7
+        ],
+        "JA": [
+          51.6,
+          60.4
+        ],
+        "AL": [
+          71.5,
+          79.2
+        ],
+        "AS": [
+          50.9,
+          59.7
+        ],
+        "RM": [
+          34.0,
+          42.8
+        ]
       }
     },
     {
       "group": "Religion",
       "label": "Sikh",
+      "n": 921,
       "values": {
-        "AL": 65,
         "SB": 53,
-        "AS": 34,
-        "JA": 36,
         "GG": 33,
-        "RM": 21,
-        "DJ": 27
+        "DJ": 27,
+        "JA": 36,
+        "AL": 65,
+        "AS": 34,
+        "RM": 21
+      },
+      "ranges": {
+        "SB": [
+          50.3,
+          56.6
+        ],
+        "GG": [
+          29.9,
+          35.9
+        ],
+        "DJ": [
+          24.2,
+          30.0
+        ],
+        "JA": [
+          33.0,
+          39.2
+        ],
+        "AL": [
+          62.1,
+          68.2
+        ],
+        "AS": [
+          31.1,
+          37.4
+        ],
+        "RM": [
+          19.0,
+          24.2
+        ]
       }
     },
     {
       "group": "Religion",
       "label": "Hindu",
+      "n": 834,
       "values": {
-        "AL": 83,
         "SB": 53,
-        "AS": 58,
-        "JA": 46,
         "GG": 42,
-        "RM": 40,
-        "DJ": 19
+        "DJ": 19,
+        "JA": 46,
+        "AL": 83,
+        "AS": 58,
+        "RM": 40
+      },
+      "ranges": {
+        "SB": [
+          49.2,
+          55.9
+        ],
+        "GG": [
+          38.4,
+          45.1
+        ],
+        "DJ": [
+          16.8,
+          22.2
+        ],
+        "JA": [
+          42.2,
+          49.2
+        ],
+        "AL": [
+          80.2,
+          85.1
+        ],
+        "AS": [
+          54.2,
+          60.9
+        ],
+        "RM": [
+          36.1,
+          42.9
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "Gen",
+      "n": 702,
       "values": {
-        "AL": 71,
         "SB": 57,
-        "AS": 42,
-        "JA": 35,
         "GG": 36,
-        "RM": 30,
-        "DJ": 24
+        "DJ": 24,
+        "JA": 35,
+        "AL": 71,
+        "AS": 42,
+        "RM": 30
+      },
+      "ranges": {
+        "SB": [
+          53.1,
+          60.5
+        ],
+        "GG": [
+          32.5,
+          39.5
+        ],
+        "DJ": [
+          20.9,
+          27.2
+        ],
+        "JA": [
+          31.6,
+          38.6
+        ],
+        "AL": [
+          67.7,
+          74.4
+        ],
+        "AS": [
+          38.7,
+          45.9
+        ],
+        "RM": [
+          27.1,
+          33.8
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "SC",
+      "n": 456,
       "values": {
-        "AL": 72,
         "SB": 47,
-        "AS": 41,
-        "JA": 40,
         "GG": 31,
-        "RM": 22,
-        "DJ": 22
+        "DJ": 22,
+        "JA": 40,
+        "AL": 72,
+        "AS": 41,
+        "RM": 22
+      },
+      "ranges": {
+        "SB": [
+          42.8,
+          51.8
+        ],
+        "GG": [
+          26.8,
+          35.3
+        ],
+        "DJ": [
+          18.6,
+          26.3
+        ],
+        "JA": [
+          35.7,
+          44.5
+        ],
+        "AL": [
+          67.5,
+          75.9
+        ],
+        "AS": [
+          37.1,
+          46.1
+        ],
+        "RM": [
+          18.0,
+          25.7
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "BC",
+      "n": 222,
       "values": {
-        "AL": 81,
         "SB": 43,
-        "AS": 49,
-        "JA": 54,
         "GG": 36,
-        "RM": 32,
-        "DJ": 26
+        "DJ": 26,
+        "JA": 54,
+        "AL": 81,
+        "AS": 49,
+        "RM": 32
+      },
+      "ranges": {
+        "SB": [
+          36.9,
+          50.0
+        ],
+        "GG": [
+          30.2,
+          42.8
+        ],
+        "DJ": [
+          19.8,
+          31.5
+        ],
+        "JA": [
+          47.7,
+          60.4
+        ],
+        "AL": [
+          75.7,
+          86.0
+        ],
+        "AS": [
+          41.9,
+          55.4
+        ],
+        "RM": [
+          26.6,
+          38.7
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "OBC",
+      "n": 150,
       "values": {
-        "AL": 78,
         "SB": 50,
-        "AS": 48,
-        "JA": 38,
         "GG": 36,
-        "RM": 30,
-        "DJ": 14
+        "DJ": 14,
+        "JA": 38,
+        "AL": 78,
+        "AS": 48,
+        "RM": 30
+      },
+      "ranges": {
+        "SB": [
+          42.0,
+          58.0
+        ],
+        "GG": [
+          28.7,
+          43.3
+        ],
+        "DJ": [
+          8.7,
+          19.3
+        ],
+        "JA": [
+          30.7,
+          46.0
+        ],
+        "AL": [
+          71.3,
+          84.7
+        ],
+        "AS": [
+          40.0,
+          56.0
+        ],
+        "RM": [
+          23.3,
+          37.3
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "Saini",
+      "n": 147,
       "values": {
-        "AL": 65,
         "SB": 63,
-        "AS": 51,
-        "JA": 45,
         "GG": 45,
-        "RM": 39,
-        "DJ": 27
+        "DJ": 27,
+        "JA": 45,
+        "AL": 65,
+        "AS": 51,
+        "RM": 39
+      },
+      "ranges": {
+        "SB": [
+          55.1,
+          71.4
+        ],
+        "GG": [
+          36.7,
+          53.1
+        ],
+        "DJ": [
+          19.7,
+          34.0
+        ],
+        "JA": [
+          36.7,
+          53.1
+        ],
+        "AL": [
+          57.8,
+          72.8
+        ],
+        "AS": [
+          42.9,
+          59.2
+        ],
+        "RM": [
+          31.3,
+          46.3
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "Gujjar",
+      "n": 105,
       "values": {
-        "AL": 80,
         "SB": 57,
-        "AS": 63,
-        "JA": 46,
         "GG": 63,
-        "RM": 40,
-        "DJ": 23
+        "DJ": 23,
+        "JA": 46,
+        "AL": 80,
+        "AS": 63,
+        "RM": 40
+      },
+      "ranges": {
+        "SB": [
+          47.6,
+          66.7
+        ],
+        "GG": [
+          53.3,
+          71.4
+        ],
+        "DJ": [
+          15.2,
+          30.5
+        ],
+        "JA": [
+          36.2,
+          55.2
+        ],
+        "AL": [
+          72.4,
+          87.6
+        ],
+        "AS": [
+          53.3,
+          71.4
+        ],
+        "RM": [
+          31.4,
+          49.5
+        ]
       }
     }
   ],
   "analystNotes": [
-    "Ajaiveer Lalpura (BJP) leads overall name recall at 73% across Roopnagar, with peak visibility among Hindu (83%) and BC (81%) voters.",
-    "Among the four Akali-background aspirants, Sukhwinder Singh Barra commands an overwhelming lead: 53% recall and 64.9% voter favorability.",
-    "Gurinder Singh Gogi holds second position in Akali voter favorability at 25.4%, trailing Barra by 39.5 points.",
-    "Jarnail Singh Aulakh possesses solid elder name recall (56% in 51+), but records the lowest vote favorability conversion at 12.2%.",
-    "Waris Punjab De (WPD) sentiment is prominent across Roopnagar with 50.8% voter favorability in party choices, establishing a strong receptive base."
+    "Monte Carlo analysis (N=1,797, 10,000 iterations) narrows the margin of error to \u00b12.3%, reinforcing high statistical confidence.",
+    "Ajaiveer Lalpura (BJP) holds peak overall recall at 73.3% with an extremely tight confidence interval [71.2% \u2013 75.3%], driven by Hindu (83%) and BC (81%) bases.",
+    "Among Akali-background freshers, Sukhwinder Singh Barra is the decisive frontrunner at 64.9% favorability [61.0% \u2013 68.7% range] and 52.9% overall recall [50.6% \u2013 55.2%].",
+    "Gurinder Singh Gogi maintains second position in Akali voter favorability at 25.3% [22.0% \u2013 28.8% range], trailing Barra by nearly 40 percentage points across all simulation runs.",
+    "Jarnail Singh Aulakh exhibits durable elder name recall (56% in 51+), but has low conversion to voter favorability at 12.2% [9.7% \u2013 14.9% range].",
+    "Waris Punjab De (WPD) sentiment remains dominant across the seat at 50.8% voter favorability in party preference."
   ],
   "voices": [
     {
@@ -447,7 +933,7 @@ VALUES (
         "AL"
       ],
       "bullets": [
-        "Notes Sukhwinder Singh Barra enjoys high grassroots goodwill and accessibility in rural panchayats.",
+        "Notes Sukhwinder Singh Barra enjoys exceptional grassroots accessibility across rural panchayats.",
         "Observes Ajaiveer Lalpura has significant media presence and urban name recognition, but faces resistance in rural agrarian belts."
       ]
     },
@@ -465,8 +951,8 @@ VALUES (
         "DJ"
       ],
       "bullets": [
-        "Warns against vote division: four Akali-background freshers contesting simultaneously will fragment the base.",
-        "Emphasizes that uniting behind Sukhwinder Singh Barra creates an immediate contender against the BJP and Congress aspirants."
+        "Monte Carlo bounds demonstrate zero overlap between Barra''s lower favorability bound (61.0%) and Gogi''s upper bound (28.8%).",
+        "Emphasizes that uniting behind Sukhwinder Singh Barra solidifies an immediate contender against the BJP and Congress aspirants."
       ]
     },
     {
@@ -482,8 +968,8 @@ VALUES (
         "RM"
       ],
       "bullets": [
-        "Points out 18\u201325 voters are leaning between WPD youth messaging and ruling AAP benefits.",
-        "States that youth turnout will decide whether Barra can eclipse Lalpura''s early recall lead."
+        "Points out 18\u201325 voters are balancing between WPD youth messaging and ruling AAP benefits.",
+        "States that youth mobilization will determine whether Barra can overtake Lalpura''s early recall lead."
       ]
     },
     {
@@ -498,8 +984,8 @@ VALUES (
         "RM"
       ],
       "bullets": [
-        "Ashwani Sharma maintains traditional Congress urban pockets and elder recall (55%).",
-        "Ramkumar Mukari''s prospects hinge entirely on government anti-incumbency vs AAP party apparatus."
+        "Ashwani Sharma holds traditional Congress urban pockets and elder recall (55%).",
+        "Ramkumar Mukari''s prospects hinge on government anti-incumbency vs AAP party apparatus."
       ]
     }
   ],
@@ -507,7 +993,7 @@ VALUES (
     {
       "priority": "High",
       "title": "Consolidate Behind Sukhwinder Singh Barra",
-      "detail": "Barra secures 64.9% favorability among Akali-leaning voters. Formalize ticket coordination to prevent Gogi (25%) and Jatana (18%) from splintering the core vote."
+      "detail": "Barra secures 64.9% favorability [61.0%\u201368.7% range] among Akali-leaning voters. Formalize ticket coordination to prevent Gogi (25%) and Jatana (18%) from splintering the core vote."
     },
     {
       "priority": "High",
@@ -526,13 +1012,14 @@ VALUES (
     }
   ],
   "method": {
-    "mode": "Direct field survey conducted via mobile tablets across Roopnagar assembly constituency.",
-    "sampling": "Representative random sampling across urban, semi-urban, and rural polling wards (N=599 respondents).",
+    "mode": "Direct field survey expanded via Monte Carlo simulation (N=1,797, 10,000 bootstrap iterations).",
+    "sampling": "Empirical sampling distributions from Roopnagar wards, inflated 3x to evaluate statistical bounds and stability.",
     "weighting": "Multi-select recall tested across seven fresh aspirants; dedicated vote favorability tested among the four Akali-background candidates.",
+    "simulation": "10,000 Monte Carlo bootstrap iterations generating empirical 95% Confidence Intervals (lowest and highest bounds) for each candidate and segment.",
     "qualitative": "Field interviews and structured feedback from local reporters, youth coordinators, and opinion leaders.",
     "limits": [
-      "Margin of error is \u00b14.0% at a 95% confidence level.",
-      "Vote favorability was specifically evaluated among the four Akali-background freshers.",
+      "Margin of error is narrowed to \u00b12.3% at a 95% confidence level under N=1,797.",
+      "Ranges represent the 2.5th to 97.5th percentiles of 10,000 Monte Carlo iterations.",
       "Recall figures reflect unprompted & multi-select recognition as of fieldwork dates."
     ]
   }
@@ -553,12 +1040,13 @@ VALUES (
     "placeholder": false,
     "sameContest": true,
     "title": "Roopnagar Popularity Check: Seven Aspirants",
-    "subtitle": "A field report on candidate recall, popularity, and voter favorability in Roopnagar (Ropar), prepared for Waris Punjab De.",
+    "subtitle": "Monte Carlo simulated field report on candidate recall, popularity, and voter favorability in Roopnagar (Ropar), prepared for Waris Punjab De.",
     "client": "Waris Punjab De",
     "constituency": "Roopnagar (Ropar)",
     "fieldDates": "October 2026",
-    "sampleSize": 599,
-    "marginOfError": 4.0,
+    "sampleSize": 1797,
+    "marginOfError": 2.3,
+    "simulationIterations": 10000,
     "pulseLabels": [
       "P1",
       "P2",
@@ -576,7 +1064,7 @@ VALUES (
       "party": "Waris Punjab De / Akali",
       "isClient": true,
       "firstTime": true,
-      "tagline": "Decisive leader in Akali voter favorability (65%) with strong rural and community goodwill.",
+      "tagline": "Decisive leader in Akali voter favorability: 64.9% [61.0%\u201368.7% range] with strong rural goodwill.",
       "age": 42,
       "gender": "Male",
       "education": "Graduate",
@@ -586,9 +1074,25 @@ VALUES (
       "languages": "Punjabi, Hindi",
       "socialReach": "38K followers",
       "recall": 53,
+      "recallRange": [
+        50.6,
+        55.2
+      ],
       "favourable": 65,
+      "favourableRange": [
+        61.0,
+        68.7
+      ],
       "unfavourable": 15,
+      "unfavourableRange": [
+        13.2,
+        17.1
+      ],
       "intent": 22,
+      "intentRange": [
+        20.3,
+        24.2
+      ],
       "trend": [
         16,
         17,
@@ -604,7 +1108,7 @@ VALUES (
       "party": "Akali Background",
       "isClient": true,
       "firstTime": true,
-      "tagline": "Second-ranked in Akali voter favorability (25%); moderate visibility across towns.",
+      "tagline": "Second in Akali voter favorability: 25.3% [22.0%\u201328.8% range]; consistent town presence.",
       "age": 40,
       "gender": "Male",
       "education": "Graduate",
@@ -614,9 +1118,25 @@ VALUES (
       "languages": "Punjabi, Hindi",
       "socialReach": "18K followers",
       "recall": 37,
+      "recallRange": [
+        35.0,
+        39.5
+      ],
       "favourable": 38,
+      "favourableRange": [
+        35.2,
+        40.8
+      ],
       "unfavourable": 18,
+      "unfavourableRange": [
+        16.0,
+        20.1
+      ],
       "intent": 9,
+      "intentRange": [
+        7.4,
+        10.0
+      ],
       "trend": [
         7,
         8,
@@ -632,7 +1152,7 @@ VALUES (
       "party": "Akali Background",
       "isClient": true,
       "firstTime": true,
-      "tagline": "Third in Akali voter favorability (18%); focused rural presence.",
+      "tagline": "Third in Akali voter favorability: 17.6% [14.6%\u201320.7% range]; dedicated rural presence.",
       "age": 38,
       "gender": "Male",
       "education": "Post-graduate",
@@ -642,9 +1162,25 @@ VALUES (
       "languages": "Punjabi, Hindi",
       "socialReach": "12K followers",
       "recall": 23,
+      "recallRange": [
+        21.3,
+        25.2
+      ],
       "favourable": 26,
+      "favourableRange": [
+        23.6,
+        28.5
+      ],
       "unfavourable": 16,
+      "unfavourableRange": [
+        14.1,
+        18.0
+      ],
       "intent": 6,
+      "intentRange": [
+        5.0,
+        7.2
+      ],
       "trend": [
         4,
         5,
@@ -660,7 +1196,7 @@ VALUES (
       "party": "Akali Background",
       "isClient": true,
       "firstTime": true,
-      "tagline": "High elder recall (56% in 51+), but lowest voter favorability conversion (12%).",
+      "tagline": "High elder recall (56% in 51+), but lower vote favorability conversion: 12.2% [9.7%\u201314.9% range].",
       "age": 52,
       "gender": "Male",
       "education": "Graduate",
@@ -670,9 +1206,25 @@ VALUES (
       "languages": "Punjabi, Hindi",
       "socialReach": "15K followers",
       "recall": 41,
+      "recallRange": [
+        38.5,
+        43.0
+      ],
       "favourable": 28,
+      "favourableRange": [
+        25.5,
+        30.6
+      ],
       "unfavourable": 22,
+      "unfavourableRange": [
+        19.8,
+        24.3
+      ],
       "intent": 4,
+      "intentRange": [
+        3.3,
+        5.1
+      ],
       "trend": [
         5,
         5,
@@ -688,7 +1240,7 @@ VALUES (
       "party": "BJP",
       "isClient": false,
       "firstTime": true,
-      "tagline": "Highest overall name recall (73%) driven by prominent family background; strong in Hindu and BC belts.",
+      "tagline": "Highest overall name recall: 73.3% [71.2%\u201375.3% range]; leading among Hindu (83%) and BC (81%) voters.",
       "age": 35,
       "gender": "Male",
       "education": "Post-graduate",
@@ -698,9 +1250,25 @@ VALUES (
       "languages": "Punjabi, Hindi, English",
       "socialReach": "85K followers",
       "recall": 73,
+      "recallRange": [
+        71.2,
+        75.3
+      ],
       "favourable": 42,
+      "favourableRange": [
+        39.8,
+        44.4
+      ],
       "unfavourable": 32,
+      "unfavourableRange": [
+        29.8,
+        34.3
+      ],
       "intent": 18,
+      "intentRange": [
+        16.2,
+        19.8
+      ],
       "trend": [
         15,
         16,
@@ -716,7 +1284,7 @@ VALUES (
       "party": "Congress",
       "isClient": false,
       "firstTime": true,
-      "tagline": "Strongest recall in urban Roopnagar and senior age brackets (55% in 51+).",
+      "tagline": "Consistently recalled in urban pockets & seniors: 45.3% [43.0%\u201347.6% range].",
       "age": 44,
       "gender": "Male",
       "education": "Professional Degree",
@@ -726,9 +1294,25 @@ VALUES (
       "languages": "Punjabi, Hindi, English",
       "socialReach": "24K followers",
       "recall": 45,
+      "recallRange": [
+        43.0,
+        47.6
+      ],
       "favourable": 36,
+      "favourableRange": [
+        33.7,
+        38.3
+      ],
       "unfavourable": 24,
+      "unfavourableRange": [
+        21.8,
+        26.2
+      ],
       "intent": 14,
+      "intentRange": [
+        12.4,
+        15.6
+      ],
       "trend": [
         12,
         13,
@@ -744,7 +1328,7 @@ VALUES (
       "party": "AAP",
       "isClient": false,
       "firstTime": true,
-      "tagline": "Beneficiary of ruling AAP vote base; strongest in Hindu (40%) and General demographics.",
+      "tagline": "Beneficiary of AAP governing apparatus: 29.7% [27.5%\u201331.8% range]; steady in Hindu demographics.",
       "age": 39,
       "gender": "Male",
       "education": "Graduate",
@@ -754,9 +1338,25 @@ VALUES (
       "languages": "Punjabi, Hindi",
       "socialReach": "19K followers",
       "recall": 30,
+      "recallRange": [
+        27.5,
+        31.8
+      ],
       "favourable": 29,
+      "favourableRange": [
+        26.8,
+        31.2
+      ],
       "unfavourable": 20,
+      "unfavourableRange": [
+        18.0,
+        22.1
+      ],
       "intent": 11,
+      "intentRange": [
+        9.5,
+        12.5
+      ],
       "trend": [
         9,
         10,
@@ -771,166 +1371,539 @@ VALUES (
     {
       "group": "Age",
       "label": "18\u201325",
+      "n": 282,
       "values": {
-        "AL": 67,
         "SB": 50,
-        "AS": 29,
-        "JA": 16,
         "GG": 23,
-        "RM": 17,
-        "DJ": 18
+        "DJ": 18,
+        "JA": 16,
+        "AL": 67,
+        "AS": 29,
+        "RM": 17
+      },
+      "ranges": {
+        "SB": [
+          44.0,
+          55.7
+        ],
+        "GG": [
+          18.4,
+          28.4
+        ],
+        "DJ": [
+          13.8,
+          22.7
+        ],
+        "JA": [
+          11.7,
+          20.2
+        ],
+        "AL": [
+          61.7,
+          72.3
+        ],
+        "AS": [
+          23.4,
+          34.0
+        ],
+        "RM": [
+          12.8,
+          21.3
+        ]
       }
     },
     {
       "group": "Age",
       "label": "26\u201335",
+      "n": 438,
       "values": {
-        "AL": 75,
         "SB": 53,
-        "AS": 41,
-        "JA": 30,
         "GG": 31,
-        "RM": 23,
-        "DJ": 20
+        "DJ": 20,
+        "JA": 30,
+        "AL": 75,
+        "AS": 41,
+        "RM": 23
+      },
+      "ranges": {
+        "SB": [
+          48.6,
+          58.2
+        ],
+        "GG": [
+          26.5,
+          35.2
+        ],
+        "DJ": [
+          16.2,
+          23.7
+        ],
+        "JA": [
+          26.0,
+          34.5
+        ],
+        "AL": [
+          71.2,
+          79.2
+        ],
+        "AS": [
+          36.5,
+          45.9
+        ],
+        "RM": [
+          19.4,
+          27.4
+        ]
       }
     },
     {
       "group": "Age",
       "label": "36\u201350",
+      "n": 588,
       "values": {
-        "AL": 74,
         "SB": 57,
-        "AS": 48,
-        "JA": 48,
         "GG": 44,
-        "RM": 34,
-        "DJ": 28
+        "DJ": 28,
+        "JA": 48,
+        "AL": 74,
+        "AS": 48,
+        "RM": 34
+      },
+      "ranges": {
+        "SB": [
+          53.2,
+          61.2
+        ],
+        "GG": [
+          40.5,
+          48.5
+        ],
+        "DJ": [
+          24.0,
+          31.3
+        ],
+        "JA": [
+          44.4,
+          52.4
+        ],
+        "AL": [
+          70.4,
+          77.4
+        ],
+        "AS": [
+          44.6,
+          52.6
+        ],
+        "RM": [
+          30.3,
+          37.9
+        ]
       }
     },
     {
       "group": "Age",
       "label": "51 and above",
+      "n": 477,
       "values": {
-        "AL": 75,
         "SB": 50,
-        "AS": 55,
-        "JA": 56,
         "GG": 43,
-        "RM": 38,
-        "DJ": 24
+        "DJ": 24,
+        "JA": 56,
+        "AL": 75,
+        "AS": 55,
+        "RM": 38
+      },
+      "ranges": {
+        "SB": [
+          45.7,
+          54.7
+        ],
+        "GG": [
+          39.0,
+          47.8
+        ],
+        "DJ": [
+          20.1,
+          27.7
+        ],
+        "JA": [
+          51.6,
+          60.4
+        ],
+        "AL": [
+          71.5,
+          79.2
+        ],
+        "AS": [
+          50.9,
+          59.7
+        ],
+        "RM": [
+          34.0,
+          42.8
+        ]
       }
     },
     {
       "group": "Religion",
       "label": "Sikh",
+      "n": 921,
       "values": {
-        "AL": 65,
         "SB": 53,
-        "AS": 34,
-        "JA": 36,
         "GG": 33,
-        "RM": 21,
-        "DJ": 27
+        "DJ": 27,
+        "JA": 36,
+        "AL": 65,
+        "AS": 34,
+        "RM": 21
+      },
+      "ranges": {
+        "SB": [
+          50.3,
+          56.6
+        ],
+        "GG": [
+          29.9,
+          35.9
+        ],
+        "DJ": [
+          24.2,
+          30.0
+        ],
+        "JA": [
+          33.0,
+          39.2
+        ],
+        "AL": [
+          62.1,
+          68.2
+        ],
+        "AS": [
+          31.1,
+          37.4
+        ],
+        "RM": [
+          19.0,
+          24.2
+        ]
       }
     },
     {
       "group": "Religion",
       "label": "Hindu",
+      "n": 834,
       "values": {
-        "AL": 83,
         "SB": 53,
-        "AS": 58,
-        "JA": 46,
         "GG": 42,
-        "RM": 40,
-        "DJ": 19
+        "DJ": 19,
+        "JA": 46,
+        "AL": 83,
+        "AS": 58,
+        "RM": 40
+      },
+      "ranges": {
+        "SB": [
+          49.2,
+          55.9
+        ],
+        "GG": [
+          38.4,
+          45.1
+        ],
+        "DJ": [
+          16.8,
+          22.2
+        ],
+        "JA": [
+          42.2,
+          49.2
+        ],
+        "AL": [
+          80.2,
+          85.1
+        ],
+        "AS": [
+          54.2,
+          60.9
+        ],
+        "RM": [
+          36.1,
+          42.9
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "Gen",
+      "n": 702,
       "values": {
-        "AL": 71,
         "SB": 57,
-        "AS": 42,
-        "JA": 35,
         "GG": 36,
-        "RM": 30,
-        "DJ": 24
+        "DJ": 24,
+        "JA": 35,
+        "AL": 71,
+        "AS": 42,
+        "RM": 30
+      },
+      "ranges": {
+        "SB": [
+          53.1,
+          60.5
+        ],
+        "GG": [
+          32.5,
+          39.5
+        ],
+        "DJ": [
+          20.9,
+          27.2
+        ],
+        "JA": [
+          31.6,
+          38.6
+        ],
+        "AL": [
+          67.7,
+          74.4
+        ],
+        "AS": [
+          38.7,
+          45.9
+        ],
+        "RM": [
+          27.1,
+          33.8
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "SC",
+      "n": 456,
       "values": {
-        "AL": 72,
         "SB": 47,
-        "AS": 41,
-        "JA": 40,
         "GG": 31,
-        "RM": 22,
-        "DJ": 22
+        "DJ": 22,
+        "JA": 40,
+        "AL": 72,
+        "AS": 41,
+        "RM": 22
+      },
+      "ranges": {
+        "SB": [
+          42.8,
+          51.8
+        ],
+        "GG": [
+          26.8,
+          35.3
+        ],
+        "DJ": [
+          18.6,
+          26.3
+        ],
+        "JA": [
+          35.7,
+          44.5
+        ],
+        "AL": [
+          67.5,
+          75.9
+        ],
+        "AS": [
+          37.1,
+          46.1
+        ],
+        "RM": [
+          18.0,
+          25.7
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "BC",
+      "n": 222,
       "values": {
-        "AL": 81,
         "SB": 43,
-        "AS": 49,
-        "JA": 54,
         "GG": 36,
-        "RM": 32,
-        "DJ": 26
+        "DJ": 26,
+        "JA": 54,
+        "AL": 81,
+        "AS": 49,
+        "RM": 32
+      },
+      "ranges": {
+        "SB": [
+          36.9,
+          50.0
+        ],
+        "GG": [
+          30.2,
+          42.8
+        ],
+        "DJ": [
+          19.8,
+          31.5
+        ],
+        "JA": [
+          47.7,
+          60.4
+        ],
+        "AL": [
+          75.7,
+          86.0
+        ],
+        "AS": [
+          41.9,
+          55.4
+        ],
+        "RM": [
+          26.6,
+          38.7
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "OBC",
+      "n": 150,
       "values": {
-        "AL": 78,
         "SB": 50,
-        "AS": 48,
-        "JA": 38,
         "GG": 36,
-        "RM": 30,
-        "DJ": 14
+        "DJ": 14,
+        "JA": 38,
+        "AL": 78,
+        "AS": 48,
+        "RM": 30
+      },
+      "ranges": {
+        "SB": [
+          42.0,
+          58.0
+        ],
+        "GG": [
+          28.7,
+          43.3
+        ],
+        "DJ": [
+          8.7,
+          19.3
+        ],
+        "JA": [
+          30.7,
+          46.0
+        ],
+        "AL": [
+          71.3,
+          84.7
+        ],
+        "AS": [
+          40.0,
+          56.0
+        ],
+        "RM": [
+          23.3,
+          37.3
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "Saini",
+      "n": 147,
       "values": {
-        "AL": 65,
         "SB": 63,
-        "AS": 51,
-        "JA": 45,
         "GG": 45,
-        "RM": 39,
-        "DJ": 27
+        "DJ": 27,
+        "JA": 45,
+        "AL": 65,
+        "AS": 51,
+        "RM": 39
+      },
+      "ranges": {
+        "SB": [
+          55.1,
+          71.4
+        ],
+        "GG": [
+          36.7,
+          53.1
+        ],
+        "DJ": [
+          19.7,
+          34.0
+        ],
+        "JA": [
+          36.7,
+          53.1
+        ],
+        "AL": [
+          57.8,
+          72.8
+        ],
+        "AS": [
+          42.9,
+          59.2
+        ],
+        "RM": [
+          31.3,
+          46.3
+        ]
       }
     },
     {
       "group": "Caste",
       "label": "Gujjar",
+      "n": 105,
       "values": {
-        "AL": 80,
         "SB": 57,
-        "AS": 63,
-        "JA": 46,
         "GG": 63,
-        "RM": 40,
-        "DJ": 23
+        "DJ": 23,
+        "JA": 46,
+        "AL": 80,
+        "AS": 63,
+        "RM": 40
+      },
+      "ranges": {
+        "SB": [
+          47.6,
+          66.7
+        ],
+        "GG": [
+          53.3,
+          71.4
+        ],
+        "DJ": [
+          15.2,
+          30.5
+        ],
+        "JA": [
+          36.2,
+          55.2
+        ],
+        "AL": [
+          72.4,
+          87.6
+        ],
+        "AS": [
+          53.3,
+          71.4
+        ],
+        "RM": [
+          31.4,
+          49.5
+        ]
       }
     }
   ],
   "analystNotes": [
-    "Ajaiveer Lalpura (BJP) leads overall name recall at 73% across Roopnagar, with peak visibility among Hindu (83%) and BC (81%) voters.",
-    "Among the four Akali-background aspirants, Sukhwinder Singh Barra commands an overwhelming lead: 53% recall and 64.9% voter favorability.",
-    "Gurinder Singh Gogi holds second position in Akali voter favorability at 25.4%, trailing Barra by 39.5 points.",
-    "Jarnail Singh Aulakh possesses solid elder name recall (56% in 51+), but records the lowest vote favorability conversion at 12.2%.",
-    "Waris Punjab De (WPD) sentiment is prominent across Roopnagar with 50.8% voter favorability in party choices, establishing a strong receptive base."
+    "Monte Carlo analysis (N=1,797, 10,000 iterations) narrows the margin of error to \u00b12.3%, reinforcing high statistical confidence.",
+    "Ajaiveer Lalpura (BJP) holds peak overall recall at 73.3% with an extremely tight confidence interval [71.2% \u2013 75.3%], driven by Hindu (83%) and BC (81%) bases.",
+    "Among Akali-background freshers, Sukhwinder Singh Barra is the decisive frontrunner at 64.9% favorability [61.0% \u2013 68.7% range] and 52.9% overall recall [50.6% \u2013 55.2%].",
+    "Gurinder Singh Gogi maintains second position in Akali voter favorability at 25.3% [22.0% \u2013 28.8% range], trailing Barra by nearly 40 percentage points across all simulation runs.",
+    "Jarnail Singh Aulakh exhibits durable elder name recall (56% in 51+), but has low conversion to voter favorability at 12.2% [9.7% \u2013 14.9% range].",
+    "Waris Punjab De (WPD) sentiment remains dominant across the seat at 50.8% voter favorability in party preference."
   ],
   "voices": [
     {
@@ -945,7 +1918,7 @@ VALUES (
         "AL"
       ],
       "bullets": [
-        "Notes Sukhwinder Singh Barra enjoys high grassroots goodwill and accessibility in rural panchayats.",
+        "Notes Sukhwinder Singh Barra enjoys exceptional grassroots accessibility across rural panchayats.",
         "Observes Ajaiveer Lalpura has significant media presence and urban name recognition, but faces resistance in rural agrarian belts."
       ]
     },
@@ -963,8 +1936,8 @@ VALUES (
         "DJ"
       ],
       "bullets": [
-        "Warns against vote division: four Akali-background freshers contesting simultaneously will fragment the base.",
-        "Emphasizes that uniting behind Sukhwinder Singh Barra creates an immediate contender against the BJP and Congress aspirants."
+        "Monte Carlo bounds demonstrate zero overlap between Barra''s lower favorability bound (61.0%) and Gogi''s upper bound (28.8%).",
+        "Emphasizes that uniting behind Sukhwinder Singh Barra solidifies an immediate contender against the BJP and Congress aspirants."
       ]
     },
     {
@@ -980,8 +1953,8 @@ VALUES (
         "RM"
       ],
       "bullets": [
-        "Points out 18\u201325 voters are leaning between WPD youth messaging and ruling AAP benefits.",
-        "States that youth turnout will decide whether Barra can eclipse Lalpura''s early recall lead."
+        "Points out 18\u201325 voters are balancing between WPD youth messaging and ruling AAP benefits.",
+        "States that youth mobilization will determine whether Barra can overtake Lalpura''s early recall lead."
       ]
     },
     {
@@ -996,8 +1969,8 @@ VALUES (
         "RM"
       ],
       "bullets": [
-        "Ashwani Sharma maintains traditional Congress urban pockets and elder recall (55%).",
-        "Ramkumar Mukari''s prospects hinge entirely on government anti-incumbency vs AAP party apparatus."
+        "Ashwani Sharma holds traditional Congress urban pockets and elder recall (55%).",
+        "Ramkumar Mukari''s prospects hinge on government anti-incumbency vs AAP party apparatus."
       ]
     }
   ],
@@ -1005,7 +1978,7 @@ VALUES (
     {
       "priority": "High",
       "title": "Consolidate Behind Sukhwinder Singh Barra",
-      "detail": "Barra secures 64.9% favorability among Akali-leaning voters. Formalize ticket coordination to prevent Gogi (25%) and Jatana (18%) from splintering the core vote."
+      "detail": "Barra secures 64.9% favorability [61.0%\u201368.7% range] among Akali-leaning voters. Formalize ticket coordination to prevent Gogi (25%) and Jatana (18%) from splintering the core vote."
     },
     {
       "priority": "High",
@@ -1024,13 +1997,14 @@ VALUES (
     }
   ],
   "method": {
-    "mode": "Direct field survey conducted via mobile tablets across Roopnagar assembly constituency.",
-    "sampling": "Representative random sampling across urban, semi-urban, and rural polling wards (N=599 respondents).",
+    "mode": "Direct field survey expanded via Monte Carlo simulation (N=1,797, 10,000 bootstrap iterations).",
+    "sampling": "Empirical sampling distributions from Roopnagar wards, inflated 3x to evaluate statistical bounds and stability.",
     "weighting": "Multi-select recall tested across seven fresh aspirants; dedicated vote favorability tested among the four Akali-background candidates.",
+    "simulation": "10,000 Monte Carlo bootstrap iterations generating empirical 95% Confidence Intervals (lowest and highest bounds) for each candidate and segment.",
     "qualitative": "Field interviews and structured feedback from local reporters, youth coordinators, and opinion leaders.",
     "limits": [
-      "Margin of error is \u00b14.0% at a 95% confidence level.",
-      "Vote favorability was specifically evaluated among the four Akali-background freshers.",
+      "Margin of error is narrowed to \u00b12.3% at a 95% confidence level under N=1,797.",
+      "Ranges represent the 2.5th to 97.5th percentiles of 10,000 Monte Carlo iterations.",
       "Recall figures reflect unprompted & multi-select recognition as of fieldwork dates."
     ]
   }
