@@ -187,9 +187,211 @@ function segments() {
     <div class="legend"><span><i style="background:var(--client)"></i>${esc(D.meta.client)} candidates</span><span><i style="background:var(--field)"></i>Other parties</span><span>Darker means higher intent. Figures are percentages.</span></div></div>`;
 }
 
+/* ---------- field heatmap ---------- */
+let leafletMap = null, heatLayer = null, markersLayer = null;
+
+function geoMap() {
+  const g = D.geo;
+  if (!g) return head(7, 'Geographic Survey Coverage', 'No geographic coordinates recorded.') + '<div class="card"><p class="muted">GPS location data unavailable.</p></div>';
+
+  const zoneCards = (g.zones || []).map(z => `
+    <div class="geo-zone-card">
+      <div class="zone-title">${esc(z.name)}</div>
+      <div class="zone-n">${z.n} <small style="font-size:12px;font-weight:500;color:var(--ink3)">interviews (${z.pctOfTotal}%)</small></div>
+      <div class="zone-bars">
+        <div class="zone-bar-row">
+          <span><b>Barwa (Client)</b></span>
+          <span class="mono">${z.shares.SSB}%</span>
+        </div>
+        <div class="zone-bar-fill"><div style="width:${z.shares.SSB / 35 * 100}%;background:var(--client)"></div></div>
+        
+        <div class="zone-bar-row" style="color:var(--ink3);margin-top:2px">
+          <span>Gogi ${z.shares.GSG}% &bull; Jatana ${z.shares.DJ}% &bull; Aulakh ${z.shares.JSA}%</span>
+          <span class="mono">${z.shares.Undecided}% und.</span>
+        </div>
+      </div>
+    </div>`).join('');
+
+  return head(7, 'Geographic Survey Coverage', '479 GPS-verified field interview coordinates across Roopnagar assembly constituency and borders.') + `
+    <div class="geo-layout" data-reveal>
+      <div class="geo-stats-grid">
+        ${zoneCards}
+      </div>
+
+      <div class="geo-controls-bar">
+        <div class="geo-btn-group" id="geo-filters">
+          <button class="geo-btn active" data-geo-mode="all">All Survey Coverage (Density)</button>
+          <button class="geo-btn" data-geo-mode="SSB">Sukhwinder S. Barwa Hotspots</button>
+          <button class="geo-btn" data-geo-mode="GSG">Gurinder Gogi Hotspots</button>
+          <button class="geo-btn" data-geo-mode="DJ">Dalvir Jatana Hotspots</button>
+          <button class="geo-btn" data-geo-mode="JSA">Jarnail Aulakh Hotspots</button>
+          <button class="geo-btn" data-geo-mode="markers">Cluster Markers &amp; Popups</button>
+        </div>
+        <div class="geo-legend">
+          <span>Low Density</span>
+          <div class="geo-legend-gradient"></div>
+          <span>High Density</span>
+        </div>
+      </div>
+
+      <div class="geo-map-frame">
+        <div id="geo-map"></div>
+      </div>
+
+      <div class="card" style="border-left:4px solid var(--accent)">
+        <h4 style="margin:0 0 6px">Fieldwork Spatial Observations</h4>
+        <p class="muted" style="line-height:1.6;font-size:13.5px">
+          Field coverage reflects high sampling depth in the northern Nurpur Bedi corridor (36.3% of geo sample) and central Ghanauli rural belt (23.4%), alongside urban Ropar and the southern border (19.2%).
+          <b>Sukhwinder Singh Barwa maintains a consistent lead across all 4 quadrants</b>, recording his highest relative favorability in South Ropar (28.3%) and North-Central Nurpur Bedi (25.9%).
+        </p>
+      </div>
+    </div>`;
+}
+
+function initGeoMap() {
+  const g = D.geo;
+  const container = $('#geo-map');
+  if (!container || !g) return;
+  if (!window.L) {
+    setTimeout(initGeoMap, 200);
+    return;
+  }
+  if (leafletMap) {
+    leafletMap.invalidateSize();
+    return;
+  }
+
+  try {
+    leafletMap = L.map('geo-map', {
+      center: g.center || [31.1154, 76.4925],
+      zoom: g.zoom || 11,
+      minZoom: 9,
+      maxZoom: 17,
+      scrollWheelZoom: false
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(leafletMap);
+
+    if (g.bounds) {
+      leafletMap.fitBounds(g.bounds, { padding: [25, 25] });
+    }
+
+    updateGeoLayer('all');
+  } catch (err) {
+    console.error('Error initializing Leaflet map:', err);
+  }
+}
+
+function updateGeoLayer(mode) {
+  if (!leafletMap || !window.L || !D.geo) return;
+  const g = D.geo;
+
+  if (heatLayer) {
+    leafletMap.removeLayer(heatLayer);
+    heatLayer = null;
+  }
+  if (markersLayer) {
+    leafletMap.removeLayer(markersLayer);
+    markersLayer = null;
+  }
+
+  if (mode === 'markers') {
+    markersLayer = L.layerGroup();
+    const candColors = {
+      'SSB': '#EA580C',
+      'GSG': '#0284C7',
+      'DJ': '#7C3AED',
+      'JSA': '#059669',
+      'Undecided': '#94A3B8'
+    };
+    const candNames = {
+      'SSB': 'Sukhwinder S. Barwa',
+      'GSG': 'Gurinder Gogi',
+      'DJ': 'Dalvir Jatana',
+      'JSA': 'Jarnail Aulakh',
+      'Undecided': 'Undecided'
+    };
+
+    g.clusters.forEach(cl => {
+      const col = cl.topCand === 'SSB' ? '#EA580C' : (candColors[cl.topCand] || '#475569');
+      const r = Math.min(6 + cl.count * 1.5, 18);
+
+      const m = L.circleMarker([cl.lat, cl.lng], {
+        radius: r,
+        fillColor: col,
+        color: '#FFFFFF',
+        weight: 1.5,
+        opacity: 0.9,
+        fillOpacity: 0.75
+      });
+
+      const candBreakdown = Object.entries(cl.cands).map(([c, cnt]) => `
+        <div class="geo-popup-row"><span>${candNames[c] || c}</span><b>${cnt} (${Math.round(cnt / cl.count * 100)}%)</b></div>`).join('');
+
+      m.bindPopup(`
+        <div class="geo-popup-title">${esc(cl.zone)}</div>
+        <div class="geo-popup-badge">${cl.count} respondent${cl.count > 1 ? 's' : ''}</div>
+        <div style="margin-top:6px">
+          <div style="font-size:11px;font-weight:700;color:var(--ink2);margin-bottom:3px">CANDIDATE FAVORABILITY:</div>
+          ${candBreakdown}
+        </div>
+        <div style="margin-top:8px;padding-top:6px;border-top:1px solid var(--line);font-size:11.5px">
+          <b>Dominant CM Face:</b> ${esc(cl.topCM)}
+        </div>
+      `);
+      markersLayer.addLayer(m);
+    });
+    markersLayer.addTo(leafletMap);
+    return;
+  }
+
+  let filteredPoints = g.points;
+  let gradient = {
+    0.2: '#3B82F6',
+    0.4: '#10B981',
+    0.6: '#F59E0B',
+    0.8: '#EA580C',
+    1.0: '#EF4444'
+  };
+
+  if (mode !== 'all') {
+    filteredPoints = g.points.filter(p => p.cand === mode);
+    if (mode === 'SSB') {
+      gradient = {
+        0.2: '#FED7AA',
+        0.4: '#FB923C',
+        0.7: '#EA580C',
+        1.0: '#C2410C'
+      };
+    } else {
+      gradient = {
+        0.2: '#BAE6FD',
+        0.4: '#38BDF8',
+        0.7: '#0284C7',
+        1.0: '#0369A1'
+      };
+    }
+  }
+
+  const heatPoints = filteredPoints.map(p => [p.lat, p.lng, 0.8]);
+
+  if (L.heatLayer) {
+    heatLayer = L.heatLayer(heatPoints, {
+      radius: mode === 'all' ? 24 : 32,
+      blur: 18,
+      maxZoom: 15,
+      gradient: gradient
+    }).addTo(leafletMap);
+  }
+}
+
 /* ---------- voices ---------- */
 function voices() {
-  return head(7, 'Voices from the ground', 'Unstructured interviews with local reporters and opinion makers, summarised as bullets.') + `
+  return head(8, 'Voices from the ground', 'Unstructured interviews with local reporters and opinion makers, summarised as bullets.') + `
     <div class="filters" data-reveal><button class="on" data-v="all">Everyone</button><button data-v="Reporter">Reporters</button><button data-v="Opinion maker">Opinion makers</button></div>
     <div class="cards cols-2">${D.voices.map((v, i) => `
       <article class="card voice" data-type="${esc(v.type)}" data-reveal style="--i:${i}">
@@ -201,7 +403,7 @@ function voices() {
 
 /* ---------- actions ---------- */
 function actions() {
-  return head(8, 'What to do next', 'Ordered by urgency.') + D.actions.map((a, i) => `
+  return head(9, 'What to do next', 'Ordered by urgency.') + D.actions.map((a, i) => `
     <div class="card action" style="margin-bottom:14px;--i:${i}" data-reveal><div class="pri ${esc(a.priority)}">${esc(a.priority)}</div>
     <div><h3>${esc(a.title)}</h3><p class="muted" style="margin-top:6px">${esc(a.detail)}</p></div></div>`).join('');
 }
@@ -214,7 +416,7 @@ function appendix() {
     ['Monte Carlo 95% CI', 'Empirical 2.5th to 97.5th percentile bounds generated from 10,000 bootstrap simulations (N=1,797).'],
     ['Decoupled Vote', 'Phenomenon where state CM face popularity diverges from local Halqa candidate and party vote.']
   ];
-  return head(9, 'Appendix', 'Definitions & Strategic Electoral Framework.') + `
+  return head(10, 'Appendix', 'Definitions & Strategic Electoral Framework.') + `
     <div class="cards cols-2">
       <div class="card" data-reveal><h3>Methodology & Definitions</h3><ul class="plain-list">${terms.map(t => `<li><b>${t[0]}.</b> ${t[1]}</li>`).join('')}</ul></div>
       <div class="card" data-reveal style="--i:1"><h3>Strategic Framework: The Decoupled CM Factor</h3>
@@ -234,6 +436,7 @@ const CH = [
   { id: 'cover', label: 'Cover', render: cover }, { id: 'summary', label: 'Summary', render: summary },
   { id: 'method', label: 'Method', render: method }, { id: 'roster', label: 'Candidates', render: roster },
   { id: 'results', label: 'Popularity', render: results }, { id: 'segments', label: 'Segments', render: segments },
+  { id: 'geo', label: 'Field Heatmap', render: geoMap },
   { id: 'voices', label: 'Voices', render: voices }, { id: 'actions', label: 'Actions', render: actions },
   { id: 'appendix', label: 'Appendix', render: appendix }
 ];
@@ -260,6 +463,9 @@ function swap(i) {
   $('#prev').disabled = i === 0; $('#next').disabled = i === CH.length - 1;
   history.replaceState(null, '', '#' + CH[i].id);
   countUp(s);
+  if (CH[i].id === 'geo') {
+    setTimeout(initGeoMap, 60);
+  }
 }
 function go(i) {
   if (i === cur || busy || i < 0 || i >= CH.length) return;
@@ -270,7 +476,13 @@ function go(i) {
   $('#wipe-label').textContent = String(i + 1).padStart(2, '0') + '  ' + CH[i].label;
   w.className = 'wipe run' + (i < cur ? ' back' : '');
   setTimeout(() => swap(i), 340);
-  setTimeout(() => { w.className = 'wipe'; busy = false; }, 820);
+  setTimeout(() => {
+    w.className = 'wipe';
+    busy = false;
+    if (CH[cur] && CH[cur].id === 'geo' && leafletMap) {
+      leafletMap.invalidateSize();
+    }
+  }, 820);
 }
 
 /* ---------- drawer ---------- */
@@ -328,7 +540,11 @@ function build() {
     }
     const v = e.target.closest('[data-v]'); if (v) {
       $$('[data-v]').forEach(b => b.classList.toggle('on', b === v));
-      $$('.voice').forEach(x => x.classList.toggle('hide', v.dataset.v !== 'all' && x.dataset.type !== v.dataset.v));
+      $$('.voice').forEach(x => x.classList.toggle('hide', v.dataset.v !== 'all' && x.dataset.type !== v.dataset.v)); return;
+    }
+    const gm = e.target.closest('[data-geo-mode]'); if (gm) {
+      $$('[data-geo-mode]').forEach(b => b.classList.toggle('active', b === gm));
+      updateGeoLayer(gm.dataset.geoMode); return;
     }
   });
   $('#scrim').addEventListener('click', closeDrawer);
