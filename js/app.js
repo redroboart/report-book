@@ -20,11 +20,16 @@ const head = (n, title, lead) => `
 
 /* ---------- sparkline ---------- */
 function spark(vals, client) {
-  const w = 120, h = 40, p = 4, min = Math.min(...vals), max = Math.max(...vals), span = max - min || 1;
+  const w = 140, h = 44, p = 6, min = Math.min(...vals), max = Math.max(...vals), span = max - min || 1;
   const pts = vals.map((v, i) => [p + i * (w - 2 * p) / (vals.length - 1), h - p - (v - min) / span * (h - 2 * p)]);
   const last = pts[pts.length - 1];
+  const strokeCol = client ? 'var(--client)' : 'var(--field)';
+  const fillCol = client ? 'rgba(234, 88, 12, 0.14)' : 'rgba(71, 85, 105, 0.08)';
   return `<svg class="spark ${client ? 'client' : ''}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true">
-    <polyline pathLength="1" points="${pts.map(q => q.join(',')).join(' ')}"/><circle cx="${last[0]}" cy="${last[1]}" r="3"/></svg>`;
+    <polygon points="${pts[0][0]},${h} ${pts.map(q => q.join(',')).join(' ')} ${last[0]},${h}" fill="${fillCol}"/>
+    <polyline pathLength="1" points="${pts.map(q => q.join(',')).join(' ')}" stroke="${strokeCol}"/>
+    <circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="${strokeCol}"/>
+  </svg>`;
 }
 
 /* ---------- cover ---------- */
@@ -121,14 +126,27 @@ function infobox(c) {
 }
 function roster() {
   const initials = c => c.id;
-  return head(4, 'The seven candidates', 'Select a card for the full dossier, including interview mentions.') + `
-    <div class="filters" data-reveal><button class="on" data-f="all">All seven</button><button data-f="client">${esc(D.meta.client)}</button><button data-f="field">Other parties</button></div>
+  return head(4, 'The seven candidates', 'Select any candidate card to open their complete dossier and interview mentions.') + `
+    <div class="filters" data-reveal><button class="on" data-f="all">All seven candidates</button><button data-f="client">${esc(D.meta.client)}</button><button data-f="field">Other parties</button></div>
     <div class="roster">${D.candidates.map((c, i) => `
       <button class="cand" data-id="${c.id}" data-kind="${c.isClient ? 'client' : 'field'}" data-reveal style="--i:${i}">
-        <div class="card"><div class="avatar ${c.isClient ? 'client' : 'field'}">${esc(initials(c))}</div>
-          <h3>${esc(c.name)}</h3><div class="party">${esc(c.party)}${c.firstTime ? ' &middot; first-time aspirant' : ''}</div>
-          <dl><dt>Age</dt><dd>${c.age}</dd><dt>Profession</dt><dd>${esc(c.profession)}</dd><dt>Vote intent</dt><dd class="mono">${c.intent}%${c.intentRange ? ` <small class="muted" style="font-size:11px">(${c.intentRange[0]}%–${c.intentRange[1]}%)</small>` : ''}</dd></dl>
-          <div class="open">Open dossier</div></div></button>`).join('')}</div>`;
+        <div class="card">
+          <div class="cand-top">
+            <div class="avatar ${c.isClient ? 'client' : 'field'}">${esc(initials(c))}</div>
+            <span class="chip ${c.isClient ? 'c' : 'f'}">${esc(c.party)}</span>
+          </div>
+          <h3>${esc(c.name)}</h3>
+          <p class="muted small" style="margin:4px 0 10px;line-height:1.4">${esc(c.tagline)}</p>
+          <div class="mini-bar">
+            <div class="mini-bar-fill ${c.isClient ? 'client' : ''}" style="width:${Math.min(c.intent / 25 * 100, 100)}%"></div>
+          </div>
+          <dl>
+            <dt>Vote intent</dt><dd class="mono">${c.intent}%${c.intentRange ? ` <small class="muted" style="font-size:11px">(${c.intentRange[0]}%–${c.intentRange[1]}%)</small>` : ''}</dd>
+            <dt>Name recall</dt><dd class="mono">${c.recall}%</dd>
+            <dt>Profession</dt><dd>${esc(c.profession)}</dd>
+          </dl>
+          <div class="open">View Complete Dossier &rarr;</div>
+        </div></button>`).join('')}</div>`;
 }
 
 /* ---------- results ---------- */
@@ -260,17 +278,22 @@ function openDrawer(id) {
   const c = cand(id), d = $('#drawer');
   const vs = D.voices.filter(v => v.mentions.includes(id));
   d.innerHTML = `<button class="x" aria-label="Close">&times;</button><div class="dossier">
-    <div class="avatar ${c.isClient ? 'client' : 'field'}">${esc(c.id)}</div>
-    <span class="chip ${c.isClient ? 'c' : 'f'}">${esc(c.party)}</span>
-    <h3>${esc(c.name)}</h3><p class="muted">${esc(c.tagline)}</p>
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
+      <div class="avatar ${c.isClient ? 'client' : 'field'}">${esc(c.id)}</div>
+      <div>
+        <span class="chip ${c.isClient ? 'c' : 'f'}">${esc(c.party)}</span>
+        <h3 style="margin:4px 0 0">${esc(c.name)}</h3>
+      </div>
+    </div>
+    <p class="muted" style="line-height:1.55">${esc(c.tagline)}</p>
     <div class="stat-row">
       <div><div class="big">${c.intent}%</div><div class="small muted">vote intent</div>${c.intentRange ? `<div style="font-size:11px;color:var(--accent);margin-top:3px" class="mono">${c.intentRange[0]}%–${c.intentRange[1]}%</div>` : ''}</div>
       <div><div class="big">${c.recall}%</div><div class="small muted">name recall</div>${c.recallRange ? `<div style="font-size:11px;color:var(--accent);margin-top:3px" class="mono">${c.recallRange[0]}%–${c.recallRange[1]}%</div>` : ''}</div>
       <div><div class="big">${c.favourable - c.unfavourable > 0 ? '+' : ''}${c.favourable - c.unfavourable}</div><div class="small muted">net favourability</div>${c.favourableRange ? `<div style="font-size:11px;color:var(--good);margin-top:3px" class="mono">${c.favourableRange[0]}%–${c.favourableRange[1]}% fav</div>` : ''}</div>
     </div>
-    <h4>Pulse checks</h4>${spark(c.trend, c.isClient)}
-    <h4>Profile</h4><dl>${infobox(c)}</dl>
-    <h4>In the interviews</h4>${vs.length ? vs.map(v => `<p class="small"><b>${esc(v.name)}</b> <span class="muted">(${esc(v.outlet)})</span></p><ul class="plain-list">${v.bullets.filter(b => b.includes(c.id)).map(b => `<li class="small">${esc(b)}</li>`).join('') || `<li class="small muted">Mentioned alongside others. See the Voices chapter.</li>`}</ul>`).join('') : '<p class="muted small">Not mentioned.</p>'}
+    <h4>Pulse Checks & Trend</h4>${spark(c.trend, c.isClient)}
+    <h4>Candidate Profile</h4><dl>${infobox(c)}</dl>
+    <h4>In The Field Interviews</h4>${vs.length ? vs.map(v => `<div class="card" style="margin-bottom:12px;padding:14px 16px;background:var(--paper)"><p class="small"><b>${esc(v.name)}</b> <span class="muted">(${esc(v.outlet)})</span></p><ul class="plain-list">${v.bullets.filter(b => b.includes(c.id)).map(b => `<li class="small">${esc(b)}</li>`).join('') || `<li class="small muted">Mentioned alongside other candidates. See the Voices chapter.</li>`}</ul></div>`).join('') : '<p class="muted small">No specific individual quotes recorded.</p>'}
   </div>`;
   d.classList.add('open'); $('#scrim').classList.add('open'); d.setAttribute('aria-hidden', 'false');
   $('.x', d).addEventListener('click', closeDrawer);
@@ -279,9 +302,20 @@ function closeDrawer() { $('#drawer').classList.remove('open'); $('#scrim').clas
 
 /* ---------- init ---------- */
 function build() {
-  $('#rail').innerHTML = `<div class="brand">${esc(D.meta.client)}</div><div class="brand-sub">Popularity check report-book</div>` +
-    CH.map((c, i) => `<button class="nav" data-go="${i}"><b>${String(i + 1).padStart(2, '0')}</b>${c.label}</button>`).join('') +
-    `<div class="grow"></div><div class="tools"><button id="print">Print</button></div><div class="hint">Use the left and right arrow keys to turn pages.</div>`;
+  $('#rail').innerHTML = `
+    <div class="brand-header">
+      <div class="brand-badge"><span class="pulse-dot"></span>CCPA INTELLIGENCE</div>
+      <div class="brand">${esc(D.meta.constituency || 'Roopnagar')}</div>
+      <div class="brand-sub">${esc(D.meta.title || 'Assembly Poll 2026')}</div>
+    </div>
+    <div class="nav-group">
+      ${CH.map((c, i) => `<button class="nav" data-go="${i}"><span class="nav-num">${String(i + 1).padStart(2, '0')}</span><span>${c.label}</span></button>`).join('')}
+    </div>
+    <div class="grow"></div>
+    <div class="rail-footer">
+      <div class="tools"><button id="print"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;vertical-align:-2px"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>Export PDF Report</button></div>
+      <div class="hint">Use <kbd>&larr;</kbd> <kbd>&rarr;</kbd> to navigate</div>
+    </div>`;
   $('#stage').innerHTML = CH.map(c => `<section class="chapter" id="ch-${c.id}">${c.render()}</section>`).join('');
   $$('.chapter').forEach(sec => $$('[data-reveal]', sec).forEach((el, k) => { if (!el.style.getPropertyValue('--i')) el.style.setProperty('--i', Math.min(k, 8)); }));
 

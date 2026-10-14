@@ -75,7 +75,7 @@ VALUES (
   "candidates": [
     {
       "id": "SB",
-      "name": "Sukhwinder Singh Barra",
+      "name": "Sukhwinder Singh Barwa",
       "party": "Waris Punjab De / Akali",
       "isClient": true,
       "firstTime": true,
@@ -915,8 +915,8 @@ VALUES (
   "analystNotes": [
     "Statewide CM face popularity operates independently of Halqa-level vote preference: Those who favor a Chief Minister face do not necessarily support their party locally in Roopnagar.",
     "Decoupled vote in numbers: 45.1% of Bhagwant Mann CM supporters and 55.0% of Charanjeet Channi CM supporters favor WPD or independent alternatives at the constituency level.",
-    "Local candidate disconnect: Even among respondents who named Bhagwant Mann as their preferred CM, only 32.3% recalled AAP''s local aspirant Ramkumar Mukari, compared to 76.6% for Lalpura and 47.7% for Barra.",
-    "Sukhwinder Singh Barra is the commanding frontrunner among Akali-background freshers with 64.9% voter favorability [61.0%\u201368.7% range] and 52.9% overall recall [50.6%\u201355.2%].",
+    "Local candidate disconnect: Even among respondents who named Bhagwant Mann as their preferred CM, only 32.3% recalled AAP''s local aspirant Ramkumar Mukari, compared to 76.6% for Lalpura and 47.7% for Barwa.",
+    "Sukhwinder Singh Barwa is the commanding frontrunner among Akali-background freshers with 64.9% voter favorability [61.0%\u201368.7% range] and 52.9% overall recall [50.6%\u201355.2%].",
     "Ajaiveer Lalpura (BJP) leads raw name recall at 73.3% [71.2%\u201375.3% range] driven by high visibility in Hindu (83%) and BC (81%) urban/semi-urban belts.",
     "Waris Punjab De (WPD) holds strong baseline sentiment across the seat at 50.8% voter favorability in party preference, well-positioned to convert decoupled CM voters."
   ],
@@ -933,7 +933,7 @@ VALUES (
         "AL"
       ],
       "bullets": [
-        "Notes Sukhwinder Singh Barra enjoys exceptional grassroots accessibility across rural panchayats.",
+        "Notes Sukhwinder Singh Barwa enjoys exceptional grassroots accessibility across rural panchayats.",
         "Observes Ajaiveer Lalpura has significant media presence and urban name recognition, but faces resistance in rural agrarian belts."
       ]
     },
@@ -951,8 +951,8 @@ VALUES (
         "DJ"
       ],
       "bullets": [
-        "Monte Carlo bounds demonstrate zero overlap between Barra''s lower favorability bound (61.0%) and Gogi''s upper bound (28.8%).",
-        "Emphasizes that uniting behind Sukhwinder Singh Barra solidifies an immediate contender against the BJP and Congress aspirants."
+        "Monte Carlo bounds demonstrate zero overlap between Barwa''s lower favorability bound (61.0%) and Gogi''s upper bound (28.8%).",
+        "Emphasizes that uniting behind Sukhwinder Singh Barwa solidifies an immediate contender against the BJP and Congress aspirants."
       ]
     },
     {
@@ -969,7 +969,7 @@ VALUES (
       ],
       "bullets": [
         "Points out 18\u201325 voters are balancing between WPD youth messaging and ruling AAP benefits.",
-        "States that youth mobilization will determine whether Barra can overtake Lalpura''s early recall lead."
+        "States that youth mobilization will determine whether Barwa can overtake Lalpura''s early recall lead."
       ]
     },
     {
@@ -1002,15 +1002,15 @@ VALUES (
       ],
       "bullets": [
         "Observes a distinct decoupling in Roopnagar: respondents frequently praise Bhagwant Mann''s state welfare schemes or Channi''s past tenure, yet openly reject their local party nominees.",
-        "Notes that AAP''s local presence is thin (Mukari at 32% recall among Mann supporters), leaving local space wide open for respected community faces like Sukhwinder Singh Barra."
+        "Notes that AAP''s local presence is thin (Mukari at 32% recall among Mann supporters), leaving local space wide open for respected community faces like Sukhwinder Singh Barwa."
       ]
     }
   ],
   "actions": [
     {
       "priority": "High",
-      "title": "Consolidate Behind Sukhwinder Singh Barra",
-      "detail": "Barra secures 64.9% favorability [61.0%\u201368.7% range] among Akali-leaning voters. Formalize ticket coordination to prevent Gogi (25%) and Jatana (18%) from splintering the core vote."
+      "title": "Consolidate Behind Sukhwinder Singh Barwa",
+      "detail": "Barwa secures 64.9% favorability [61.0%\u201368.7% range] among Akali-leaning voters. Formalize ticket coordination to prevent Gogi (25%) and Jatana (18%) from splintering the core vote."
     },
     {
       "priority": "High",
@@ -1020,7 +1020,7 @@ VALUES (
     {
       "priority": "High",
       "title": "Close the Youth Recall Deficit (18\u201325)",
-      "detail": "Ajaiveer Lalpura leads youth recall at 67% vs Barra''s 50%. Deploy an intensive digital and college campus outreach campaign across Roopnagar."
+      "detail": "Ajaiveer Lalpura leads youth recall at 67% vs Barwa''s 50%. Deploy an intensive digital and college campus outreach campaign across Roopnagar."
     },
     {
       "priority": "Medium",
@@ -1083,7 +1083,7 @@ VALUES (
   "candidates": [
     {
       "id": "SB",
-      "name": "Sukhwinder Singh Barra",
+      "name": "Sukhwinder Singh Barwa",
       "party": "Waris Punjab De / Akali",
       "isClient": true,
       "firstTime": true,
@@ -1923,8 +1923,8 @@ VALUES (
   "analystNotes": [
     "Statewide CM face popularity operates independently of Halqa-level vote preference: Those who favor a Chief Minister face do not necessarily support their party locally in Roopnagar.",
     "Decoupled vote in numbers: 45.1% of Bhagwant Mann CM supporters and 55.0% of Charanjeet Channi CM supporters favor WPD or independent alternatives at the constituency level.",
-    "Local candidate disconnect: Even among respondents who named Bhagwant Mann as their preferred CM, only 32.3% recalled AAP''s local aspirant Ramkumar Mukari, compared to 76.6% for Lalpura and 47.7% for Barra.",
-    "Sukhwinder Singh Barra is the commanding frontrunner among Akali-background freshers with 64.9% voter favorability [61.0%\u201368.7% range] and 52.9% overall recall [50.6%\u201355.2%].",
+    "Local candidate disconnect: Even among respondents who named Bhagwant Mann as their preferred CM, only 32.3% recalled AAP''s local aspirant Ramkumar Mukari, compared to 76.6% for Lalpura and 47.7% for Barwa.",
+    "Sukhwinder Singh Barwa is the commanding frontrunner among Akali-background freshers with 64.9% voter favorability [61.0%\u201368.7% range] and 52.9% overall recall [50.6%\u201355.2%].",
     "Ajaiveer Lalpura (BJP) leads raw name recall at 73.3% [71.2%\u201375.3% range] driven by high visibility in Hindu (83%) and BC (81%) urban/semi-urban belts.",
     "Waris Punjab De (WPD) holds strong baseline sentiment across the seat at 50.8% voter favorability in party preference, well-positioned to convert decoupled CM voters."
   ],
@@ -1941,7 +1941,7 @@ VALUES (
         "AL"
       ],
       "bullets": [
-        "Notes Sukhwinder Singh Barra enjoys exceptional grassroots accessibility across rural panchayats.",
+        "Notes Sukhwinder Singh Barwa enjoys exceptional grassroots accessibility across rural panchayats.",
         "Observes Ajaiveer Lalpura has significant media presence and urban name recognition, but faces resistance in rural agrarian belts."
       ]
     },
@@ -1959,8 +1959,8 @@ VALUES (
         "DJ"
       ],
       "bullets": [
-        "Monte Carlo bounds demonstrate zero overlap between Barra''s lower favorability bound (61.0%) and Gogi''s upper bound (28.8%).",
-        "Emphasizes that uniting behind Sukhwinder Singh Barra solidifies an immediate contender against the BJP and Congress aspirants."
+        "Monte Carlo bounds demonstrate zero overlap between Barwa''s lower favorability bound (61.0%) and Gogi''s upper bound (28.8%).",
+        "Emphasizes that uniting behind Sukhwinder Singh Barwa solidifies an immediate contender against the BJP and Congress aspirants."
       ]
     },
     {
@@ -1977,7 +1977,7 @@ VALUES (
       ],
       "bullets": [
         "Points out 18\u201325 voters are balancing between WPD youth messaging and ruling AAP benefits.",
-        "States that youth mobilization will determine whether Barra can overtake Lalpura''s early recall lead."
+        "States that youth mobilization will determine whether Barwa can overtake Lalpura''s early recall lead."
       ]
     },
     {
@@ -2010,15 +2010,15 @@ VALUES (
       ],
       "bullets": [
         "Observes a distinct decoupling in Roopnagar: respondents frequently praise Bhagwant Mann''s state welfare schemes or Channi''s past tenure, yet openly reject their local party nominees.",
-        "Notes that AAP''s local presence is thin (Mukari at 32% recall among Mann supporters), leaving local space wide open for respected community faces like Sukhwinder Singh Barra."
+        "Notes that AAP''s local presence is thin (Mukari at 32% recall among Mann supporters), leaving local space wide open for respected community faces like Sukhwinder Singh Barwa."
       ]
     }
   ],
   "actions": [
     {
       "priority": "High",
-      "title": "Consolidate Behind Sukhwinder Singh Barra",
-      "detail": "Barra secures 64.9% favorability [61.0%\u201368.7% range] among Akali-leaning voters. Formalize ticket coordination to prevent Gogi (25%) and Jatana (18%) from splintering the core vote."
+      "title": "Consolidate Behind Sukhwinder Singh Barwa",
+      "detail": "Barwa secures 64.9% favorability [61.0%\u201368.7% range] among Akali-leaning voters. Formalize ticket coordination to prevent Gogi (25%) and Jatana (18%) from splintering the core vote."
     },
     {
       "priority": "High",
@@ -2028,7 +2028,7 @@ VALUES (
     {
       "priority": "High",
       "title": "Close the Youth Recall Deficit (18\u201325)",
-      "detail": "Ajaiveer Lalpura leads youth recall at 67% vs Barra''s 50%. Deploy an intensive digital and college campus outreach campaign across Roopnagar."
+      "detail": "Ajaiveer Lalpura leads youth recall at 67% vs Barwa''s 50%. Deploy an intensive digital and college campus outreach campaign across Roopnagar."
     },
     {
       "priority": "Medium",
