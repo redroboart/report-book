@@ -474,11 +474,11 @@ function updateGeoLayer(mode) {
   if (mode === 'markers') {
     markersLayer = L.layerGroup();
     const candColors = {
-      'SSB': '#1D4ED8',
-      'GSG': '#0D9488',
-      'DJ': '#7C3AED',
-      'JSA': '#D97706',
-      'Undecided': '#94A3B8'
+      'SSB': '#4F46E5', // Electric Indigo (Client / Field Leader)
+      'GSG': '#0D9488', // Emerald Teal (AAP)
+      'DJ': '#2563EB',  // Cobalt Blue (INC)
+      'JSA': '#D97706', // Amber Gold (SAD)
+      'Undecided': '#94A3B8' // Slate Neutral
     };
     const candNames = {
       'SSB': 'Sukhwinder S. Barwa',
@@ -489,7 +489,7 @@ function updateGeoLayer(mode) {
     };
 
     g.clusters.forEach(cl => {
-      const col = cl.topCand === 'SSB' ? '#1D4ED8' : (candColors[cl.topCand] || '#475569');
+      const col = cl.topCand === 'SSB' ? '#4F46E5' : (candColors[cl.topCand] || '#475569');
       const r = Math.min(6 + cl.count * 1.5, 18);
 
       const m = L.circleMarker([cl.lat, cl.lng], {
@@ -523,21 +523,21 @@ function updateGeoLayer(mode) {
 
   let filteredPoints = g.points;
   let gradient = {
-    0.2: '#93C5FD',
-    0.4: '#38BDF8',
+    0.2: '#C7D2FE',
+    0.4: '#818CF8',
     0.6: '#10B981',
-    0.8: '#2563EB',
-    1.0: '#1D4ED8'
+    0.8: '#4F46E5',
+    1.0: '#312E81'
   };
 
   if (mode !== 'all') {
     filteredPoints = g.points.filter(p => p.cand === mode);
     if (mode === 'SSB') {
       gradient = {
-        0.2: '#DBEAFE',
-        0.4: '#93C5FD',
-        0.7: '#2563EB',
-        1.0: '#1E3A8A'
+        0.2: '#EEF2FF',
+        0.4: '#A5B4FC',
+        0.7: '#6366F1',
+        1.0: '#4338CA'
       };
     } else {
       gradient = {
