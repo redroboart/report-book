@@ -24,7 +24,7 @@ function spark(vals, client) {
   const pts = vals.map((v, i) => [p + i * (w - 2 * p) / (vals.length - 1), h - p - (v - min) / span * (h - 2 * p)]);
   const last = pts[pts.length - 1];
   const strokeCol = client ? 'var(--client)' : 'var(--field)';
-  const fillCol = client ? 'rgba(234, 88, 12, 0.14)' : 'rgba(71, 85, 105, 0.08)';
+  const fillCol = client ? 'rgba(29, 78, 216, 0.12)' : 'rgba(71, 85, 105, 0.08)';
   return `<svg class="spark ${client ? 'client' : ''}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true">
     <polygon points="${pts[0][0]},${h} ${pts.map(q => q.join(',')).join(' ')} ${last[0]},${h}" fill="${fillCol}"/>
     <polyline pathLength="1" points="${pts.map(q => q.join(',')).join(' ')}" stroke="${strokeCol}"/>
@@ -92,7 +92,7 @@ function summary() {
         <div class="bento-sub">
           Leading the entire 7-aspirant field with a <b>+13.0 pt</b> Panthic lead over Gurinder Gogi (9%) and <b>+16.0 pts</b> over Dalvir Jatana (6%). Outpaces all rival party freshers in raw voter intent.
         </div>
-        <div class="mini-bar" style="margin-top:16px;background:rgba(234,88,12,0.15)">
+        <div class="mini-bar" style="margin-top:16px;background:rgba(29,78,216,0.12)">
           <div class="mini-bar-fill client" style="width:${Math.min(leader.intent / 28 * 100, 100)}%"></div>
         </div>
       </div>
@@ -474,10 +474,10 @@ function updateGeoLayer(mode) {
   if (mode === 'markers') {
     markersLayer = L.layerGroup();
     const candColors = {
-      'SSB': '#EA580C',
-      'GSG': '#0284C7',
+      'SSB': '#1D4ED8',
+      'GSG': '#0D9488',
       'DJ': '#7C3AED',
-      'JSA': '#059669',
+      'JSA': '#D97706',
       'Undecided': '#94A3B8'
     };
     const candNames = {
@@ -489,7 +489,7 @@ function updateGeoLayer(mode) {
     };
 
     g.clusters.forEach(cl => {
-      const col = cl.topCand === 'SSB' ? '#EA580C' : (candColors[cl.topCand] || '#475569');
+      const col = cl.topCand === 'SSB' ? '#1D4ED8' : (candColors[cl.topCand] || '#475569');
       const r = Math.min(6 + cl.count * 1.5, 18);
 
       const m = L.circleMarker([cl.lat, cl.lng], {
@@ -523,21 +523,21 @@ function updateGeoLayer(mode) {
 
   let filteredPoints = g.points;
   let gradient = {
-    0.2: '#3B82F6',
-    0.4: '#10B981',
-    0.6: '#F59E0B',
-    0.8: '#EA580C',
-    1.0: '#EF4444'
+    0.2: '#93C5FD',
+    0.4: '#38BDF8',
+    0.6: '#10B981',
+    0.8: '#2563EB',
+    1.0: '#1D4ED8'
   };
 
   if (mode !== 'all') {
     filteredPoints = g.points.filter(p => p.cand === mode);
     if (mode === 'SSB') {
       gradient = {
-        0.2: '#FED7AA',
-        0.4: '#FB923C',
-        0.7: '#EA580C',
-        1.0: '#C2410C'
+        0.2: '#DBEAFE',
+        0.4: '#93C5FD',
+        0.7: '#2563EB',
+        1.0: '#1E3A8A'
       };
     } else {
       gradient = {

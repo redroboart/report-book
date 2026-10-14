@@ -17,11 +17,11 @@
   --accent-soft: #EFF6FF;
   --accent-border: #BFDBFE;
   
-  /* Waris Punjab De / Client Primary */
-  --client: #EA580C;
-  --client-soft: #FFF7ED;
-  --client-border: #FDBA74;
-  --client-dark: #C2410C;
+  /* Waris Punjab De / Client Primary (Royal Sapphire Blue - Authoritative, Trustworthy, Leadership) */
+  --client: #1D4ED8;
+  --client-soft: #EFF6FF;
+  --client-border: #BFDBFE;
+  --client-dark: #1E40AF;
   
   /* Rivals / Field */
   --field: #475569;
@@ -81,7 +81,7 @@ a { color: var(--accent); text-decoration: none; }
   pointer-events: none;
   background-image: 
     radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.03) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(234, 88, 12, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(29, 78, 216, 0.03) 0px, transparent 50%),
     linear-gradient(var(--line-subtle) 1px, transparent 1px),
     linear-gradient(90deg, var(--line-subtle) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
@@ -373,14 +373,14 @@ a { color: var(--accent); text-decoration: none; }
 
 /* Pre-reflective Salience Variants */
 .bento-hero-client {
-  background: linear-gradient(145deg, #FFFFFF 0%, #FFF7ED 100%);
-  border: 1px solid #FED7AA;
+  background: linear-gradient(145deg, #FFFFFF 0%, #F0F7FF 100%);
+  border: 1px solid #BFDBFE;
   border-top: 4px solid var(--client);
-  box-shadow: 0 4px 20px rgba(234, 88, 12, 0.08);
+  box-shadow: 0 4px 20px rgba(29, 78, 216, 0.08);
 }
 .bento-hero-client:hover {
   border-color: var(--client);
-  box-shadow: 0 8px 26px rgba(234, 88, 12, 0.15);
+  box-shadow: 0 8px 26px rgba(29, 78, 216, 0.16);
 }
 
 .bento-hero-good {
@@ -425,8 +425,8 @@ a { color: var(--accent); text-decoration: none; }
   margin-bottom: 8px;
 }
 .bento-pill-badge.client {
-  background: #FFEDD5;
-  color: #C2410C;
+  background: #DBEAFE;
+  color: #1E40AF;
 }
 .bento-pill-badge.good {
   background: #DCFCE7;
@@ -450,14 +450,14 @@ a { color: var(--accent); text-decoration: none; }
 }
 
 .cand.bento-cand-hero .card {
-  background: linear-gradient(145deg, #FFFFFF 0%, #FFF7ED 100%);
-  border: 1px solid #FED7AA;
+  background: linear-gradient(145deg, #FFFFFF 0%, #F0F7FF 100%);
+  border: 1px solid #BFDBFE;
   border-top: 4px solid var(--client);
-  box-shadow: 0 4px 20px rgba(234, 88, 12, 0.08);
+  box-shadow: 0 4px 20px rgba(29, 78, 216, 0.08);
 }
 .cand.bento-cand-hero:hover .card {
   border-color: var(--client);
-  box-shadow: 0 8px 26px rgba(234, 88, 12, 0.15);
+  box-shadow: 0 8px 26px rgba(29, 78, 216, 0.16);
 }
 
 .cand.bento-cand-hero .avatar {
@@ -477,8 +477,8 @@ a { color: var(--accent); text-decoration: none; }
   gap: 10px;
   margin-top: 14px;
   padding: 12px 14px;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid #FED7AA;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #BFDBFE;
   border-radius: var(--radius-sm);
 }
 
@@ -651,7 +651,7 @@ a { color: var(--accent); text-decoration: none; }
 .is-active .cl-line { stroke-dashoffset: 0; }
 .cl-node { transform-box: fill-box; transform-origin: center; transform: scale(0); transition: transform 0.7s var(--ease); }
 .is-active .cl-node { transform: scale(1); }
-.cl-node.client { fill: var(--client); filter: drop-shadow(0 4px 10px rgba(234, 88, 12, 0.4)); }
+.cl-node.client { fill: var(--client); filter: drop-shadow(0 4px 10px rgba(29, 78, 216, 0.4)); }
 .cl-node.field { fill: var(--field); filter: drop-shadow(0 4px 8px rgba(71, 85, 105, 0.3)); }
 .cl-txt { font: 700 12px var(--mono); fill: #fff; text-anchor: middle; dominant-baseline: central; }
 .cl-val { font: 600 12px var(--mono); fill: var(--ink); text-anchor: middle; dominant-baseline: central; }
@@ -714,7 +714,7 @@ a { color: var(--accent); text-decoration: none; }
 }
 
 .avatar.client {
-  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
 }
 
 .avatar.field {
@@ -753,7 +753,7 @@ a { color: var(--accent); text-decoration: none; }
 }
 
 .cand .mini-bar-fill.client {
-  background: linear-gradient(90deg, #F97316, #EA580C);
+  background: linear-gradient(90deg, #60A5FA, #1D4ED8);
 }
 
 .cand .open {
@@ -802,8 +802,8 @@ a { color: var(--accent); text-decoration: none; }
 }
 
 .bar i.client {
-  background: linear-gradient(90deg, #FB923C 0%, #EA580C 100%);
-  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.35);
+  background: linear-gradient(90deg, #3B82F6 0%, #1D4ED8 100%);
+  box-shadow: 0 2px 8px rgba(29, 78, 216, 0.35);
 }
 
 .bar i.hatch {
