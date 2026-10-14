@@ -64,7 +64,6 @@ function cover() {
     ${m.placeholder ? `<div class="banner" data-reveal style="--i:5">Sample data. Replace the contents of data/report.json with your own.</div>` : ''}
   </div>${constellation()}</section>`;
 }
-
 /* ---------- summary ---------- */
 function summary() {
   const byI = [...D.candidates].sort((a, b) => b.intent - a.intent);
@@ -72,38 +71,124 @@ function summary() {
   const clients = D.candidates.filter(c => c.isClient);
   const best = [...clients].sort((a, b) => b.intent - a.intent)[0];
   const rank = byI.indexOf(best) + 1, gap = leader.intent - best.intent;
-  const cs = sum(clients.map(c => c.intent)), os = sum(D.candidates.filter(c => !c.isClient).map(c => c.intent));
+  const cs = sum(clients.map(c => c.intent)), os = sum(D.candidates.filter(c => !c.isClient).map(c => c.intent)), und = 100 - cs - os;
   const segs = D.segments.map(s => [s.group + ': ' + s.label, s.values[best.id]]).sort((a, b) => b[1] - a[1]);
   const net = [...D.candidates].sort((a, b) => (b.favourable - b.unfavourable) - (a.favourable - a.unfavourable))[0];
-  const lead1 = leader.isClient
-    ? `${leader.name} leads the field.` : `${leader.name} (${leader.party}) leads the field.`;
-  const cards = [
-    [`${leader.intent}%`, 'Highest vote intent', `${lead1}`],
-    [`#${rank}`, `${best.name}, best-placed from ${D.meta.client}`, gap ? `${gap} points behind the leader.` : 'Level with the leader.'],
-    D.meta.sameContest
-      ? [`${cs}%`, `Combined ${D.meta.client} intent`, `Against ${os}% for the other candidates and ${100 - cs - os}% undecided.`]
-      : [`${100 - cs - os}%`, 'Undecided', 'Share of respondents who named no candidate.'],
-    [`${net.favourable - net.unfavourable > 0 ? '+' : ''}${net.favourable - net.unfavourable}`, 'Best net favourability', `${net.name}: ${net.favourable}% favourable, ${net.unfavourable}% unfavourable.`]
-  ];
-  return head(2, 'What the numbers say', 'Four findings, then the analyst notes.') + `
-    <div class="cards cols-4">${cards.map((c, i) => `<div class="card" data-reveal style="--i:${i}"><div class="big" data-count="${parseFloat(c[0].replace(/[^\d.-]/g, ''))}" data-prefix="${c[0][0] === '#' ? '#' : c[0][0] === '+' ? '+' : ''}" data-suffix="${c[0].endsWith('%') ? '%' : ''}">${esc(c[0])}</div>
-      <p style="margin-top:12px;font-weight:600">${esc(c[1])}</p><p class="muted small" style="margin-top:4px">${esc(c[2])}</p></div>`).join('')}</div>
-    <div class="cards cols-2" style="margin-top:16px">
-      <div class="card" data-reveal style="--i:4"><h3>${esc(best.name)} by segment</h3>
-        <p class="muted" style="margin-top:10px">Strongest with <b>${esc(segs[0][0])}</b> at ${segs[0][1]}%. Weakest with <b>${esc(segs[segs.length - 1][0])}</b> at ${segs[segs.length - 1][1]}%.</p></div>
-      <div class="card" data-reveal style="--i:5"><h3>Analyst notes</h3>
-        <ul class="plain-list">${(D.analystNotes || []).map(n => `<li>${esc(n)}</li>`).join('')}</ul></div>
-    </div>
-    <div class="card" style="margin-top:16px;border-left:4px solid var(--accent)" data-reveal style="--i:6">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-        <span class="chip c"><b>Strategic Notice</b></span>
-        <h3 style="margin:0;font-size:18px">CM Face Popularity Decoupled from Halqa Party & Candidate Choices</h3>
+  const netScore = net.favourable - net.unfavourable;
+
+  return head(2, 'Executive Summary: Electoral Standings', 'Pre-reflective intelligence snapshot across candidate recall, net sentiment, and demographic mobilization in Roopnagar.') + `
+    <div class="bento-grid bento-summary">
+      <!-- Bento Tile 1: Hero Client & Field Leader (Span 2) -->
+      <div class="bento-card bento-span-2 bento-hero-client" data-reveal style="--i:0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <span class="bento-pill-badge client">★ FIELD LEADER &amp; CLIENT SPOTLIGHT</span>
+          <span class="chip c">Rank #1 in Halqa</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:8px;margin-top:10px">
+          <div class="bento-stat-hero client" data-count="${leader.intent}" data-suffix="%">${leader.intent}%</div>
+          ${leader.intentRange ? `<span class="mono muted" style="font-size:13px;font-weight:600">(${leader.intentRange[0]}%–${leader.intentRange[1]}% 95% CI)</span>` : ''}
+        </div>
+        <div class="bento-label" style="font-size:17px">${esc(leader.name)} <small style="font-weight:500;color:var(--ink2)">(${esc(leader.party)})</small></div>
+        <div class="bento-sub">
+          Leading the entire 7-aspirant field with a <b>+13.0 pt</b> Panthic lead over Gurinder Gogi (9%) and <b>+16.0 pts</b> over Dalvir Jatana (6%). Outpaces all rival party freshers in raw voter intent.
+        </div>
+        <div class="mini-bar" style="margin-top:16px;background:rgba(234,88,12,0.15)">
+          <div class="mini-bar-fill client" style="width:${Math.min(leader.intent / 28 * 100, 100)}%"></div>
+        </div>
       </div>
-      <p class="muted" style="margin-top:6px;line-height:1.6">
-        Statewide Chief Minister popularity is independent of constituency-level party and candidate preferences.
-        Voters who view a state leadership face favorably do not automatically support their party in Roopnagar:
-        <b>45.1% of Bhagwant Mann CM supporters</b> and <b>55.0% of Charanjeet Channi CM supporters</b> favor WPD or independent alternatives at the Halqa level, while AAP's local aspirant Ramkumar Mukari records only <b>32.3% recall</b> even among Mann's supporters.
-      </p>
+
+      <!-- Bento Tile 2: Best Net Sentiment (Span 1) -->
+      <div class="bento-card bento-hero-good" data-reveal style="--i:1">
+        <span class="bento-pill-badge good">HIGHEST TRUST RATING</span>
+        <div class="bento-stat-hero good" data-count="${netScore}" data-prefix="${netScore > 0 ? '+' : ''}">+${netScore}</div>
+        <div class="bento-label">Net Favourability</div>
+        <div class="bento-sub">
+          <b>${esc(net.name)}</b>: ${net.favourable}% favourable vs only ${net.unfavourable}% unfavourable. Minimal voter resistance.
+        </div>
+      </div>
+
+      <!-- Bento Tile 3: Floating / Undecided Vote (Span 1) -->
+      <div class="bento-card bento-hero-floating" data-reveal style="--i:2">
+        <span class="bento-pill-badge slate">DECIDING BATTLEGROUND</span>
+        <div class="bento-stat-hero" data-count="${und}" data-suffix="%">${und}%</div>
+        <div class="bento-label">Undecided / Floating Pool</div>
+        <div class="bento-sub">
+          Uncommitted electorate segment. The primary conversion battleground for campaign booth teams.
+        </div>
+      </div>
+
+      <!-- Bento Tile 4: Demographic Footprint (Span 2) -->
+      <div class="bento-card bento-span-2" data-reveal style="--i:3">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <span class="bento-pill-badge slate">DEMOGRAPHIC BASTIONS</span>
+          <span class="small muted mono">${esc(best.name)}</span>
+        </div>
+        <div class="bento-label" style="font-size:16px;margin-top:2px">Strongest &amp; Weakest Demographic Segments</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12.5px">
+              <span><b>Peak Stronghold:</b> ${esc(segs[0][0])}</span>
+              <span class="mono" style="color:var(--client-dark);font-weight:700">${segs[0][1]}%</span>
+            </div>
+            <div class="mini-bar" style="margin-top:4px"><div class="mini-bar-fill client" style="width:${segs[0][1] / 35 * 100}%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12.5px">
+              <span><b>Expansion Target:</b> ${esc(segs[segs.length - 1][0])}</span>
+              <span class="mono" style="color:var(--ink3);font-weight:700">${segs[segs.length - 1][1]}%</span>
+            </div>
+            <div class="mini-bar" style="margin-top:4px"><div class="mini-bar-fill" style="width:${segs[segs.length - 1][1] / 35 * 100}%;background:#94A3B8"></div></div>
+          </div>
+        </div>
+        <div class="bento-sub" style="margin-top:10px">
+          High traction in rural and youth voter groups. Outreach expansion required in urban trade belts.
+        </div>
+      </div>
+
+      <!-- Bento Tile 5: Panthic Consolidation vs Rivals (Span 2) -->
+      <div class="bento-card bento-span-2" data-reveal style="--i:4">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <span class="bento-pill-badge client">COALITION DYNAMICS</span>
+          <span class="chip c">${esc(D.meta.client)}</span>
+        </div>
+        <div class="bento-label" style="font-size:16px;margin-top:2px">Combined ${esc(D.meta.client)} Pool (${cs}%)</div>
+        <div class="stack" style="margin:12px 0 8px">
+          <span style="--w:${cs}%;background:var(--client)">${cs}%</span>
+          <span style="--w:${os}%;background:var(--field)">${os}%</span>
+          <span style="--w:${und}%;background:#9AA7BB">${und}%</span>
+        </div>
+        <div class="legend" style="margin-top:6px">
+          <span><i style="background:var(--client)"></i>${esc(D.meta.client)} (${cs}%)</span>
+          <span><i style="background:var(--field)"></i>Other Parties (${os}%)</span>
+          <span><i style="background:#9AA7BB"></i>Undecided (${und}%)</span>
+        </div>
+        <div class="bento-sub" style="margin-top:10px">
+          Panthic/WPD-aligned intent commands <b>${cs}%</b> of the electorate, giving the movement strong collective plurality over divided mainstream rivals.
+        </div>
+      </div>
+
+      <!-- Bento Tile 6: Field Analyst Synthesis (Span 2) -->
+      <div class="bento-card bento-span-2" data-reveal style="--i:5">
+        <span class="bento-pill-badge slate">GROUND INTELLIGENCE</span>
+        <div class="bento-label" style="font-size:16px;margin-top:2px">Key Field Analyst Notes</div>
+        <ul class="plain-list" style="margin-top:10px">
+          ${(D.analystNotes || []).map(n => `<li style="margin-bottom:8px;font-size:13px;line-height:1.55">${esc(n)}</li>`).join('')}
+        </ul>
+      </div>
+
+      <!-- Bento Tile 7: Decoupled CM Factor (Span 2) -->
+      <div class="bento-card bento-span-2 bento-callout-strategic" data-reveal style="--i:6">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span class="chip c"><b>Strategic Notice</b></span>
+          <span class="bento-pill-badge client">DECOUPLED CM FACTOR</span>
+        </div>
+        <div class="bento-label" style="font-size:16px;margin-top:2px">Statewide CM Faces Diverge from Halqa Choice</div>
+        <p class="muted" style="margin-top:8px;line-height:1.6;font-size:13px">
+          Statewide Chief Minister popularity is independent of constituency-level ballot decisions.
+          Voters who view a state leadership face favorably do not automatically support their party in Roopnagar:
+          <b>45.1% of Bhagwant Mann CM supporters</b> and <b>55.0% of Charanjeet Channi CM supporters</b> favor WPD or independent alternatives at the Halqa level, while AAP's local aspirant Ramkumar Mukari records only <b>32.3% recall</b> even among Mann's supporters.
+        </p>
+      </div>
     </div>`;
 }
 
@@ -124,29 +209,101 @@ function infobox(c) {
   const rows = [['Age', c.age], ['Gender', c.gender], ['Education', c.education], ['Profession', c.profession], ['Home', c.hometown], ['Public role', c.publicRole], ['Languages', c.languages], ['Social reach', c.socialReach]];
   return rows.map(r => `<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join('');
 }
+
 function roster() {
   const initials = c => c.id;
-  return head(4, 'The seven candidates', 'Select any candidate card to open their complete dossier and interview mentions.') + `
+  return head(4, 'The Seven Candidates', 'Select any candidate card to open their complete dossier, survey cross-tabs, and ground interviews.') + `
     <div class="filters" data-reveal><button class="on" data-f="all">All seven candidates</button><button data-f="client">${esc(D.meta.client)}</button><button data-f="field">Other parties</button></div>
-    <div class="roster">${D.candidates.map((c, i) => `
-      <button class="cand" data-id="${c.id}" data-kind="${c.isClient ? 'client' : 'field'}" data-reveal style="--i:${i}">
-        <div class="card">
-          <div class="cand-top">
-            <div class="avatar ${c.isClient ? 'client' : 'field'}">${esc(initials(c))}</div>
-            <span class="chip ${c.isClient ? 'c' : 'f'}">${esc(c.party)}</span>
-          </div>
-          <h3>${esc(c.name)}</h3>
-          <p class="muted small" style="margin:4px 0 10px;line-height:1.4">${esc(c.tagline)}</p>
-          <div class="mini-bar">
-            <div class="mini-bar-fill ${c.isClient ? 'client' : ''}" style="width:${Math.min(c.intent / 25 * 100, 100)}%"></div>
-          </div>
-          <dl>
-            <dt>Vote intent</dt><dd class="mono">${c.intent}%${c.intentRange ? ` <small class="muted" style="font-size:11px">(${c.intentRange[0]}%–${c.intentRange[1]}%)</small>` : ''}</dd>
-            <dt>Name recall</dt><dd class="mono">${c.recall}%</dd>
-            <dt>Profession</dt><dd>${esc(c.profession)}</dd>
-          </dl>
-          <div class="open">View Complete Dossier &rarr;</div>
-        </div></button>`).join('')}</div>`;
+    <div class="bento-roster">
+      ${D.candidates.map((c, i) => {
+        if (c.isClient && c.id === 'SB') {
+          return `
+            <button class="cand bento-cand-hero" data-id="${c.id}" data-kind="client" data-reveal style="--i:${i}">
+              <div class="card">
+                <div class="cand-top">
+                  <div style="display:flex;align-items:center;gap:12px">
+                    <div class="avatar client">${esc(initials(c))}</div>
+                    <div>
+                      <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+                        <span class="chip c">${esc(c.party)}</span>
+                        <span class="bento-pill-badge client">★ FIELD LEADER &amp; CLIENT</span>
+                      </div>
+                      <h3 style="margin:4px 0 0">${esc(c.name)}</h3>
+                    </div>
+                  </div>
+                  <div style="text-align:right">
+                    <div class="bento-stat-hero client" style="font-size:36px">${c.intent}%</div>
+                    <div style="font-size:11px;color:var(--ink3);font-weight:600">VOTE INTENT ${c.intentRange ? `(${c.intentRange[0]}%–${c.intentRange[1]}%)` : ''}</div>
+                  </div>
+                </div>
+                <p class="muted small" style="margin:0 0 10px;line-height:1.45">${esc(c.tagline)}</p>
+                
+                <div class="hero-stats">
+                  <div class="hs-box">
+                    <div class="hs-val client">${c.intent}%</div>
+                    <div class="hs-lbl">Vote Intent</div>
+                  </div>
+                  <div class="hs-box">
+                    <div class="hs-val">${c.recall}%</div>
+                    <div class="hs-lbl">Name Recall</div>
+                  </div>
+                  <div class="hs-box">
+                    <div class="hs-val good">+${c.favourable - c.unfavourable}</div>
+                    <div class="hs-lbl">Net Sentiment (${c.favourable}% Fav)</div>
+                  </div>
+                </div>
+
+                <div class="mini-bar" style="margin-top:14px">
+                  <div class="mini-bar-fill client" style="width:${Math.min(c.intent / 25 * 100, 100)}%"></div>
+                </div>
+
+                <dl style="margin-top:12px">
+                  <dt>Profession</dt><dd>${esc(c.profession)}</dd>
+                  <dt>Hometown</dt><dd>${esc(c.hometown)}</dd>
+                  <dt>Public Role</dt><dd>${esc(c.publicRole)}</dd>
+                </dl>
+                <div class="open" style="margin-top:12px"><b>View Complete Candidate Dossier &rarr;</b></div>
+              </div>
+            </button>`;
+        }
+
+        return `
+          <button class="cand" data-id="${c.id}" data-kind="${c.isClient ? 'client' : 'field'}" data-reveal style="--i:${i}">
+            <div class="card">
+              <div class="cand-top">
+                <div class="avatar ${c.isClient ? 'client' : 'field'}">${esc(initials(c))}</div>
+                <span class="chip ${c.isClient ? 'c' : 'f'}">${esc(c.party)}</span>
+              </div>
+              <h3>${esc(c.name)}</h3>
+              <p class="muted small" style="margin:4px 0 10px;line-height:1.4">${esc(c.tagline)}</p>
+              <div class="mini-bar">
+                <div class="mini-bar-fill ${c.isClient ? 'client' : ''}" style="width:${Math.min(c.intent / 25 * 100, 100)}%"></div>
+              </div>
+              <dl>
+                <dt>Vote intent</dt><dd class="mono">${c.intent}%${c.intentRange ? ` <small class="muted" style="font-size:11px">(${c.intentRange[0]}%–${c.intentRange[1]}%)</small>` : ''}</dd>
+                <dt>Name recall</dt><dd class="mono">${c.recall}%</dd>
+                <dt>Profession</dt><dd>${esc(c.profession)}</dd>
+              </dl>
+              <div class="open">View Complete Dossier &rarr;</div>
+            </div>
+          </button>`;
+      }).join('')}
+
+      <!-- 9th Bento Tile: Comparative Field Assessment -->
+      <div class="bento-intel-card cand-intel" data-reveal style="--i:7">
+        <div>
+          <span class="bento-pill-badge slate">ELECTORAL OUTLOOK</span>
+          <h3 style="font-size:17px;margin:8px 0 6px">Field Assessment</h3>
+          <p class="muted small" style="line-height:1.55">
+            <b>Sukhwinder Singh Barwa</b> leads Panthic freshers by +13 pts over Gogi and +16 pts over Jatana.
+            BJP's Lalpura commands high legacy name recall (73%) but faces partisan resistance.
+          </p>
+        </div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)">
+          <button class="btn small" data-go="4" style="width:100%;text-align:center;font-size:12px;padding:8px 12px">View Full Popularity Chart &rarr;</button>
+        </div>
+      </div>
+    </div>`;
 }
 
 /* ---------- results ---------- */
@@ -551,7 +708,9 @@ function build() {
     const c = e.target.closest('.cand'); if (c) return openDrawer(c.dataset.id);
     const f = e.target.closest('[data-f]'); if (f) {
       $$('[data-f]').forEach(b => b.classList.toggle('on', b === f));
-      $$('.cand').forEach(x => x.classList.toggle('hide', f.dataset.f !== 'all' && x.dataset.kind !== f.dataset.f)); return;
+      $$('.cand').forEach(x => x.classList.toggle('hide', f.dataset.f !== 'all' && x.dataset.kind !== f.dataset.f));
+      const intel = $('.cand-intel'); if (intel) intel.classList.toggle('hide', f.dataset.f !== 'all');
+      return;
     }
     const v = e.target.closest('[data-v]'); if (v) {
       $$('[data-v]').forEach(b => b.classList.toggle('on', b === v));
