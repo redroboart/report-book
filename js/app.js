@@ -24,7 +24,7 @@ function spark(vals, client) {
   const pts = vals.map((v, i) => [p + i * (w - 2 * p) / (vals.length - 1), h - p - (v - min) / span * (h - 2 * p)]);
   const last = pts[pts.length - 1];
   const strokeCol = client ? 'var(--client)' : 'var(--field)';
-  const fillCol = client ? 'rgba(29, 78, 216, 0.12)' : 'rgba(71, 85, 105, 0.08)';
+  const fillCol = client ? 'rgba(79, 70, 229, 0.12)' : 'rgba(71, 85, 105, 0.08)';
   return `<svg class="spark ${client ? 'client' : ''}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true">
     <polygon points="${pts[0][0]},${h} ${pts.map(q => q.join(',')).join(' ')} ${last[0]},${h}" fill="${fillCol}"/>
     <polyline pathLength="1" points="${pts.map(q => q.join(',')).join(' ')}" stroke="${strokeCol}"/>
