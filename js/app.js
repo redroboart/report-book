@@ -874,7 +874,7 @@ function voices() {
     <div class="cards cols-2">${D.voices.map((v, i) => `
       <article class="card voice" data-type="${esc(v.type)}" data-reveal style="--i:${i}">
         <h3>${esc(v.name)}</h3>
-        <div class="meta"><span class="chip">${esc(v.type)}</span><span class="small muted">${esc(v.outlet)}</span><span class="small tone-${esc(v.tone)}"><b>${esc(v.tone)}</b></span></div>
+        <div class="meta"><span class="chip">${esc(v.type)}</span>${v.context ? `<span class="small muted">${esc(v.context)}</span>` : ''}<span class="small tone-${esc(v.tone)}"><b>${esc(v.tone)}</b></span></div>
         <div>${v.mentions.map(chip).join(' ')}</div>
         <ul>${v.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul></article>`).join('')}</div>`;
 }
@@ -996,7 +996,7 @@ function openDrawer(id) {
         ${c.pros ? `<div class="card" style="padding:12px 14px;background:#F0FDF4;border:1px solid #BBF7D0"><b style="color:var(--good);font-size:11.5px;text-transform:uppercase;letter-spacing:0.04em">Key Strengths (Pros):</b><p class="small" style="margin-top:4px;color:var(--ink);line-height:1.55">${esc(c.pros)}</p></div>` : ''}
         ${c.cons ? `<div class="card" style="padding:12px 14px;background:#FFFBEB;border:1px solid #FDE68A"><b style="color:var(--warn);font-size:11.5px;text-transform:uppercase;letter-spacing:0.04em">Strategic Challenges (Cons):</b><p class="small" style="margin-top:4px;color:var(--ink);line-height:1.55">${esc(c.cons)}</p></div>` : ''}
       </div>` : ''}
-    <h4>In The Field Interviews</h4>${vs.length ? vs.map(v => `<div class="card" style="margin-bottom:12px;padding:14px 16px;background:var(--paper)"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><p class="small"><b>${esc(v.name)}</b> <span class="muted">(${esc(v.outlet)})</span></p><span class="chip small">${esc(v.type)}</span></div><ul class="plain-list">${v.bullets.map(b => `<li class="small" style="line-height:1.55;margin-bottom:4px">${esc(b)}</li>`).join('')}</ul></div>`).join('') : '<p class="muted small">No specific individual quotes recorded.</p>'}
+    <h4>In The Field Interviews</h4>${vs.length ? vs.map(v => `<div class="card" style="margin-bottom:12px;padding:14px 16px;background:var(--paper)"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><p class="small"><b>${esc(v.name)}</b>${v.context ? ` <span class="muted">&bull; ${esc(v.context)}</span>` : ''}</p><span class="chip small">${esc(v.type)}</span></div><ul class="plain-list">${v.bullets.map(b => `<li class="small" style="line-height:1.55;margin-bottom:4px">${esc(b)}</li>`).join('')}</ul></div>`).join('') : '<p class="muted small">No specific individual quotes recorded.</p>'}
   </div>`;
   d.classList.add('open'); $('#scrim').classList.add('open'); d.setAttribute('aria-hidden', 'false');
   $('.x', d).addEventListener('click', closeDrawer);

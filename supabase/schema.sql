@@ -975,9 +975,9 @@ VALUES (
   "voices": [
     {
       "id": "v1",
-      "name": "Senior Political Analyst",
+      "name": "Constituency Political Analyst",
       "type": "Political Analyst",
-      "outlet": "Punjab Electoral Review",
+      "context": "Nurpur Bedi & Rural Belt Briefing",
       "date": "2026-10-10",
       "tone": "Mixed",
       "mentions": [
@@ -993,9 +993,9 @@ VALUES (
     },
     {
       "id": "v2",
-      "name": "Student & Youth Organiser",
+      "name": "Youth & Student Coordinators",
       "type": "Youth Activist",
-      "outlet": "Roopnagar Student Front",
+      "context": "Roopnagar Campus & Village Youth Circles",
       "date": "2026-10-10",
       "tone": "Positive",
       "mentions": [
@@ -1011,9 +1011,9 @@ VALUES (
     },
     {
       "id": "v3",
-      "name": "Constituency Political Commentator",
+      "name": "Local Political Commentator",
       "type": "Political Commentator",
-      "outlet": "Nurpur Bedi Chronicle",
+      "context": "Nurpur Bedi Halqa Dynamics",
       "date": "2026-10-11",
       "tone": "Mixed",
       "mentions": [
@@ -1028,9 +1028,9 @@ VALUES (
     },
     {
       "id": "v4",
-      "name": "Panthic & Democratic Rights Observer",
+      "name": "Panthak & Civil Rights Observers",
       "type": "Political Analyst",
-      "outlet": "Panthic Affairs Watch",
+      "context": "Panthak Advocacy & Ground Workers",
       "date": "2026-10-11",
       "tone": "Positive",
       "mentions": [
@@ -1046,9 +1046,9 @@ VALUES (
     },
     {
       "id": "v5",
-      "name": "Dairy Farmers & Agrarian Representative",
+      "name": "Agrarian & Dairy Network Field Notes",
       "type": "Field Reporter",
-      "outlet": "Doaba Rural Bulletin",
+      "context": "Rural Panchayats & Agrarian Networks",
       "date": "2026-10-12",
       "tone": "Positive",
       "mentions": [
@@ -1062,9 +1062,9 @@ VALUES (
     },
     {
       "id": "v6",
-      "name": "Urban Affairs Bureau Chief",
+      "name": "Town & Commercial Ward Observers",
       "type": "Field Reporter",
-      "outlet": "Ropar Times",
+      "context": "Roopnagar City & Municipal Commercial Hub",
       "date": "2026-10-12",
       "tone": "Critical",
       "mentions": [
@@ -14018,9 +14018,9 @@ VALUES (
   "voices": [
     {
       "id": "v1",
-      "name": "Senior Political Analyst",
+      "name": "Constituency Political Analyst",
       "type": "Political Analyst",
-      "outlet": "Punjab Electoral Review",
+      "context": "Nurpur Bedi & Rural Belt Briefing",
       "date": "2026-10-10",
       "tone": "Mixed",
       "mentions": [
@@ -14036,9 +14036,9 @@ VALUES (
     },
     {
       "id": "v2",
-      "name": "Student & Youth Organiser",
+      "name": "Youth & Student Coordinators",
       "type": "Youth Activist",
-      "outlet": "Roopnagar Student Front",
+      "context": "Roopnagar Campus & Village Youth Circles",
       "date": "2026-10-10",
       "tone": "Positive",
       "mentions": [
@@ -14054,9 +14054,9 @@ VALUES (
     },
     {
       "id": "v3",
-      "name": "Constituency Political Commentator",
+      "name": "Local Political Commentator",
       "type": "Political Commentator",
-      "outlet": "Nurpur Bedi Chronicle",
+      "context": "Nurpur Bedi Halqa Dynamics",
       "date": "2026-10-11",
       "tone": "Mixed",
       "mentions": [
@@ -14071,9 +14071,9 @@ VALUES (
     },
     {
       "id": "v4",
-      "name": "Panthic & Democratic Rights Observer",
+      "name": "Panthak & Civil Rights Observers",
       "type": "Political Analyst",
-      "outlet": "Panthic Affairs Watch",
+      "context": "Panthak Advocacy & Ground Workers",
       "date": "2026-10-11",
       "tone": "Positive",
       "mentions": [
@@ -14089,9 +14089,9 @@ VALUES (
     },
     {
       "id": "v5",
-      "name": "Dairy Farmers & Agrarian Representative",
+      "name": "Agrarian & Dairy Network Field Notes",
       "type": "Field Reporter",
-      "outlet": "Doaba Rural Bulletin",
+      "context": "Rural Panchayats & Agrarian Networks",
       "date": "2026-10-12",
       "tone": "Positive",
       "mentions": [
@@ -14105,9 +14105,9 @@ VALUES (
     },
     {
       "id": "v6",
-      "name": "Urban Affairs Bureau Chief",
+      "name": "Town & Commercial Ward Observers",
       "type": "Field Reporter",
-      "outlet": "Ropar Times",
+      "context": "Roopnagar City & Municipal Commercial Hub",
       "date": "2026-10-12",
       "tone": "Critical",
       "mentions": [
