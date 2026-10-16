@@ -81,7 +81,7 @@ function summary() {
       <!-- Bento Tile 1: Hero Client & Field Leader (Span 2) -->
       <div class="bento-card bento-span-2 bento-hero-client" data-reveal style="--i:0">
         <div style="display:flex;justify-content:space-between;align-items:flex-start">
-          <span class="bento-pill-badge client">★ FIELD LEADER &amp; CLIENT SPOTLIGHT</span>
+          <span class="bento-pill-badge client">★ FIELD LEADER SPOTLIGHT</span>
           <span class="chip c">Rank #1 in Halqa</span>
         </div>
         <div style="display:flex;align-items:baseline;gap:8px;margin-top:10px">
@@ -236,7 +236,7 @@ function roster() {
                     <div>
                       <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
                         <span class="chip c">${esc(c.party)}</span>
-                        <span class="bento-pill-badge client">★ FIELD LEADER &amp; CLIENT</span>
+                        <span class="bento-pill-badge client">★ FIELD LEADER</span>
                       </div>
                       <h3 style="margin:4px 0 0">${esc(c.name)}</h3>
                     </div>
@@ -369,7 +369,7 @@ function segments() {
 
   const tableHead = `<thead><tr><th>Demographic Segment</th>${D.candidates.map(c => {
     const isBarwa = c.id === 'SB';
-    return `<th class="n ${isBarwa ? 'col-barwa-head' : ''}">${esc(c.id)}${isBarwa ? ' <span class="badge-barwa">★ Client</span>' : ''}</th>`;
+    return `<th class="n ${isBarwa ? 'col-barwa-head' : ''}">${esc(c.id)}</th>`;
   }).join('')}<th class="n">Uncommitted</th></tr></thead>`;
 
   const panthakNotes = `
@@ -635,7 +635,7 @@ function segments() {
     <div class="card tbl heat" data-reveal>
       <table>${tableHead}<tbody>${body}</tbody></table>
       <div class="legend">
-        <span><i style="background:var(--client);border:1px solid var(--accent-border)"></i><b>Sukhwinder S. Barwa (Client)</b> [Highlighted Column]</span>
+        <span><i style="background:var(--client);border:1px solid var(--accent-border)"></i><b>Sukhwinder S. Barwa</b> [Highlighted Column]</span>
         <span><i style="background:color-mix(in srgb, #6366F1 45%, transparent)"></i>Other Panthak Aspirants (GG, DJ, JA)</span>
         <span><i style="background:color-mix(in srgb, var(--field) 55%, transparent)"></i>Rival Parties (AL, AS, RM)</span>
         <span>All figures represent candidate favorability &amp; recall percentages within demographic groups.</span>
@@ -657,7 +657,7 @@ function geoMap() {
       <div class="zone-n">${z.n} <small style="font-size:12px;font-weight:500;color:var(--ink3)">interviews (${z.pctOfTotal}%)</small></div>
       <div class="zone-bars">
         <div class="zone-bar-row">
-          <span><b>Barwa (Client)</b></span>
+          <span><b>Sukhwinder S. Barwa</b></span>
           <span class="mono">${z.shares.SSB}%</span>
         </div>
         <div class="zone-bar-fill"><div style="width:${z.shares.SSB / 35 * 100}%;background:var(--client)"></div></div>
