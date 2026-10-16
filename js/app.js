@@ -206,7 +206,17 @@ function method() {
 
 /* ---------- roster ---------- */
 function infobox(c) {
-  const rows = [['Age', c.age], ['Gender', c.gender], ['Education', c.education], ['Profession', c.profession], ['Home', c.hometown], ['Public role', c.publicRole], ['Languages', c.languages], ['Social reach', c.socialReach]];
+  const rows = [
+    ['Age', c.age],
+    ['Community', c.community],
+    ['Base Area', c.areaOfOperations || c.hometown],
+    ['Profession', c.profession],
+    ['Key Enterprises', c.enterprises],
+    ['Public Role', c.publicRole],
+    ['Education', c.education],
+    ['Languages', c.languages],
+    ['Social Reach', c.socialReach]
+  ].filter(r => r[1]);
   return rows.map(r => `<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join('');
 }
 
@@ -563,8 +573,14 @@ function updateGeoLayer(mode) {
 
 /* ---------- voices ---------- */
 function voices() {
-  return head(8, 'Voices from the ground', 'Unstructured interviews with local reporters and opinion makers, summarised as bullets.') + `
-    <div class="filters" data-reveal><button class="on" data-v="all">Everyone</button><button data-v="Reporter">Reporters</button><button data-v="Opinion maker">Opinion makers</button></div>
+  return head(8, 'Voices from the ground', 'In-depth perspectives from political analysts, youth organizers, commentators, and field reporters.') + `
+    <div class="filters" data-reveal>
+      <button class="on" data-v="all">All Perspectives</button>
+      <button data-v="Political Analyst">Political Analysts</button>
+      <button data-v="Youth Activist">Youth &amp; Students</button>
+      <button data-v="Political Commentator">Political Commentators</button>
+      <button data-v="Field Reporter">Field Reporters</button>
+    </div>
     <div class="cards cols-2">${D.voices.map((v, i) => `
       <article class="card voice" data-type="${esc(v.type)}" data-reveal style="--i:${i}">
         <h3>${esc(v.name)}</h3>
@@ -675,9 +691,22 @@ function openDrawer(id) {
       <div><div class="big">${c.recall}%</div><div class="small muted">name recall</div>${c.recallRange ? `<div style="font-size:11px;color:var(--accent);margin-top:3px" class="mono">${c.recallRange[0]}%–${c.recallRange[1]}%</div>` : ''}</div>
       <div><div class="big">${c.favourable - c.unfavourable > 0 ? '+' : ''}${c.favourable - c.unfavourable}</div><div class="small muted">net favourability</div>${c.favourableRange ? `<div style="font-size:11px;color:var(--good);margin-top:3px" class="mono">${c.favourableRange[0]}%–${c.favourableRange[1]}% fav</div>` : ''}</div>
     </div>
-    <h4>Pulse Checks & Trend</h4>${spark(c.trend, c.isClient)}
-    <h4>Candidate Profile</h4><dl>${infobox(c)}</dl>
-    <h4>In The Field Interviews</h4>${vs.length ? vs.map(v => `<div class="card" style="margin-bottom:12px;padding:14px 16px;background:var(--paper)"><p class="small"><b>${esc(v.name)}</b> <span class="muted">(${esc(v.outlet)})</span></p><ul class="plain-list">${v.bullets.filter(b => b.includes(c.id)).map(b => `<li class="small">${esc(b)}</li>`).join('') || `<li class="small muted">Mentioned alongside other candidates. See the Voices chapter.</li>`}</ul></div>`).join('') : '<p class="muted small">No specific individual quotes recorded.</p>'}
+    <h4>Pulse Checks &amp; Trend</h4>${spark(c.trend, c.isClient)}
+    <h4>Candidate Profile &amp; Background</h4>
+    ${c.bio ? `<p style="line-height:1.6;font-size:13px;color:var(--ink2);margin-bottom:12px;background:var(--paper);padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius-sm)">${esc(c.bio)}</p>` : ''}
+    <dl>${infobox(c)}</dl>
+    ${c.panthakRecord ? `
+      <h4>Panthak &amp; Civil Rights Record</h4>
+      <div class="card" style="padding:14px 16px;background:var(--paper);border-left:4px solid var(--client);margin-bottom:14px">
+        <p class="small" style="line-height:1.6;color:var(--ink2)">${esc(c.panthakRecord)}</p>
+      </div>` : ''}
+    ${c.pros || c.cons ? `
+      <h4>Strategic Assessment</h4>
+      <div style="display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:14px">
+        ${c.pros ? `<div class="card" style="padding:12px 14px;background:#F0FDF4;border:1px solid #BBF7D0"><b style="color:var(--good);font-size:11.5px;text-transform:uppercase;letter-spacing:0.04em">Key Strengths (Pros):</b><p class="small" style="margin-top:4px;color:var(--ink);line-height:1.55">${esc(c.pros)}</p></div>` : ''}
+        ${c.cons ? `<div class="card" style="padding:12px 14px;background:#FFFBEB;border:1px solid #FDE68A"><b style="color:var(--warn);font-size:11.5px;text-transform:uppercase;letter-spacing:0.04em">Strategic Challenges (Cons):</b><p class="small" style="margin-top:4px;color:var(--ink);line-height:1.55">${esc(c.cons)}</p></div>` : ''}
+      </div>` : ''}
+    <h4>In The Field Interviews</h4>${vs.length ? vs.map(v => `<div class="card" style="margin-bottom:12px;padding:14px 16px;background:var(--paper)"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><p class="small"><b>${esc(v.name)}</b> <span class="muted">(${esc(v.outlet)})</span></p><span class="chip small">${esc(v.type)}</span></div><ul class="plain-list">${v.bullets.map(b => `<li class="small" style="line-height:1.55;margin-bottom:4px">${esc(b)}</li>`).join('')}</ul></div>`).join('') : '<p class="muted small">No specific individual quotes recorded.</p>'}
   </div>`;
   d.classList.add('open'); $('#scrim').classList.add('open'); d.setAttribute('aria-hidden', 'false');
   $('.x', d).addEventListener('click', closeDrawer);
