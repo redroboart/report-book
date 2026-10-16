@@ -908,6 +908,224 @@ td.n, th.n { text-align: right; font-family: var(--mono); }
 .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
 
 /* ==========================================================================
+   SEGMENTS: BARWA SHADED COLUMN & PANTHAK PENETRATION STYLES
+   ========================================================================== */
+.heat th.col-barwa-head {
+  background: var(--client-soft) !important;
+  color: var(--client) !important;
+  border-bottom: 2px solid var(--client) !important;
+  border-left: 2px solid var(--accent-border);
+  border-right: 2px solid var(--accent-border);
+  font-weight: 800;
+  text-align: center;
+}
+.badge-barwa {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--client);
+  color: #FFFFFF;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.heat td.col-barwa {
+  border-left: 2px solid var(--accent-border);
+  border-right: 2px solid var(--accent-border);
+  font-weight: 800;
+  color: #1E1B4B;
+  box-shadow: inset 0 0 0 1px rgba(79, 70, 229, 0.08);
+}
+.heat tr:hover td.col-barwa {
+  border-left-color: var(--client);
+  border-right-color: var(--client);
+}
+
+.panthak-section {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.panthak-header {
+  margin-bottom: 4px;
+}
+.panthak-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--client);
+  background: var(--client-soft);
+  border: 1px solid var(--accent-border);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+.panthak-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.panthak-kpi-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.panthak-kpi-card.hero {
+  border-color: var(--accent-border);
+  background: linear-gradient(135deg, #FFFFFF 0%, #EEF2FF 100%);
+  border-top: 3px solid var(--client);
+}
+.panthak-kpi-val {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.panthak-kpi-val.client { color: var(--client); }
+.panthak-kpi-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.panthak-kpi-sub {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ink2);
+}
+
+.panthak-bento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.panthak-cand-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.2s var(--ease);
+}
+.panthak-cand-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: #CBD5E1;
+}
+.panthak-cand-card.client-featured {
+  border-color: var(--client-border);
+  border-top: 4px solid var(--client);
+  background: linear-gradient(145deg, #FFFFFF 0%, #F5F3FF 40%, #EEF2FF 100%);
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.08);
+}
+.cand-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.cand-card-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.age-bars-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--paper);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-subtle);
+}
+.age-bar-item {
+  display: grid;
+  grid-template-columns: 80px 1fr 48px;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.age-bar-label {
+  color: var(--ink2);
+  font-weight: 600;
+}
+.age-bar-track {
+  height: 6px;
+  background: var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.age-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+.age-bar-val {
+  text-align: right;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 11.5px;
+}
+.caste-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.caste-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--line-subtle);
+  color: var(--ink2);
+  border: 1px solid var(--line);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.caste-pill.lead {
+  background: var(--client-soft);
+  color: var(--client);
+  border-color: var(--accent-border);
+  font-weight: 700;
+}
+.caste-pill b {
+  font-family: var(--mono);
+}
+.cand-analysis-text {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink2);
+}
+.cand-analysis-text b {
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .panthak-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .panthak-bento { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .panthak-kpi-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
    SPARKLINES
    ========================================================================== */
 .spark { width: 100%; height: 46px; display: block; overflow: visible; margin-top: 6px; }

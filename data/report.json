@@ -69,7 +69,7 @@
       "community": "Sikh",
       "bio": "Based in Nurpur Bedi, Sukhwinder Singh Barwa is a prominent rural entrepreneur and community organizer. His public engagement surged immediately following the 2020 Delhi Kisan Morcha, where he was actively involved through 'Sanjhi Sath' and subsequently organized extensive flood relief campaigns across Roopnagar. He operates Barwa Dairy & Agri Solutions and Barwa Agriculture Farm, dealing in seeds and dairy equipment and maintaining close ties with local dairy farmers. Over the past three years, he has worked closely with Manpreet Singh Ayali across key Panthak and democratic causes.",
       "panthakRecord": "Active across major Panthak & civil rights issues: Beadbi, Bandi Singhs, Satluj film screening, Fake Encounters, Release of Bhai Amritpal Singh, opposing Ram Rahim & Bikram Majithia release/parole, Panjab University autonomy, and BBMB rights. Consistently vocal against RSS influence and attacks on democratic rights.",
-      "pros": "Young, activist, rural entrepreneur, and philanthropic outlook gives him the highest penetrating power across varied demographics in Roopnagar. Minimal voter resistance (only 15% unfavourable, +50 net score).",
+      "pros": "Young, activist, rural entrepreneur, and philanthropic outlook gives him the highest penetrating power across varied demographics in Roopnagar. Commands unbroken >=50% reach across all age tiers (50.0% in 18–25, 53.4% in 26–35, 57.1% in 36–50, 50.3% in 51+), and leads the Panthak field across Saini (63.3%), Gujjar (57.1%), General (56.8%), OBC (50.0%), and SC (47.4%) voters with equal Sikh (53.4%) and Hindu (52.5%) acceptance.",
       "cons": "Faces the threat of traditional party money power, liquor distribution, and patronage machinery intensifying in late-stage campaign phases."
     },
     {
@@ -119,7 +119,7 @@
       "community": "Sikh",
       "bio": "A seasoned municipal representative from Roopnagar Town, Gurinder Singh Gogi has remained a familiar figure in local urban politics for decades. While adept at maintaining political relevance across changing administrations, his digital and social media footprint remains muted.",
       "pros": "Resilient political survivor who has consistently found mechanisms to retain local visibility and cadre connections across multiple election cycles.",
-      "cons": "Chronic party hopper\u2014has switched between Akali Dal, Congress, AAP, and back to Akali Dal multiple times. In a cycle where the WPD wave is seen as a youth-led call for principled change, his transactional history fails to resonate with younger voters."
+      "cons": "Chronic party hopper—has switched between Akali Dal, Congress, AAP, and back to Akali Dal multiple times. Suffers a steep youth deficit (only 23.4% in 18–25, trailing Barwa by 26.6 pts). While retaining Gujjar (62.9%) and urban trader recall, his lack of authentic Panthak credibility caps him in General (35.9%) and SC (30.9%) rural segments."
     },
     {
       "id": "DJ",
@@ -169,7 +169,7 @@
       "bio": "Dalvir Singh Jatana is the cousin of revered martyr Shaheed Bhai Balwinder Singh Jatana. Newly activated in formal electoral politics, his public and social media presence has emerged only recently as an aspirant for the Waris Punjab De banner.",
       "panthakRecord": "Draws direct moral authority from the legacy of Bhai Balwinder Singh Jatana, carrying high symbolic reverence among orthodox Panthak households.",
       "pros": "Immediate emotional resonance among orthodox Panthak families and SYL canal resistance history.",
-      "cons": "Internal family disputes and infighting have spilled into the public domain, creating confusion and limiting his ability to build a unified campaign apparatus."
+      "cons": "Internal family disputes and infighting have spilled into the public domain, creating confusion. Demographic penetration remains flat and capped under 28% across all brackets (18.1% in 18–25, 19.9% in 26–35, 27.6% in 36–50). Confined almost exclusively to rural agrarian Sikh circles (27.0% Sikh, 23.9% Gen) with minimal traction in OBC (14.0%) or SC (22.4%)."
     },
     {
       "id": "JA",
@@ -217,8 +217,8 @@
       "areaOfOperations": "Aulakh & traditional Panthak circles",
       "community": "Sikh",
       "bio": "A veteran of regional Akali and Panthak agitations, Jarnail Singh Aulakh has decades of organizational history in rural Roopnagar. While respected among senior citizens, he lacks contemporary digital infrastructure.",
-      "pros": "Strong, trusted name recognition among senior voters (56% recall in ages 51+) and traditional Akali elders.",
-      "cons": "Low conversion from familiarity into voting intent (only 4% intent), showing signs of voter fatigue and gradual attrition across tracking waves."
+      "pros": "Strong, trusted name recognition among senior voters (56.0% recall in 51+) and traditional Backward Class networks (54.1% in BC), representing classic Taksali Panthak resilience.",
+      "cons": "Severe generational divide: registers the lowest youth recall of any aspirant in the fray (16.0% in 18–25 and 30.1% in 26–35). Lacks contemporary campaign machinery to compete with modern youth-oriented electioneering."
     },
     {
       "id": "AL",
@@ -371,7 +371,7 @@
   "segments": [
     {
       "group": "Age",
-      "label": "18\u201325",
+      "label": "18–25",
       "n": 282,
       "values": {
         "SB": 50,
@@ -411,11 +411,12 @@
           12.8,
           21.3
         ]
-      }
+      },
+      "uncommitted": 10
     },
     {
       "group": "Age",
-      "label": "26\u201335",
+      "label": "26–35",
       "n": 438,
       "values": {
         "SB": 53,
@@ -455,11 +456,12 @@
           19.4,
           27.4
         ]
-      }
+      },
+      "uncommitted": 8
     },
     {
       "group": "Age",
-      "label": "36\u201350",
+      "label": "36–50",
       "n": 588,
       "values": {
         "SB": 57,
@@ -499,7 +501,8 @@
           30.3,
           37.9
         ]
-      }
+      },
+      "uncommitted": 11
     },
     {
       "group": "Age",
@@ -543,7 +546,8 @@
           34.0,
           42.8
         ]
-      }
+      },
+      "uncommitted": 11
     },
     {
       "group": "Religion",
@@ -587,7 +591,8 @@
           19.0,
           24.2
         ]
-      }
+      },
+      "uncommitted": 12
     },
     {
       "group": "Religion",
@@ -631,7 +636,8 @@
           36.1,
           42.9
         ]
-      }
+      },
+      "uncommitted": 7
     },
     {
       "group": "Caste",
@@ -675,7 +681,8 @@
           27.1,
           33.8
         ]
-      }
+      },
+      "uncommitted": 10
     },
     {
       "group": "Caste",
@@ -719,7 +726,8 @@
           18.0,
           25.7
         ]
-      }
+      },
+      "uncommitted": 13
     },
     {
       "group": "Caste",
@@ -763,7 +771,8 @@
           26.6,
           38.7
         ]
-      }
+      },
+      "uncommitted": 10
     },
     {
       "group": "Caste",
@@ -807,7 +816,8 @@
           23.3,
           37.3
         ]
-      }
+      },
+      "uncommitted": 6
     },
     {
       "group": "Caste",
@@ -851,7 +861,8 @@
           31.3,
           46.3
         ]
-      }
+      },
+      "uncommitted": 14
     },
     {
       "group": "Caste",
@@ -895,7 +906,8 @@
           31.4,
           49.5
         ]
-      }
+      },
+      "uncommitted": 0
     }
   ],
   "analystNotes": [
@@ -904,7 +916,9 @@
     "Statewide CM popularity operates independently of Halqa preference: 45.1% of Bhagwant Mann backers and 55.0% of Charanjeet Channi backers decouple locally, creating an open runway for grassroots community faces over established party symbols.",
     "Dalvir Singh Jatana draws significant symbolic reverence as the cousin of Shaheed Bhai Balwinder Singh Jatana, but public family infighting and recent political activation have capped his conversion into active voter favorability at 17.6%.",
     "Three emerging local figures are shaping Nurpur Bedi: Gaurav Rana (launched under Amitoj Mann's Punjab Sanjhiwal), Kamal Chauhan (galvanizing the significant Gujjar community, buoyed by Sachin Pilot taking charge of Congress Punjab), and Ajmer Singh Saidpuria (WPD aspirant).",
-    "Student and youth organizers report high optimism for a WPD breakthrough, but warn that traditional party money power, liquor distribution, and patronage machines in the final 72 hours pose the greatest tactical challenge."
+    "Student and youth organizers report high optimism for a WPD breakthrough, but warn that traditional party money power, liquor distribution, and patronage machines in the final 72 hours pose the greatest tactical challenge.",
+    "Panthak Candidates Age Penetration: Sukhwinder Singh Barwa commands a decisive youth lock with 50.0% recall in 18–25 and 53.4% in 26–35 (averaging 51.9% under 35), outpacing Gurinder Gogi (27.8% youth avg) by +24.1 points, Jarnail Aulakh (24.4% youth avg) by +27.5 points, and Dalvir Jatana (19.2% youth avg) by +32.7 points. Aulakh leads among seniors aged 51+ (56.0%), but collapses among 18–25 youth (16.0%).",
+    "Panthak Candidates Caste & Demographic Coalitions: Barwa shatters traditional Panthak demographic compartmentalization by leading across Saini (63.3%), Gujjar (57.1%), General (56.8%), OBC (50.0%), and SC (47.4%) communities, accompanied by rare secular cross-religious balance (53.4% Sikh, 52.5% Hindu). In contrast, Gogi relies on urban Gujjar merchant networks (62.9%), while Jatana remains isolated in a narrow rural agrarian pocket (23.9% Gen, 14.0% OBC)."
   ],
   "voices": [
     {
@@ -956,7 +970,7 @@
       ],
       "bullets": [
         "Nurpur Bedi is witnessing fresh political dynamics: Gaurav Rana has been fielded by Amitoj Mann and Khushinder Singh's newly announced 'Punjab Sanjhiwal'.",
-        "Kamal Chauhan is actively cultivating the Gujjar community\u2014a major demographic in Nurpur Bedi\u2014through youth club tournament sponsorships, energized by Sachin Pilot's appointment as Congress Punjab in-charge.",
+        "Kamal Chauhan is actively cultivating the Gujjar community—a major demographic in Nurpur Bedi—through youth club tournament sponsorships, energized by Sachin Pilot's appointment as Congress Punjab in-charge.",
         "Ajmer Singh Saidpuria's name surfaced as a WPD aspirant, but survey metrics show Barwa holds an unassailable organizational lead in the area."
       ]
     },
@@ -1047,7 +1061,7 @@
     "simulation": "10,000 Monte Carlo bootstrap iterations generating empirical 95% Confidence Intervals (lowest and highest bounds) for each candidate and segment.",
     "qualitative": "Field interviews and structured feedback from local reporters, youth coordinators, and opinion leaders.",
     "limits": [
-      "Margin of error is narrowed to \u00b12.3% at a 95% confidence level under N=1,797.",
+      "Margin of error is narrowed to ±2.3% at a 95% confidence level under N=1,797.",
       "Ranges represent the 2.5th to 97.5th percentiles of 10,000 Monte Carlo iterations.",
       "Recall figures reflect unprompted & multi-select recognition as of fieldwork dates.",
       "CM face popularity is decoupled from constituency-level vote intent: Approval of a state-level leader (e.g. Bhagwant Mann or Charanjeet Channi) does not correlate with automatic party support at the Halqa level, where local candidate goodwill, personal accessibility, and booth-level dynamics dominate."

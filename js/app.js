@@ -340,18 +340,308 @@ function segments() {
   const groups = [...new Set(D.segments.map(s => s.group))];
   let body = '';
   groups.forEach(g => {
-    body += `<tr class="grp"><td colspan="${D.candidates.length + 3}">${esc(g)}</td></tr>`;
+    body += `<tr class="grp"><td colspan="${D.candidates.length + 2}">${esc(g)} Breakdown</td></tr>`;
     D.segments.filter(s => s.group === g).forEach(s => {
-      const vals = D.candidates.map(c => s.values[c.id]), top = Math.max(...vals), tot = sum(vals);
-      body += `<tr><td>${esc(s.label)} <small class="muted" style="font-size:11px">(N=${s.n || '–'})</small></td>${D.candidates.map(c => { const v = s.values[c.id]; const a = Math.round(v / 30 * 85);
+      const vals = D.candidates.map(c => s.values[c.id]), top = Math.max(...vals);
+      body += `<tr><td><b>${esc(s.label)}</b> <small class="muted mono" style="font-size:11px">(N=${(s.n || 0).toLocaleString()})</small></td>${D.candidates.map(c => {
+        const v = s.values[c.id];
+        const isBarwa = c.id === 'SB';
+        const isOtherPanthak = c.isClient && !isBarwa;
+        const a = Math.round(v / 70 * 85);
         const rng = s.ranges && s.ranges[c.id] ? ` title="${esc(c.name)}: ${s.ranges[c.id][0]}%–${s.ranges[c.id][1]}% (95% CI)"` : '';
-        return `<td class="cell ${v === top ? 'lead' : ''}" style="background:color-mix(in srgb, ${c.isClient ? 'var(--client)' : 'var(--field)'} ${a}%, transparent)"${rng}>${v}</td>`; }).join('')}
-        <td class="n">${100 - tot}</td></tr>`;
+        
+        let bg = '';
+        if (isBarwa) {
+          bg = `background:color-mix(in srgb, var(--client) ${Math.max(20, a)}%, #EEF2FF);`;
+        } else if (isOtherPanthak) {
+          bg = `background:color-mix(in srgb, #6366F1 ${Math.round(a * 0.42)}%, transparent);`;
+        } else {
+          bg = `background:color-mix(in srgb, var(--field) ${Math.round(a * 0.52)}%, transparent);`;
+        }
+        
+        const leadClass = v === top ? 'lead' : '';
+        const barwaClass = isBarwa ? 'col-barwa' : '';
+        return `<td class="cell ${barwaClass} ${leadClass}" style="${bg}"${rng}>${v}%</td>`;
+      }).join('')}
+      <td class="n mono muted" style="font-size:12px">${s.uncommitted !== undefined ? s.uncommitted + '%' : '–'}</td></tr>`;
     });
   });
-  return head(6, 'Who backs whom', 'Vote intent by age, gender and area. The outlined cell marks the leader in each row.') + `
-    <div class="card tbl heat" data-reveal><table><thead><tr><th>Segment</th>${D.candidates.map(c => `<th class="n">${c.id}</th>`).join('')}<th class="n">Undecided</th></tr></thead><tbody>${body}</tbody></table>
-    <div class="legend"><span><i style="background:var(--client)"></i>${esc(D.meta.client)} candidates</span><span><i style="background:var(--field)"></i>Other parties</span><span>Darker means higher intent. Figures are percentages.</span></div></div>`;
+
+  const tableHead = `<thead><tr><th>Demographic Segment</th>${D.candidates.map(c => {
+    const isBarwa = c.id === 'SB';
+    return `<th class="n ${isBarwa ? 'col-barwa-head' : ''}">${esc(c.id)}${isBarwa ? ' <span class="badge-barwa">★ Client</span>' : ''}</th>`;
+  }).join('')}<th class="n">Uncommitted</th></tr></thead>`;
+
+  const panthakNotes = `
+    <div class="panthak-section" data-reveal>
+      <div class="panthak-header">
+        <span class="panthak-pill">DEMOGRAPHIC PENETRATION DEEP-DIVE</span>
+        <h3 style="margin:8px 0 4px">Caste &amp; Age Penetration: Four Panthak Candidates</h3>
+        <p class="muted">Field interview crosstab synthesis evaluating generational mobilization, rural vs urban alignment, and community coalition consolidation across Roopnagar constituency.</p>
+      </div>
+
+      <!-- Metric Highlights Grid -->
+      <div class="panthak-kpi-grid">
+        <div class="panthak-kpi-card hero">
+          <div class="panthak-kpi-val client">51.9%</div>
+          <div class="panthak-kpi-title">Barwa Youth Average (&lt;35)</div>
+          <div class="panthak-kpi-sub"><b>+24.1 pt lead</b> over Gogi (27.8%), +27.5 pts over Aulakh (24.4%), +32.7 pts over Jatana (19.2%). Only Panthak candidate with over 50% youth recall.</div>
+        </div>
+
+        <div class="panthak-kpi-card">
+          <div class="panthak-kpi-val" style="color:#0284C7">63.3%</div>
+          <div class="panthak-kpi-title">Saini Community Anchor</div>
+          <div class="panthak-kpi-sub">Barwa's peak caste penetration (63.3%) outpaces AAP Mukari (39.0%) and rival Panthak contenders (Gogi 44.9%, Aulakh 44.9%).</div>
+        </div>
+
+        <div class="panthak-kpi-card">
+          <div class="panthak-kpi-val" style="color:#D97706">56.0%</div>
+          <div class="panthak-kpi-title">Senior Polarization (51+)</div>
+          <div class="panthak-kpi-sub">Veteran Jarnail Aulakh peaks among 51+ elders (56.0%), but experiences a severe drop to 16.0% among first-time voters (18–25).</div>
+        </div>
+
+        <div class="panthak-kpi-card">
+          <div class="panthak-kpi-val" style="color:#059669">53.4% / 52.5%</div>
+          <div class="panthak-kpi-title">Cross-Faith Parity (Sikh / Hindu)</div>
+          <div class="panthak-kpi-sub">Barwa achieves an exceptionally balanced cross-religious profile, overcoming traditional Panthak geographic and communal pigeonholing.</div>
+        </div>
+      </div>
+
+      <!-- 4 Panthak Candidate Dossier Bento -->
+      <div class="panthak-bento">
+        <!-- 1. Sukhwinder Singh Barwa -->
+        <div class="panthak-cand-card client-featured">
+          <div class="cand-card-top">
+            <div>
+              <div class="cand-card-name">${chip('SB')} Sukhwinder Singh Barwa</div>
+              <small class="muted">Waris Punjab De / Core Panthak &bull; Nurpur Bedi Belt &bull; Age: 30s</small>
+            </div>
+            <span class="chip c" style="font-weight:700">★ Panthak Leader</span>
+          </div>
+
+          <div class="age-bars-wrap">
+            <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:2px">Age Cohort Penetration</div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">18–25 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:50%;background:var(--client)"></div></div>
+              <span class="age-bar-val">50.0%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">26–35 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:53.4%;background:var(--client)"></div></div>
+              <span class="age-bar-val">53.4%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">36–50 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:57.1%;background:var(--client)"></div></div>
+              <span class="age-bar-val">57.1%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">51+ yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:50.3%;background:var(--client)"></div></div>
+              <span class="age-bar-val">50.3%</span>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:6px">Caste &amp; Community Reach</div>
+            <div class="caste-pills-wrap">
+              <span class="caste-pill lead">Saini: <b>63.3%</b></span>
+              <span class="caste-pill lead">Gujjar: <b>57.1%</b></span>
+              <span class="caste-pill lead">General: <b>56.8%</b></span>
+              <span class="caste-pill">OBC: <b>50.0%</b></span>
+              <span class="caste-pill">SC: <b>47.4%</b></span>
+              <span class="caste-pill">BC: <b>43.2%</b></span>
+              <span class="caste-pill">Sikh: <b>53.4%</b></span>
+              <span class="caste-pill">Hindu: <b>52.5%</b></span>
+            </div>
+          </div>
+
+          <div class="cand-analysis-text">
+            <b>Generational &amp; Caste Synthesis:</b> Barwa is the <b>only Panthak aspirant with an unbroken &ge;50% footprint across all age brackets</b>. His roots in <i>Sanjhi Sath</i> (Delhi Kisan Morcha), flood-relief operations, and local agribusiness (<i>Barwa Dairy &amp; Agri Solutions</i>) give him massive youth credibility (+26.6% over Gogi in 18–25). His strong standing among Sainis (63.3%) and Gujjars (57.1%) enables WPD to break out of single-caste limitations and contest both rural and semi-urban voter bases.
+          </div>
+        </div>
+
+        <!-- 2. Gurinder Singh Gogi -->
+        <div class="panthak-cand-card">
+          <div class="cand-card-top">
+            <div>
+              <div class="cand-card-name">${chip('GG')} Gurinder Singh Gogi</div>
+              <small class="muted">Akali Background &bull; Roopnagar Town &bull; Age: 50s</small>
+            </div>
+            <span class="chip" style="font-size:11px">Municipal Veteran</span>
+          </div>
+
+          <div class="age-bars-wrap">
+            <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:2px">Age Cohort Penetration</div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">18–25 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:23.4%;background:#6366F1"></div></div>
+              <span class="age-bar-val">23.4%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">26–35 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:30.8%;background:#6366F1"></div></div>
+              <span class="age-bar-val">30.8%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">36–50 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:44.4%;background:#6366F1"></div></div>
+              <span class="age-bar-val">44.4%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">51+ yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:43.4%;background:#6366F1"></div></div>
+              <span class="age-bar-val">43.4%</span>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:6px">Caste &amp; Community Reach</div>
+            <div class="caste-pills-wrap">
+              <span class="caste-pill lead">Gujjar: <b>62.9%</b></span>
+              <span class="caste-pill">Saini: <b>44.9%</b></span>
+              <span class="caste-pill">Hindu: <b>41.7%</b></span>
+              <span class="caste-pill">BC: <b>36.5%</b></span>
+              <span class="caste-pill">OBC: <b>36.0%</b></span>
+              <span class="caste-pill">General: <b>35.9%</b></span>
+              <span class="caste-pill">Sikh: <b>32.9%</b></span>
+              <span class="caste-pill">SC: <b>30.9%</b></span>
+            </div>
+          </div>
+
+          <div class="cand-analysis-text">
+            <b>Generational &amp; Caste Synthesis:</b> Gogi displays a <b>severe youth deficit</b> (under 25% in 18–25), trailing Barwa by 26.6 points among young voters who criticize his repeated party-hopping (SAD &harr; Congress &harr; AAP). His commercial and municipal ties give him high recall among urban Gujjars (62.9%) and Hindus (41.7%), but his numbers in core rural Panthak segments (32.9% Sikh, 35.9% General) lag far behind.
+          </div>
+        </div>
+
+        <!-- 3. Dalvir Singh Jatana -->
+        <div class="panthak-cand-card">
+          <div class="cand-card-top">
+            <div>
+              <div class="cand-card-name">${chip('DJ')} Dalvir Singh Jatana</div>
+              <small class="muted">Akali Background &bull; Jatana Village &bull; Age: 55</small>
+            </div>
+            <span class="chip" style="font-size:11px">Heritage Legacy</span>
+          </div>
+
+          <div class="age-bars-wrap">
+            <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:2px">Age Cohort Penetration</div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">18–25 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:18.1%;background:#818CF8"></div></div>
+              <span class="age-bar-val">18.1%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">26–35 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:19.9%;background:#818CF8"></div></div>
+              <span class="age-bar-val">19.9%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">36–50 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:27.6%;background:#818CF8"></div></div>
+              <span class="age-bar-val">27.6%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">51+ yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:23.9%;background:#818CF8"></div></div>
+              <span class="age-bar-val">23.9%</span>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:6px">Caste &amp; Community Reach</div>
+            <div class="caste-pills-wrap">
+              <span class="caste-pill">Sikh: <b>27.0%</b></span>
+              <span class="caste-pill">Saini: <b>26.5%</b></span>
+              <span class="caste-pill">BC: <b>25.7%</b></span>
+              <span class="caste-pill">General: <b>23.9%</b></span>
+              <span class="caste-pill">Gujjar: <b>22.9%</b></span>
+              <span class="caste-pill">SC: <b>22.4%</b></span>
+              <span class="caste-pill">Hindu: <b>19.4%</b></span>
+              <span class="caste-pill">OBC: <b>14.0%</b></span>
+            </div>
+          </div>
+
+          <div class="cand-analysis-text">
+            <b>Generational &amp; Caste Synthesis:</b> Despite carrying the powerful symbolic legacy of martyr Shaheed Bhai Balwinder Singh Jatana, Dalvir's support is <b>flat and capped under 28% across all age cohorts and caste groups</b>. Internal family succession disputes and lack of boots-on-the-ground campaign infrastructure restrict his outreach almost exclusively to a localized rural agrarian pocket.
+          </div>
+        </div>
+
+        <!-- 4. Jarnail Singh Aulakh -->
+        <div class="panthak-cand-card">
+          <div class="cand-card-top">
+            <div>
+              <div class="cand-card-name">${chip('JA')} Jarnail Singh Aulakh</div>
+              <small class="muted">Akali Veteran &bull; Aulakh Village &bull; Age: 52</small>
+            </div>
+            <span class="chip" style="font-size:11px">Taksali Veteran</span>
+          </div>
+
+          <div class="age-bars-wrap">
+            <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:2px">Age Cohort Penetration</div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">18–25 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:16%;background:#A5B4FC"></div></div>
+              <span class="age-bar-val">16.0%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">26–35 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:30.1%;background:#A5B4FC"></div></div>
+              <span class="age-bar-val">30.1%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">36–50 yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:48.5%;background:#6366F1"></div></div>
+              <span class="age-bar-val">48.5%</span>
+            </div>
+            <div class="age-bar-item">
+              <span class="age-bar-label">51+ yrs</span>
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:56%;background:var(--client)"></div></div>
+              <span class="age-bar-val">56.0%</span>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:6px">Caste &amp; Community Reach</div>
+            <div class="caste-pills-wrap">
+              <span class="caste-pill lead">BC: <b>54.1%</b></span>
+              <span class="caste-pill">Gujjar: <b>45.7%</b></span>
+              <span class="caste-pill">Hindu: <b>45.7%</b></span>
+              <span class="caste-pill">Saini: <b>44.9%</b></span>
+              <span class="caste-pill">SC: <b>40.1%</b></span>
+              <span class="caste-pill">OBC: <b>38.0%</b></span>
+              <span class="caste-pill">Sikh: <b>36.2%</b></span>
+              <span class="caste-pill">General: <b>35.0%</b></span>
+            </div>
+          </div>
+
+          <div class="cand-analysis-text">
+            <b>Generational &amp; Caste Synthesis:</b> Aulakh illustrates <b>extreme generational polarization</b>. While leading all Panthak aspirants among voters aged 51+ (56.0%) and Backward Classes (54.1%) due to long-standing community work, his penetration plunges to 16.0% in the 18–25 cohort. He lacks contemporary appeal and digital campaign apparatus to attract Punjab's younger demographic.
+          </div>
+        </div>
+      </div>
+
+      <!-- Strategic Takeaway Box -->
+      <div class="panthak-strategic-card card" style="border-left:4px solid var(--client);background:linear-gradient(135deg, #FFFFFF 0%, #EEF2FF 100%)">
+        <h4 style="margin:0 0 6px;color:var(--ink)">Strategic Electoral Implications for Waris Punjab De</h4>
+        <p class="muted" style="line-height:1.6;font-size:13.5px">
+          The survey data conclusively confirms that <b>Sukhwinder Singh Barwa is the only Panthak face who solves the dual strategic challenges of youth consolidation and caste diversification</b>. With under-35 voters accounting for over 40% of Roopnagar's active voting electorate, Barwa's +24.1 point youth advantage over Gogi and +27.5 point advantage over Aulakh makes him the essential vanguard to prevent vote splitting. Furthermore, his 63.3% Saini and 57.1% Gujjar recall neutralize third-front challengers (Kamal Chauhan and Gaurav Rana) and position WPD to contest the BJP's Lalpura and AAP's Mukari directly in both agrarian and town corridors.
+        </p>
+      </div>
+    </div>`;
+
+  return head(6, 'Demographic & Caste Segments', 'Candidate favorability and recall across age cohorts, religious groups, and caste communities in Roopnagar. The outlined cell marks the leader in each row.') + `
+    <div class="card tbl heat" data-reveal>
+      <table>${tableHead}<tbody>${body}</tbody></table>
+      <div class="legend">
+        <span><i style="background:var(--client);border:1px solid var(--accent-border)"></i><b>Sukhwinder S. Barwa (Client)</b> [Highlighted Column]</span>
+        <span><i style="background:color-mix(in srgb, #6366F1 45%, transparent)"></i>Other Panthak Aspirants (GG, DJ, JA)</span>
+        <span><i style="background:color-mix(in srgb, var(--field) 55%, transparent)"></i>Rival Parties (AL, AS, RM)</span>
+        <span>All figures represent candidate favorability &amp; recall percentages within demographic groups.</span>
+      </div>
+    </div>
+    ${panthakNotes}`;
 }
 
 /* ---------- field heatmap ---------- */
