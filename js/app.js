@@ -379,7 +379,7 @@ function geoMap() {
       </div>
     </div>`).join('');
 
-  return head(7, 'Geographic Survey Coverage', '479 GPS-verified field interview coordinates across Roopnagar assembly constituency and borders.') + `
+  return head(7, 'Geographic Survey Coverage', `${(g.totalSample || 1437).toLocaleString()} GPS-verified field interview locations across Roopnagar assembly constituency and key corridors.`) + `
     <div class="geo-layout" data-reveal>
       <div class="geo-stats-grid">
         ${zoneCards}
@@ -408,7 +408,7 @@ function geoMap() {
       <div class="card" style="border-left:4px solid var(--accent)">
         <h4 style="margin:0 0 6px">Fieldwork Spatial Observations</h4>
         <p class="muted" style="line-height:1.6;font-size:13.5px">
-          Field coverage reflects high sampling depth in the northern Nurpur Bedi corridor (36.3% of geo sample) and central Ghanauli rural belt (23.4%), alongside urban Ropar and the southern border (19.2%).
+          Field coverage reflects high sampling depth in the northern Nurpur Bedi corridor (36.3% of geo sample, N=522) and central Ghanauli rural belt (23.4%, N=336), alongside urban Ropar and the southern border (19.2%, N=276), and the Kiratpur Nangal corridor (21.1%, N=303).
           <b>Sukhwinder Singh Barwa maintains a consistent lead across all 4 quadrants</b>, recording his highest relative favorability in South Ropar (28.3%) and North-Central Nurpur Bedi (25.9%).
         </p>
       </div>
@@ -500,7 +500,7 @@ function updateGeoLayer(mode) {
 
     g.clusters.forEach(cl => {
       const col = cl.topCand === 'SSB' ? '#4F46E5' : (candColors[cl.topCand] || '#475569');
-      const r = Math.min(6 + cl.count * 1.5, 18);
+      const r = Math.min(5 + (cl.count / 3) * 1.5, 18);
 
       const m = L.circleMarker([cl.lat, cl.lng], {
         radius: r,

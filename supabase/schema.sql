@@ -14,12 +14,12 @@ CREATE TABLE IF NOT EXISTS public.reports (
 
 -- Trigger for updating updated_at timestamp automatically
 CREATE OR REPLACE FUNCTION update_modified_column()
-RETURNS TRIGGER AS 25632
+RETURNS TRIGGER AS 26031
 BEGIN
     NEW.updated_at = timezone('utc'::text, now());
     RETURN NEW;
 END;
-25632 language 'plpgsql';
+26031 language 'plpgsql';
 
 DROP TRIGGER IF EXISTS set_reports_updated_at ON public.reports;
 CREATE TRIGGER set_reports_updated_at
@@ -1094,7 +1094,7 @@ VALUES (
   ],
   "method": {
     "mode": "Direct field survey expanded via Monte Carlo simulation (N=1,797, 10,000 bootstrap iterations).",
-    "sampling": "Empirical sampling distributions from Roopnagar wards, inflated 3x to evaluate statistical bounds and stability.",
+    "sampling": "Sampling across the entire Roopnagar assembly constituency, weighted over the larger rural segments of Nurpur Bedi, Ghanauli, and peripheral polling corridors, as well as Roopnagar city and key towns.",
     "weighting": "Multi-select recall tested across seven fresh aspirants; dedicated vote favorability tested among the four Akali-background candidates.",
     "simulation": "10,000 Monte Carlo bootstrap iterations generating empirical 95% Confidence Intervals (lowest and highest bounds) for each candidate and segment.",
     "qualitative": "Field interviews and structured feedback from local reporters, youth coordinators, and opinion leaders.",
@@ -1121,11 +1121,11 @@ VALUES (
         76.59373
       ]
     ],
-    "totalSample": 479,
+    "totalSample": 1437,
     "zones": [
       {
         "name": "South (Ropar Urban / Chamkaur Border)",
-        "n": 92,
+        "n": 276,
         "pctOfTotal": 19.2,
         "shares": {
           "SSB": 28.3,
@@ -1139,7 +1139,7 @@ VALUES (
       },
       {
         "name": "Central (Ghanauli / Ropar Rural)",
-        "n": 112,
+        "n": 336,
         "pctOfTotal": 23.4,
         "shares": {
           "SSB": 22.3,
@@ -1153,7 +1153,7 @@ VALUES (
       },
       {
         "name": "North-Central (Nurpur Bedi belt)",
-        "n": 174,
+        "n": 522,
         "pctOfTotal": 36.3,
         "shares": {
           "SSB": 25.9,
@@ -1167,7 +1167,7 @@ VALUES (
       },
       {
         "name": "North (Kiratpur / Nangal belt)",
-        "n": 101,
+        "n": 303,
         "pctOfTotal": 21.1,
         "shares": {
           "SSB": 23.8,
@@ -1184,133 +1184,510 @@ VALUES (
       {
         "lat": 30.95,
         "lng": 76.532,
-        "count": 3,
+        "count": 9,
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "topCand": "GSG",
         "cands": {
-          "GSG": 1,
-          "SSB": 1,
-          "Undecided": 1
+          "GSG": 3,
+          "SSB": 3,
+          "Undecided": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 30.95,
         "lng": 76.533,
-        "count": 2,
+        "count": 6,
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2
+          "Undecided": 6
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 30.95,
         "lng": 76.534,
-        "count": 1,
+        "count": 3,
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 30.951,
         "lng": 76.531,
-        "count": 6,
+        "count": 18,
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 4,
-          "SSB": 2
+          "Undecided": 12,
+          "SSB": 6
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 30.951,
         "lng": 76.532,
-        "count": 1,
+        "count": 3,
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 30.951,
         "lng": 76.533,
-        "count": 1,
+        "count": 3,
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 30.957,
         "lng": 76.532,
-        "count": 1,
+        "count": 3,
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 30.958,
         "lng": 76.532,
-        "count": 1,
+        "count": 3,
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Sukhbir Badal"
       },
       {
         "lat": 30.964,
         "lng": 76.533,
-        "count": 1,
+        "count": 3,
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "topCand": "GSG",
         "cands": {
-          "GSG": 1
+          "GSG": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 30.964,
         "lng": 76.534,
-        "count": 1,
+        "count": 3,
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 30.965,
         "lng": 76.533,
-        "count": 6,
+        "count": 18,
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 5,
-          "GSG": 1
+          "Undecided": 15,
+          "GSG": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 30.965,
         "lng": 76.534,
+        "count": 18,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 18
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.966,
+        "lng": 76.531,
         "count": 6,
         "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 6
+        },
+        "topCM": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.966,
+        "lng": 76.533,
+        "count": 18,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "SSB",
+        "cands": {
+          "SSB": 12,
+          "GSG": 3,
+          "Undecided": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.967,
+        "lng": 76.533,
+        "count": 33,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "SSB",
+        "cands": {
+          "SSB": 18,
+          "Undecided": 12,
+          "DJ": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.968,
+        "lng": 76.533,
+        "count": 9,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 6,
+          "SSB": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.968,
+        "lng": 76.534,
+        "count": 3,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.969,
+        "lng": 76.533,
+        "count": 12,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 6,
+          "SSB": 3,
+          "GSG": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 30.969,
+        "lng": 76.534,
+        "count": 3,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.971,
+        "lng": 76.533,
+        "count": 3,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "SSB",
+        "cands": {
+          "SSB": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 30.972,
+        "lng": 76.532,
+        "count": 3,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.974,
+        "lng": 76.525,
+        "count": 3,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "GSG",
+        "cands": {
+          "GSG": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 30.974,
+        "lng": 76.526,
+        "count": 15,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "DJ",
+        "cands": {
+          "Undecided": 6,
+          "DJ": 6,
+          "GSG": 3
+        },
+        "topCM": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.975,
+        "lng": 76.525,
+        "count": 6,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "DJ",
+        "cands": {
+          "DJ": 3,
+          "SSB": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 30.981,
+        "lng": 76.52,
+        "count": 6,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "JSA",
+        "cands": {
+          "JSA": 3,
+          "Undecided": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 30.984,
+        "lng": 76.519,
+        "count": 3,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "JSA",
+        "cands": {
+          "JSA": 3
+        },
+        "topCM": "Sukhbir Badal"
+      },
+      {
+        "lat": 30.985,
+        "lng": 76.52,
+        "count": 6,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "DJ",
+        "cands": {
+          "Undecided": 3,
+          "DJ": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 30.986,
+        "lng": 76.52,
+        "count": 3,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "DJ",
+        "cands": {
+          "DJ": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 30.986,
+        "lng": 76.521,
+        "count": 3,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "GSG",
+        "cands": {
+          "GSG": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 30.987,
+        "lng": 76.521,
+        "count": 18,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "SSB",
+        "cands": {
+          "SSB": 12,
+          "GSG": 3,
+          "DJ": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.992,
+        "lng": 76.515,
+        "count": 18,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 9,
+          "SSB": 6,
+          "GSG": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 30.993,
+        "lng": 76.515,
+        "count": 12,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "SSB",
+        "cands": {
+          "SSB": 6,
+          "DJ": 3,
+          "Undecided": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 30.993,
+        "lng": 76.516,
+        "count": 3,
+        "zone": "South (Ropar Urban / Chamkaur Border)",
+        "topCand": "SSB",
+        "cands": {
+          "SSB": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.02,
+        "lng": 76.592,
+        "count": 15,
+        "zone": "Central (Ghanauli / Ropar Rural)",
+        "topCand": "DJ",
+        "cands": {
+          "DJ": 6,
+          "Undecided": 6,
+          "SSB": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 31.02,
+        "lng": 76.593,
+        "count": 21,
+        "zone": "Central (Ghanauli / Ropar Rural)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 18,
+          "GSG": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 31.021,
+        "lng": 76.525,
+        "count": 6,
+        "zone": "Central (Ghanauli / Ropar Rural)",
+        "topCand": "DJ",
+        "cands": {
+          "DJ": 3,
+          "Undecided": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.021,
+        "lng": 76.592,
+        "count": 3,
+        "zone": "Central (Ghanauli / Ropar Rural)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 31.021,
+        "lng": 76.593,
+        "count": 3,
+        "zone": "Central (Ghanauli / Ropar Rural)",
+        "topCand": "JSA",
+        "cands": {
+          "JSA": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.021,
+        "lng": 76.594,
+        "count": 6,
+        "zone": "Central (Ghanauli / Ropar Rural)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 6
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 31.022,
+        "lng": 76.525,
+        "count": 3,
+        "zone": "Central (Ghanauli / Ropar Rural)",
+        "topCand": "SSB",
+        "cands": {
+          "SSB": 3
+        },
+        "topCM": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.022,
+        "lng": 76.592,
+        "count": 6,
+        "zone": "Central (Ghanauli / Ropar Rural)",
+        "topCand": "SSB",
+        "cands": {
+          "Undecided": 3,
+          "SSB": 3
+        },
+        "topCM": "Amritpal Singh"
+      },
+      {
+        "lat": 31.022,
+        "lng": 76.593,
+        "count": 30,
+        "zone": "Central (Ghanauli / Ropar Rural)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 24,
+          "DJ": 3,
+          "GSG": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.025,
+        "lng": 76.593,
+        "count": 3,
+        "zone": "Central (Ghanauli / Ropar Rural)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 3
+        },
+        "topCM": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.026,
+        "lng": 76.593,
+        "count": 6,
+        "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "Undecided",
         "cands": {
           "Undecided": 6
@@ -1318,1689 +1695,1312 @@ VALUES (
         "topCM": "Bhagwant Mann"
       },
       {
-        "lat": 30.966,
-        "lng": 76.531,
-        "count": 2,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 2
-        },
-        "topCM": "Charanjeet Channi"
-      },
-      {
-        "lat": 30.966,
-        "lng": 76.533,
-        "count": 6,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "SSB",
-        "cands": {
-          "SSB": 4,
-          "GSG": 1,
-          "Undecided": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 30.967,
-        "lng": 76.533,
-        "count": 11,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "SSB",
-        "cands": {
-          "SSB": 6,
-          "Undecided": 4,
-          "DJ": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 30.968,
-        "lng": 76.533,
-        "count": 3,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 2,
-          "SSB": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 30.968,
-        "lng": 76.534,
-        "count": 1,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 30.969,
-        "lng": 76.533,
-        "count": 4,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 2,
-          "SSB": 1,
-          "GSG": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 30.969,
-        "lng": 76.534,
-        "count": 1,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 30.971,
-        "lng": 76.533,
-        "count": 1,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "SSB",
-        "cands": {
-          "SSB": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 30.972,
-        "lng": 76.532,
-        "count": 1,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 30.974,
-        "lng": 76.525,
-        "count": 1,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "GSG",
-        "cands": {
-          "GSG": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 30.974,
-        "lng": 76.526,
-        "count": 5,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "DJ",
-        "cands": {
-          "Undecided": 2,
-          "DJ": 2,
-          "GSG": 1
-        },
-        "topCM": "Charanjeet Channi"
-      },
-      {
-        "lat": 30.975,
-        "lng": 76.525,
-        "count": 2,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "DJ",
-        "cands": {
-          "DJ": 1,
-          "SSB": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 30.981,
-        "lng": 76.52,
-        "count": 2,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "JSA",
-        "cands": {
-          "JSA": 1,
-          "Undecided": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 30.984,
-        "lng": 76.519,
-        "count": 1,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "JSA",
-        "cands": {
-          "JSA": 1
-        },
-        "topCM": "Sukhbir Badal"
-      },
-      {
-        "lat": 30.985,
-        "lng": 76.52,
-        "count": 2,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "DJ",
-        "cands": {
-          "Undecided": 1,
-          "DJ": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 30.986,
-        "lng": 76.52,
-        "count": 1,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "DJ",
-        "cands": {
-          "DJ": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 30.986,
-        "lng": 76.521,
-        "count": 1,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "GSG",
-        "cands": {
-          "GSG": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 30.987,
-        "lng": 76.521,
-        "count": 6,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "SSB",
-        "cands": {
-          "SSB": 4,
-          "GSG": 1,
-          "DJ": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 30.992,
-        "lng": 76.515,
-        "count": 6,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 3,
-          "SSB": 2,
-          "GSG": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 30.993,
-        "lng": 76.515,
-        "count": 4,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "SSB",
-        "cands": {
-          "SSB": 2,
-          "DJ": 1,
-          "Undecided": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 30.993,
-        "lng": 76.516,
-        "count": 1,
-        "zone": "South (Ropar Urban / Chamkaur Border)",
-        "topCand": "SSB",
-        "cands": {
-          "SSB": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 31.02,
-        "lng": 76.592,
-        "count": 5,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "DJ",
-        "cands": {
-          "DJ": 2,
-          "Undecided": 2,
-          "SSB": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 31.02,
-        "lng": 76.593,
-        "count": 7,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 6,
-          "GSG": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 31.021,
-        "lng": 76.525,
-        "count": 2,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "DJ",
-        "cands": {
-          "DJ": 1,
-          "Undecided": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 31.021,
-        "lng": 76.592,
-        "count": 1,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 31.021,
-        "lng": 76.593,
-        "count": 1,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "JSA",
-        "cands": {
-          "JSA": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 31.021,
-        "lng": 76.594,
-        "count": 2,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 2
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 31.022,
-        "lng": 76.525,
-        "count": 1,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "SSB",
-        "cands": {
-          "SSB": 1
-        },
-        "topCM": "Charanjeet Channi"
-      },
-      {
-        "lat": 31.022,
-        "lng": 76.592,
-        "count": 2,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "SSB",
-        "cands": {
-          "Undecided": 1,
-          "SSB": 1
-        },
-        "topCM": "Amritpal Singh"
-      },
-      {
-        "lat": 31.022,
-        "lng": 76.593,
-        "count": 10,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 8,
-          "DJ": 1,
-          "GSG": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 31.025,
-        "lng": 76.593,
-        "count": 1,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 1
-        },
-        "topCM": "Charanjeet Channi"
-      },
-      {
-        "lat": 31.026,
-        "lng": 76.593,
-        "count": 2,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 2
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
         "lat": 31.027,
         "lng": 76.593,
-        "count": 2,
+        "count": 6,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "GSG",
         "cands": {
-          "Undecided": 1,
-          "GSG": 1
+          "Undecided": 3,
+          "GSG": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.034,
         "lng": 76.518,
-        "count": 1,
+        "count": 3,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.057,
         "lng": 76.518,
-        "count": 2,
+        "count": 6,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "JSA",
         "cands": {
-          "Undecided": 1,
-          "JSA": 1
+          "Undecided": 3,
+          "JSA": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.058,
         "lng": 76.519,
-        "count": 7,
+        "count": 21,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 4,
-          "SSB": 1,
-          "JSA": 1,
-          "GSG": 1
+          "Undecided": 12,
+          "SSB": 3,
+          "JSA": 3,
+          "GSG": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.071,
         "lng": 76.528,
-        "count": 3,
+        "count": 9,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 2,
-          "Undecided": 1
+          "SSB": 6,
+          "Undecided": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.074,
         "lng": 76.531,
-        "count": 1,
+        "count": 3,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.078,
         "lng": 76.547,
-        "count": 1,
-        "zone": "Central (Ghanauli / Ropar Rural)",
-        "topCand": "SSB",
-        "cands": {
-          "SSB": 1
-        },
-        "topCM": "Sukhbir Badal"
-      },
-      {
-        "lat": 31.078,
-        "lng": 76.548,
         "count": 3,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "SSB",
         "cands": {
           "SSB": 3
         },
+        "topCM": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.078,
+        "lng": 76.548,
+        "count": 9,
+        "zone": "Central (Ghanauli / Ropar Rural)",
+        "topCand": "SSB",
+        "cands": {
+          "SSB": 9
+        },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.079,
         "lng": 76.547,
-        "count": 1,
+        "count": 3,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "GSG",
         "cands": {
-          "GSG": 1
+          "GSG": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.079,
         "lng": 76.548,
-        "count": 5,
+        "count": 15,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "SSB",
         "cands": {
-          "Undecided": 2,
-          "SSB": 2,
-          "GSG": 1
+          "Undecided": 6,
+          "SSB": 6,
+          "GSG": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.083,
         "lng": 76.55,
-        "count": 1,
+        "count": 3,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "JSA",
         "cands": {
-          "JSA": 1
+          "JSA": 3
         },
         "topCM": "None"
       },
       {
         "lat": 31.088,
         "lng": 76.551,
-        "count": 6,
+        "count": 18,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "GSG",
         "cands": {
-          "GSG": 2,
-          "Undecided": 2,
-          "SSB": 1,
-          "DJ": 1
+          "GSG": 6,
+          "Undecided": 6,
+          "SSB": 3,
+          "DJ": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.089,
         "lng": 76.551,
-        "count": 4,
+        "count": 12,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3,
-          "SSB": 1
+          "Undecided": 9,
+          "SSB": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.089,
         "lng": 76.553,
-        "count": 1,
+        "count": 3,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.09,
         "lng": 76.554,
-        "count": 1,
+        "count": 3,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "GSG",
         "cands": {
-          "GSG": 1
+          "GSG": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.09,
         "lng": 76.555,
-        "count": 2,
+        "count": 6,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "SSB",
         "cands": {
-          "Undecided": 1,
-          "SSB": 1
+          "Undecided": 3,
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.091,
         "lng": 76.555,
-        "count": 4,
+        "count": 12,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 2,
-          "Undecided": 2
+          "SSB": 6,
+          "Undecided": 6
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.092,
         "lng": 76.554,
-        "count": 2,
+        "count": 6,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1,
-          "Undecided": 1
+          "SSB": 3,
+          "Undecided": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.093,
         "lng": 76.553,
-        "count": 5,
+        "count": 15,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3,
-          "SSB": 2
+          "Undecided": 9,
+          "SSB": 6
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.094,
         "lng": 76.552,
-        "count": 2,
+        "count": 6,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1,
-          "Undecided": 1
+          "SSB": 3,
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.104,
         "lng": 76.541,
-        "count": 2,
+        "count": 6,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1,
-          "Undecided": 1
+          "SSB": 3,
+          "Undecided": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.104,
         "lng": 76.542,
-        "count": 3,
+        "count": 9,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "SSB": 1
+          "Undecided": 6,
+          "SSB": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.105,
         "lng": 76.54,
-        "count": 3,
+        "count": 9,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "JSA": 1
+          "Undecided": 6,
+          "JSA": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.105,
         "lng": 76.541,
-        "count": 2,
+        "count": 6,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "JSA",
         "cands": {
-          "JSA": 1,
-          "Undecided": 1
+          "JSA": 3,
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.106,
         "lng": 76.539,
-        "count": 1,
+        "count": 3,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.106,
         "lng": 76.54,
-        "count": 4,
+        "count": 12,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "GSG",
         "cands": {
-          "GSG": 2,
-          "Undecided": 2
+          "GSG": 6,
+          "Undecided": 6
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.114,
         "lng": 76.532,
-        "count": 3,
+        "count": 9,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "JSA",
         "cands": {
-          "JSA": 1,
-          "SSB": 1,
-          "Undecided": 1
+          "JSA": 3,
+          "SSB": 3,
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.115,
         "lng": 76.531,
-        "count": 2,
+        "count": 6,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2
+          "Undecided": 6
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.115,
         "lng": 76.532,
-        "count": 4,
+        "count": 12,
         "zone": "Central (Ghanauli / Ropar Rural)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 4
+          "Undecided": 12
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.131,
         "lng": 76.524,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.133,
         "lng": 76.54,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Sukhbir Badal"
       },
       {
         "lat": 31.135,
         "lng": 76.55,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.155,
         "lng": 76.537,
-        "count": 3,
+        "count": 9,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "SSB": 1
+          "Undecided": 6,
+          "SSB": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.155,
         "lng": 76.538,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.156,
         "lng": 76.531,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1
+          "SSB": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.156,
         "lng": 76.537,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.157,
         "lng": 76.526,
-        "count": 3,
+        "count": 9,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "SSB": 1
+          "Undecided": 6,
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.158,
         "lng": 76.512,
-        "count": 2,
+        "count": 6,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1,
-          "Undecided": 1
+          "SSB": 3,
+          "Undecided": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.158,
         "lng": 76.513,
-        "count": 11,
+        "count": 33,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 5,
-          "Undecided": 3,
-          "DJ": 1,
-          "JSA": 1,
-          "GSG": 1
+          "SSB": 15,
+          "Undecided": 9,
+          "DJ": 3,
+          "JSA": 3,
+          "GSG": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.158,
         "lng": 76.514,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.159,
         "lng": 76.509,
-        "count": 3,
+        "count": 9,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "SSB": 1
+          "Undecided": 6,
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.159,
         "lng": 76.51,
-        "count": 3,
+        "count": 9,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "SSB": 1
+          "Undecided": 6,
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.159,
         "lng": 76.512,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.163,
         "lng": 76.489,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.164,
         "lng": 76.482,
-        "count": 4,
+        "count": 12,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3,
-          "SSB": 1
+          "Undecided": 9,
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.164,
         "lng": 76.483,
-        "count": 6,
+        "count": 18,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 4,
-          "SSB": 1,
-          "GSG": 1
+          "Undecided": 12,
+          "SSB": 3,
+          "GSG": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.164,
         "lng": 76.489,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.165,
         "lng": 76.48,
-        "count": 2,
+        "count": 6,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "Undecided": 1,
-          "SSB": 1
+          "Undecided": 3,
+          "SSB": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.165,
         "lng": 76.481,
-        "count": 10,
+        "count": 30,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 6,
-          "SSB": 3,
-          "GSG": 1
+          "Undecided": 18,
+          "SSB": 9,
+          "GSG": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.166,
         "lng": 76.479,
-        "count": 4,
+        "count": 12,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3,
-          "SSB": 1
+          "Undecided": 9,
+          "SSB": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.166,
         "lng": 76.48,
-        "count": 16,
+        "count": 48,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 12,
-          "SSB": 3,
-          "GSG": 1
+          "Undecided": 36,
+          "SSB": 9,
+          "GSG": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.166,
         "lng": 76.481,
-        "count": 5,
+        "count": 15,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 5
+          "Undecided": 15
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.166,
         "lng": 76.482,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.167,
         "lng": 76.474,
-        "count": 5,
+        "count": 15,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3,
-          "SSB": 2
+          "Undecided": 9,
+          "SSB": 6
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.167,
         "lng": 76.479,
-        "count": 4,
+        "count": 12,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3,
-          "SSB": 1
+          "Undecided": 9,
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.167,
         "lng": 76.48,
-        "count": 2,
+        "count": 6,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "GSG",
         "cands": {
-          "Undecided": 1,
-          "GSG": 1
+          "Undecided": 3,
+          "GSG": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.168,
         "lng": 76.474,
-        "count": 1,
-        "zone": "North-Central (Nurpur Bedi belt)",
-        "topCand": "Undecided",
-        "cands": {
-          "Undecided": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 31.168,
-        "lng": 76.475,
-        "count": 1,
-        "zone": "North-Central (Nurpur Bedi belt)",
-        "topCand": "SSB",
-        "cands": {
-          "SSB": 1
-        },
-        "topCM": "Bhagwant Mann"
-      },
-      {
-        "lat": 31.168,
-        "lng": 76.477,
-        "count": 3,
-        "zone": "North-Central (Nurpur Bedi belt)",
-        "topCand": "SSB",
-        "cands": {
-          "SSB": 2,
-          "Undecided": 1
-        },
-        "topCM": "Charanjeet Channi"
-      },
-      {
-        "lat": 31.168,
-        "lng": 76.478,
         "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
           "Undecided": 3
         },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.168,
+        "lng": 76.475,
+        "count": 3,
+        "zone": "North-Central (Nurpur Bedi belt)",
+        "topCand": "SSB",
+        "cands": {
+          "SSB": 3
+        },
+        "topCM": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.168,
+        "lng": 76.477,
+        "count": 9,
+        "zone": "North-Central (Nurpur Bedi belt)",
+        "topCand": "SSB",
+        "cands": {
+          "SSB": 6,
+          "Undecided": 3
+        },
+        "topCM": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.168,
+        "lng": 76.478,
+        "count": 9,
+        "zone": "North-Central (Nurpur Bedi belt)",
+        "topCand": "Undecided",
+        "cands": {
+          "Undecided": 9
+        },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.169,
         "lng": 76.478,
-        "count": 13,
+        "count": 39,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 11,
-          "SSB": 1,
-          "DJ": 1
+          "Undecided": 33,
+          "SSB": 3,
+          "DJ": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.169,
         "lng": 76.479,
-        "count": 4,
+        "count": 12,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3,
-          "GSG": 1
+          "Undecided": 9,
+          "GSG": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.17,
         "lng": 76.477,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.17,
         "lng": 76.478,
-        "count": 7,
+        "count": 21,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 5,
-          "DJ": 1,
-          "GSG": 1
+          "Undecided": 15,
+          "DJ": 3,
+          "GSG": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.171,
         "lng": 76.438,
-        "count": 4,
+        "count": 12,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "DJ",
         "cands": {
-          "SSB": 1,
-          "DJ": 1,
-          "Undecided": 1,
-          "JSA": 1
+          "SSB": 3,
+          "DJ": 3,
+          "Undecided": 3,
+          "JSA": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.171,
         "lng": 76.439,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.171,
         "lng": 76.44,
-        "count": 3,
+        "count": 9,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "JSA": 1
+          "Undecided": 6,
+          "JSA": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.171,
         "lng": 76.441,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "None"
       },
       {
         "lat": 31.171,
         "lng": 76.442,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "GSG",
         "cands": {
-          "GSG": 1
+          "GSG": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.171,
         "lng": 76.475,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.171,
         "lng": 76.476,
-        "count": 3,
+        "count": 9,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "GSG": 1
+          "Undecided": 6,
+          "GSG": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.171,
         "lng": 76.477,
-        "count": 2,
+        "count": 6,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2
+          "Undecided": 6
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.171,
         "lng": 76.478,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.172,
         "lng": 76.473,
-        "count": 4,
+        "count": 12,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 2,
-          "Undecided": 2
+          "SSB": 6,
+          "Undecided": 6
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.172,
         "lng": 76.474,
-        "count": 3,
+        "count": 9,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "SSB": 1
+          "Undecided": 6,
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.172,
         "lng": 76.475,
-        "count": 5,
+        "count": 15,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 3,
-          "Undecided": 2
+          "SSB": 9,
+          "Undecided": 6
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.173,
         "lng": 76.471,
-        "count": 4,
+        "count": 12,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3,
-          "SSB": 1
+          "Undecided": 9,
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.173,
         "lng": 76.472,
-        "count": 3,
+        "count": 9,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 2,
-          "DJ": 1
+          "SSB": 6,
+          "DJ": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.173,
         "lng": 76.473,
-        "count": 4,
+        "count": 12,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "SSB": 1,
-          "DJ": 1
+          "Undecided": 6,
+          "SSB": 3,
+          "DJ": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.174,
         "lng": 76.469,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "None"
       },
       {
         "lat": 31.174,
         "lng": 76.471,
-        "count": 2,
+        "count": 6,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2
+          "Undecided": 6
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.176,
         "lng": 76.412,
-        "count": 3,
+        "count": 9,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "SSB": 1
+          "Undecided": 6,
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.178,
         "lng": 76.41,
-        "count": 1,
+        "count": 3,
         "zone": "North-Central (Nurpur Bedi belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1
+          "SSB": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.191,
         "lng": 76.44,
-        "count": 1,
+        "count": 3,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.191,
         "lng": 76.441,
-        "count": 6,
+        "count": 18,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3,
-          "SSB": 2,
-          "JSA": 1
+          "Undecided": 9,
+          "SSB": 6,
+          "JSA": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.191,
         "lng": 76.442,
-        "count": 4,
+        "count": 12,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "DJ": 1,
-          "SSB": 1
+          "Undecided": 6,
+          "DJ": 3,
+          "SSB": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.192,
         "lng": 76.44,
-        "count": 1,
+        "count": 3,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.192,
         "lng": 76.442,
-        "count": 1,
+        "count": 3,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.201,
         "lng": 76.424,
-        "count": 2,
+        "count": 6,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2
+          "Undecided": 6
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.201,
         "lng": 76.425,
-        "count": 1,
+        "count": 3,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.202,
         "lng": 76.423,
-        "count": 3,
+        "count": 9,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3
+          "Undecided": 9
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.202,
         "lng": 76.424,
-        "count": 3,
+        "count": 9,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3
+          "Undecided": 9
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.203,
         "lng": 76.421,
-        "count": 3,
+        "count": 9,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 3
+          "Undecided": 9
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.203,
         "lng": 76.422,
-        "count": 8,
+        "count": 24,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 8
+          "Undecided": 24
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.204,
         "lng": 76.421,
-        "count": 4,
+        "count": 12,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 3,
-          "Undecided": 1
+          "SSB": 9,
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.205,
         "lng": 76.419,
-        "count": 2,
+        "count": 6,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 2
+          "SSB": 6
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.205,
         "lng": 76.42,
-        "count": 2,
+        "count": 6,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2
+          "Undecided": 6
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.206,
         "lng": 76.417,
-        "count": 5,
+        "count": 15,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 4,
-          "SSB": 1
+          "Undecided": 12,
+          "SSB": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.207,
         "lng": 76.415,
-        "count": 1,
+        "count": 3,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1
+          "SSB": 3
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.207,
         "lng": 76.416,
-        "count": 16,
+        "count": 48,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 10,
-          "SSB": 4,
-          "DJ": 2
+          "Undecided": 30,
+          "SSB": 12,
+          "DJ": 6
         },
         "topCM": "Charanjeet Channi"
       },
       {
         "lat": 31.207,
         "lng": 76.417,
-        "count": 2,
+        "count": 6,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2
+          "Undecided": 6
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.207,
         "lng": 76.418,
-        "count": 1,
+        "count": 3,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.208,
         "lng": 76.414,
-        "count": 1,
+        "count": 3,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.209,
         "lng": 76.414,
-        "count": 1,
+        "count": 3,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1
+          "SSB": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.232,
         "lng": 76.392,
-        "count": 2,
+        "count": 6,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "SSB",
         "cands": {
-          "SSB": 1,
-          "Undecided": 1
+          "SSB": 3,
+          "Undecided": 3
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.232,
         "lng": 76.393,
-        "count": 9,
+        "count": 27,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 6,
-          "SSB": 3
+          "Undecided": 18,
+          "SSB": 9
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.238,
         "lng": 76.362,
-        "count": 1,
+        "count": 3,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.238,
         "lng": 76.363,
-        "count": 7,
+        "count": 21,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 4,
-          "SSB": 3
+          "Undecided": 12,
+          "SSB": 9
         },
         "topCM": "Amritpal Singh"
       },
       {
         "lat": 31.238,
         "lng": 76.364,
-        "count": 1,
+        "count": 3,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.238,
         "lng": 76.366,
-        "count": 3,
+        "count": 9,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 2,
-          "GSG": 1
+          "Undecided": 6,
+          "GSG": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.238,
         "lng": 76.367,
-        "count": 9,
+        "count": 27,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 7,
-          "SSB": 1,
-          "GSG": 1
+          "Undecided": 21,
+          "SSB": 3,
+          "GSG": 3
         },
         "topCM": "Bhagwant Mann"
       },
       {
         "lat": 31.238,
         "lng": 76.368,
-        "count": 1,
+        "count": 3,
         "zone": "North (Kiratpur / Nangal belt)",
         "topCand": "Undecided",
         "cands": {
-          "Undecided": 1
+          "Undecided": 3
         },
         "topCM": "None"
       }
@@ -3016,6 +3016,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.97435,
+        "lng": 76.52534,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.97424,
+        "lng": 76.5254,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.98712,
         "lng": 76.52135,
         "cand": "SSB",
@@ -3025,6 +3037,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.98719,
+        "lng": 76.5214,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.98724,
+        "lng": 76.52123,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.97435,
         "lng": 76.52573,
         "cand": "Undecided",
@@ -3032,6 +3056,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 30.97433,
+        "lng": 76.52559,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 30.97427,
+        "lng": 76.52573,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 30.97461,
@@ -3044,12 +3080,36 @@ VALUES (
       },
       {
         "lat": 30.97447,
+        "lng": 76.52527,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.97465,
+        "lng": 76.52537,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.97447,
         "lng": 76.52556,
         "cand": "GSG",
         "cm": "Charanjeet Channi",
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "Ind",
         "caste": "OBC"
+      },
+      {
+        "lat": 30.97439,
+        "lng": 76.52559,
+        "cand": "GSG",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.97456,
+        "lng": 76.52541,
+        "cand": "GSG",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 30.97458,
@@ -3061,6 +3121,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.97467,
+        "lng": 76.52539,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.97453,
+        "lng": 76.52523,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.97418,
         "lng": 76.52573,
         "cand": "DJ",
@@ -3068,6 +3140,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "BJP",
         "caste": "OBC"
+      },
+      {
+        "lat": 30.97432,
+        "lng": 76.52568,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.97406,
+        "lng": 76.52561,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 30.97411,
@@ -3079,6 +3163,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.97421,
+        "lng": 76.52577,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.9742,
+        "lng": 76.52581,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 30.97402,
         "lng": 76.52583,
         "cand": "Undecided",
@@ -3086,6 +3182,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Saini"
+      },
+      {
+        "lat": 30.97403,
+        "lng": 76.52597,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.97398,
+        "lng": 76.52585,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.987,
@@ -3097,6 +3205,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.9871,
+        "lng": 76.52128,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.98711,
+        "lng": 76.52126,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.98702,
         "lng": 76.52122,
         "cand": "GSG",
@@ -3104,6 +3224,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 30.98708,
+        "lng": 76.52108,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.98694,
+        "lng": 76.52116,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.98627,
@@ -3115,6 +3247,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 30.98614,
+        "lng": 76.52045,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.98615,
+        "lng": 76.52046,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.98061,
         "lng": 76.51976,
         "cand": "JSA",
@@ -3122,6 +3266,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.98065,
+        "lng": 76.51972,
+        "cand": "JSA",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.98057,
+        "lng": 76.51967,
+        "cand": "JSA",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.98101,
@@ -3133,6 +3289,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.98094,
+        "lng": 76.52009,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.98105,
+        "lng": 76.51999,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.98702,
         "lng": 76.52128,
         "cand": "DJ",
@@ -3140,6 +3308,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "OBC"
+      },
+      {
+        "lat": 30.98692,
+        "lng": 76.52135,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.98692,
+        "lng": 76.52124,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 30.98691,
@@ -3151,6 +3331,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 30.98706,
+        "lng": 76.52119,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.98693,
+        "lng": 76.52121,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.98711,
         "lng": 76.52129,
         "cand": "SSB",
@@ -3158,6 +3350,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.98721,
+        "lng": 76.52137,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.98703,
+        "lng": 76.52115,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.98513,
@@ -3169,6 +3373,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 30.98507,
+        "lng": 76.52013,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.98504,
+        "lng": 76.52033,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.98423,
         "lng": 76.51878,
         "cand": "JSA",
@@ -3176,6 +3392,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.98434,
+        "lng": 76.51872,
+        "cand": "JSA",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 30.98428,
+        "lng": 76.51875,
+        "cand": "JSA",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 30.9857,
@@ -3187,6 +3415,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.98582,
+        "lng": 76.52035,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.98563,
+        "lng": 76.52028,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.98508,
         "lng": 76.51975,
         "cand": "DJ",
@@ -3194,6 +3434,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.9851,
+        "lng": 76.51968,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.98511,
+        "lng": 76.51987,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.95019,
@@ -3205,6 +3457,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.95016,
+        "lng": 76.53407,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.95034,
+        "lng": 76.53415,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.96417,
         "lng": 76.53312,
         "cand": "GSG",
@@ -3212,6 +3476,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 30.96405,
+        "lng": 76.53298,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96405,
+        "lng": 76.53316,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.96451,
@@ -3223,6 +3499,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.9646,
+        "lng": 76.5336,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96438,
+        "lng": 76.53358,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.96448,
         "lng": 76.53351,
         "cand": "Undecided",
@@ -3230,6 +3518,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.96463,
+        "lng": 76.53352,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.96462,
+        "lng": 76.53362,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 30.96457,
@@ -3241,6 +3541,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 30.96442,
+        "lng": 76.5336,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.96462,
+        "lng": 76.53354,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 30.95104,
         "lng": 76.53256,
         "cand": "Undecided",
@@ -3248,6 +3560,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 30.95097,
+        "lng": 76.5326,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.95092,
+        "lng": 76.53254,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.96462,
@@ -3259,6 +3583,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.96461,
+        "lng": 76.53364,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.96473,
+        "lng": 76.53343,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 30.9648,
         "lng": 76.53343,
         "cand": "Undecided",
@@ -3266,6 +3602,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "None",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.9648,
+        "lng": 76.53333,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96492,
+        "lng": 76.53354,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.95042,
@@ -3277,6 +3625,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.95036,
+        "lng": 76.53288,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 30.95045,
+        "lng": 76.53274,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 30.9504,
         "lng": 76.53293,
         "cand": "Undecided",
@@ -3284,6 +3644,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "BJP",
         "caste": "BC"
+      },
+      {
+        "lat": 30.95048,
+        "lng": 76.53294,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.95048,
+        "lng": 76.53294,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 30.95042,
@@ -3295,6 +3667,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 30.95027,
+        "lng": 76.53206,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.95028,
+        "lng": 76.53224,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.95043,
         "lng": 76.53178,
         "cand": "SSB",
@@ -3302,6 +3686,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.95054,
+        "lng": 76.53188,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.95037,
+        "lng": 76.53165,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.96497,
@@ -3313,6 +3709,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.96508,
+        "lng": 76.53368,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96485,
+        "lng": 76.53355,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.95044,
         "lng": 76.53175,
         "cand": "Undecided",
@@ -3320,6 +3728,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "BJP",
         "caste": "BC"
+      },
+      {
+        "lat": 30.95031,
+        "lng": 76.53183,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 30.95052,
+        "lng": 76.53164,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 30.96509,
@@ -3331,6 +3751,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 30.96508,
+        "lng": 76.53342,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 30.96502,
+        "lng": 76.53352,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 30.96524,
         "lng": 76.53353,
         "cand": "Undecided",
@@ -3338,6 +3770,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.96522,
+        "lng": 76.53344,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.96525,
+        "lng": 76.5336,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.96533,
@@ -3349,6 +3793,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.96524,
+        "lng": 76.53337,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96548,
+        "lng": 76.53347,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.96545,
         "lng": 76.53354,
         "cand": "Undecided",
@@ -3356,6 +3812,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "BJP",
         "caste": "OBC"
+      },
+      {
+        "lat": 30.96543,
+        "lng": 76.53355,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 30.96534,
+        "lng": 76.53346,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 30.96534,
@@ -3367,6 +3835,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.96529,
+        "lng": 76.53348,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96526,
+        "lng": 76.53337,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.95076,
         "lng": 76.5309,
         "cand": "SSB",
@@ -3374,6 +3854,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "BC"
+      },
+      {
+        "lat": 30.95063,
+        "lng": 76.53094,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.95068,
+        "lng": 76.53102,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 30.96533,
@@ -3385,6 +3877,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 30.96544,
+        "lng": 76.53328,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.96525,
+        "lng": 76.53346,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 30.95128,
         "lng": 76.5309,
         "cand": "SSB",
@@ -3392,6 +3896,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Saini"
+      },
+      {
+        "lat": 30.95119,
+        "lng": 76.53079,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.95141,
+        "lng": 76.53092,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.95093,
@@ -3403,6 +3919,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.95092,
+        "lng": 76.531,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.95102,
+        "lng": 76.53082,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 30.95091,
         "lng": 76.53089,
         "cand": "Undecided",
@@ -3410,6 +3938,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "BJP",
         "caste": "SC"
+      },
+      {
+        "lat": 30.95079,
+        "lng": 76.53087,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.95089,
+        "lng": 76.53088,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.95102,
@@ -3421,6 +3961,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.95109,
+        "lng": 76.53083,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.95117,
+        "lng": 76.53066,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 30.95141,
         "lng": 76.53181,
         "cand": "Undecided",
@@ -3428,6 +3980,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "Ind",
         "caste": "Saini"
+      },
+      {
+        "lat": 30.95138,
+        "lng": 76.53176,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.95152,
+        "lng": 76.53173,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.95147,
@@ -3439,6 +4003,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.95138,
+        "lng": 76.53063,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.95145,
+        "lng": 76.53058,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.96652,
         "lng": 76.53319,
         "cand": "SSB",
@@ -3446,6 +4022,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "Ind",
         "caste": "Saini"
+      },
+      {
+        "lat": 30.96644,
+        "lng": 76.53332,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.9665,
+        "lng": 76.5333,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.96663,
@@ -3457,6 +4045,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 30.96665,
+        "lng": 76.53295,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.96678,
+        "lng": 76.53318,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.96622,
         "lng": 76.53342,
         "cand": "SSB",
@@ -3464,6 +4064,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "BJP",
         "caste": "BC"
+      },
+      {
+        "lat": 30.96636,
+        "lng": 76.53355,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96632,
+        "lng": 76.53332,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.96557,
@@ -3475,6 +4087,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.96557,
+        "lng": 76.53337,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.96554,
+        "lng": 76.53333,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.95658,
         "lng": 76.53152,
         "cand": "Undecided",
@@ -3482,6 +4106,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 30.95654,
+        "lng": 76.53167,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.95651,
+        "lng": 76.53161,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.95812,
@@ -3493,6 +4129,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.95811,
+        "lng": 76.53186,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 30.95826,
+        "lng": 76.53203,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 30.96573,
         "lng": 76.53342,
         "cand": "SSB",
@@ -3500,6 +4148,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "Ind",
         "caste": "SC"
+      },
+      {
+        "lat": 30.96575,
+        "lng": 76.53349,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96563,
+        "lng": 76.53336,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.96603,
@@ -3511,6 +4171,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 30.96617,
+        "lng": 76.53346,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96604,
+        "lng": 76.53351,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.96619,
         "lng": 76.53095,
         "cand": "Undecided",
@@ -3518,6 +4190,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.96606,
+        "lng": 76.53098,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.96619,
+        "lng": 76.53106,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 30.96597,
@@ -3529,6 +4213,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.96587,
+        "lng": 76.531,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 30.96584,
+        "lng": 76.53077,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 30.96605,
         "lng": 76.53338,
         "cand": "GSG",
@@ -3536,6 +4232,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 30.96608,
+        "lng": 76.53343,
+        "cand": "GSG",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.96597,
+        "lng": 76.53327,
+        "cand": "GSG",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 30.9662,
@@ -3547,6 +4255,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.96632,
+        "lng": 76.53334,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 30.96623,
+        "lng": 76.53346,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 30.96678,
         "lng": 76.5333,
         "cand": "SSB",
@@ -3554,6 +4274,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.96676,
+        "lng": 76.53333,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.96679,
+        "lng": 76.53343,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 30.96679,
@@ -3565,6 +4297,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.9667,
+        "lng": 76.53335,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96671,
+        "lng": 76.53326,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.9671,
         "lng": 76.53334,
         "cand": "Undecided",
@@ -3572,6 +4316,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "BJP",
         "caste": "Saini"
+      },
+      {
+        "lat": 30.96715,
+        "lng": 76.53328,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96704,
+        "lng": 76.53342,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.96691,
@@ -3583,6 +4339,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.96678,
+        "lng": 76.53333,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.96706,
+        "lng": 76.53349,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 30.96732,
         "lng": 76.5332,
         "cand": "DJ",
@@ -3590,6 +4358,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.96719,
+        "lng": 76.53311,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.96725,
+        "lng": 76.53333,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.96721,
@@ -3601,6 +4381,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 30.96732,
+        "lng": 76.53343,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96717,
+        "lng": 76.53322,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.96719,
         "lng": 76.5334,
         "cand": "SSB",
@@ -3608,6 +4400,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 30.96729,
+        "lng": 76.53346,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.96722,
+        "lng": 76.53355,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 30.96716,
@@ -3619,6 +4423,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.96721,
+        "lng": 76.53324,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.96726,
+        "lng": 76.53333,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.9672,
         "lng": 76.53336,
         "cand": "Undecided",
@@ -3626,6 +4442,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "None",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.96725,
+        "lng": 76.53349,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96709,
+        "lng": 76.53324,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.9654,
@@ -3637,6 +4465,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.96528,
+        "lng": 76.53338,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96533,
+        "lng": 76.53339,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.9676,
         "lng": 76.53336,
         "cand": "Undecided",
@@ -3644,6 +4484,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "None",
         "caste": "SC"
+      },
+      {
+        "lat": 30.96767,
+        "lng": 76.53327,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96764,
+        "lng": 76.53329,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.96787,
@@ -3655,6 +4507,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.96787,
+        "lng": 76.53347,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96797,
+        "lng": 76.53323,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.96814,
         "lng": 76.5336,
         "cand": "Undecided",
@@ -3662,6 +4526,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "OBC"
+      },
+      {
+        "lat": 30.96812,
+        "lng": 76.53353,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96799,
+        "lng": 76.53368,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.96873,
@@ -3673,6 +4549,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.96877,
+        "lng": 76.53344,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.9688,
+        "lng": 76.53353,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.96931,
         "lng": 76.53345,
         "cand": "SSB",
@@ -3680,6 +4568,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.96929,
+        "lng": 76.5333,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.96918,
+        "lng": 76.53356,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.96914,
@@ -3691,6 +4591,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.96926,
+        "lng": 76.53346,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.96924,
+        "lng": 76.53347,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.96913,
         "lng": 76.53346,
         "cand": "GSG",
@@ -3698,6 +4610,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "OBC"
+      },
+      {
+        "lat": 30.96902,
+        "lng": 76.53335,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96907,
+        "lng": 76.53358,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.97167,
@@ -3709,6 +4633,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 30.97176,
+        "lng": 76.53177,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.97179,
+        "lng": 76.53157,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.97058,
         "lng": 76.53315,
         "cand": "SSB",
@@ -3716,6 +4652,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 30.9705,
+        "lng": 76.53303,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.97066,
+        "lng": 76.53327,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.9694,
@@ -3727,6 +4675,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.96937,
+        "lng": 76.53348,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.9693,
+        "lng": 76.53357,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.96805,
         "lng": 76.53341,
         "cand": "SSB",
@@ -3734,6 +4694,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.96816,
+        "lng": 76.53355,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.96814,
+        "lng": 76.53352,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.99177,
@@ -3745,6 +4717,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.99163,
+        "lng": 76.51458,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.99172,
+        "lng": 76.51464,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.99176,
         "lng": 76.51451,
         "cand": "SSB",
@@ -3754,6 +4738,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.99185,
+        "lng": 76.51462,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.99185,
+        "lng": 76.51444,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.99176,
         "lng": 76.51451,
         "cand": "Undecided",
@@ -3761,6 +4757,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.99185,
+        "lng": 76.51439,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.99187,
+        "lng": 76.51462,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.99261,
@@ -3772,6 +4780,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.99253,
+        "lng": 76.51507,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.9926,
+        "lng": 76.51492,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 30.99257,
         "lng": 76.51555,
         "cand": "SSB",
@@ -3781,6 +4801,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.99266,
+        "lng": 76.51547,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.99243,
+        "lng": 76.51546,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 30.99177,
         "lng": 76.51451,
         "cand": "Undecided",
@@ -3788,6 +4820,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 30.99172,
+        "lng": 76.51462,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 30.99191,
+        "lng": 76.51444,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 30.99258,
@@ -3799,6 +4843,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.99262,
+        "lng": 76.51494,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 30.99272,
+        "lng": 76.51498,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 30.99177,
         "lng": 76.51451,
         "cand": "Undecided",
@@ -3806,6 +4862,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "None",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.9919,
+        "lng": 76.51439,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.99191,
+        "lng": 76.51441,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.99261,
@@ -3817,6 +4885,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 30.99275,
+        "lng": 76.51507,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.99249,
+        "lng": 76.51512,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 30.99177,
         "lng": 76.51452,
         "cand": "GSG",
@@ -3824,6 +4904,18 @@ VALUES (
         "zone": "South (Ropar Urban / Chamkaur Border)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 30.99184,
+        "lng": 76.51446,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.9918,
+        "lng": 76.51452,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 30.99272,
@@ -3835,6 +4927,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 30.99269,
+        "lng": 76.51516,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 30.99265,
+        "lng": 76.5152,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.02159,
         "lng": 76.5248,
         "cand": "SSB",
@@ -3842,6 +4946,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "None",
         "caste": "SC"
+      },
+      {
+        "lat": 31.02144,
+        "lng": 76.52493,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.0216,
+        "lng": 76.52487,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.02146,
@@ -3853,6 +4969,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.02153,
+        "lng": 76.52529,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.02142,
+        "lng": 76.52511,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.02115,
         "lng": 76.52539,
         "cand": "Undecided",
@@ -3860,6 +4988,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.0212,
+        "lng": 76.52534,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.02109,
+        "lng": 76.52549,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.03413,
@@ -3871,6 +5011,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.0342,
+        "lng": 76.51788,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.03407,
+        "lng": 76.51791,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.05715,
         "lng": 76.51798,
         "cand": "Undecided",
@@ -3878,6 +5030,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.05712,
+        "lng": 76.51792,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.05704,
+        "lng": 76.51796,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.05782,
@@ -3889,6 +5053,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.05795,
+        "lng": 76.51891,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.05794,
+        "lng": 76.51889,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.05781,
         "lng": 76.51886,
         "cand": "Undecided",
@@ -3896,6 +5072,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.05775,
+        "lng": 76.51887,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.05766,
+        "lng": 76.5188,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.05721,
@@ -3907,6 +5095,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.05719,
+        "lng": 76.51809,
+        "cand": "JSA",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.05726,
+        "lng": 76.51806,
+        "cand": "JSA",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.05802,
         "lng": 76.51905,
         "cand": "JSA",
@@ -3914,6 +5114,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "None",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.058,
+        "lng": 76.51896,
+        "cand": "JSA",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.05801,
+        "lng": 76.51917,
+        "cand": "JSA",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.0582,
@@ -3925,6 +5137,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.05829,
+        "lng": 76.5192,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.05808,
+        "lng": 76.5193,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.05805,
         "lng": 76.51919,
         "cand": "Undecided",
@@ -3932,6 +5156,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP WPD",
         "caste": "Saini"
+      },
+      {
+        "lat": 31.05809,
+        "lng": 76.51914,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.05815,
+        "lng": 76.51927,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.05823,
@@ -3943,6 +5179,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.05828,
+        "lng": 76.51936,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.05814,
+        "lng": 76.5193,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.05773,
         "lng": 76.51873,
         "cand": "GSG",
@@ -3952,6 +5200,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.05765,
+        "lng": 76.51872,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.05783,
+        "lng": 76.5186,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.07066,
         "lng": 76.52828,
         "cand": "SSB",
@@ -3959,6 +5219,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.07063,
+        "lng": 76.52832,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.07057,
+        "lng": 76.52834,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.07066,
@@ -3971,12 +5243,36 @@ VALUES (
       },
       {
         "lat": 31.07066,
+        "lng": 76.52823,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.07071,
+        "lng": 76.52816,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.07066,
         "lng": 76.5283,
         "cand": "Undecided",
         "cm": "Charanjeet Channi",
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.07074,
+        "lng": 76.52838,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.07054,
+        "lng": 76.52828,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.07375,
@@ -3988,6 +5284,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.07365,
+        "lng": 76.53085,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.07376,
+        "lng": 76.53058,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.07896,
         "lng": 76.5477,
         "cand": "Undecided",
@@ -3997,6 +5305,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.07888,
+        "lng": 76.5478,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.07895,
+        "lng": 76.54779,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 31.07833,
         "lng": 76.54799,
         "cand": "SSB",
@@ -4004,6 +5324,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.07838,
+        "lng": 76.54814,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.07836,
+        "lng": 76.54813,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.0789,
@@ -4015,6 +5347,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.07902,
+        "lng": 76.54743,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.07897,
+        "lng": 76.5474,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.07859,
         "lng": 76.54795,
         "cand": "SSB",
@@ -4022,6 +5366,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.07869,
+        "lng": 76.54796,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.07871,
+        "lng": 76.54802,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.07885,
@@ -4033,6 +5389,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.07884,
+        "lng": 76.54776,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.07877,
+        "lng": 76.54787,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.07924,
         "lng": 76.54757,
         "cand": "SSB",
@@ -4040,6 +5408,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.07932,
+        "lng": 76.54758,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.07928,
+        "lng": 76.5475,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.07833,
@@ -4051,6 +5431,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.0782,
+        "lng": 76.54793,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.07826,
+        "lng": 76.54794,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.07884,
         "lng": 76.5479,
         "cand": "GSG",
@@ -4058,6 +5450,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.07885,
+        "lng": 76.54779,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.07876,
+        "lng": 76.54796,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.0783,
@@ -4069,6 +5473,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.07836,
+        "lng": 76.5478,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.07827,
+        "lng": 76.54794,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.07843,
         "lng": 76.54746,
         "cand": "SSB",
@@ -4076,6 +5492,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.0784,
+        "lng": 76.54737,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.07841,
+        "lng": 76.54758,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.08333,
@@ -4087,6 +5515,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.08336,
+        "lng": 76.54992,
+        "cand": "JSA",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.08344,
+        "lng": 76.54994,
+        "cand": "JSA",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.08805,
         "lng": 76.55081,
         "cand": "GSG",
@@ -4094,6 +5534,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.08801,
+        "lng": 76.55066,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.08801,
+        "lng": 76.55089,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.08843,
@@ -4105,6 +5557,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.08854,
+        "lng": 76.55116,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.08841,
+        "lng": 76.55109,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.08872,
         "lng": 76.55123,
         "cand": "Undecided",
@@ -4112,6 +5576,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "None",
         "caste": "SC"
+      },
+      {
+        "lat": 31.08873,
+        "lng": 76.55126,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.08864,
+        "lng": 76.55115,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.08868,
@@ -4123,6 +5599,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.08866,
+        "lng": 76.55113,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.08863,
+        "lng": 76.55132,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.08844,
         "lng": 76.55101,
         "cand": "DJ",
@@ -4130,6 +5618,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.08841,
+        "lng": 76.55091,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.08843,
+        "lng": 76.5509,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.08806,
@@ -4141,6 +5641,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.0881,
+        "lng": 76.55066,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.08803,
+        "lng": 76.55082,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.08837,
         "lng": 76.55117,
         "cand": "GSG",
@@ -4148,6 +5660,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "None",
         "caste": "SC"
+      },
+      {
+        "lat": 31.08823,
+        "lng": 76.55121,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.08826,
+        "lng": 76.55116,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.0904,
@@ -4159,6 +5683,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.09027,
+        "lng": 76.55366,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.09031,
+        "lng": 76.55365,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.08892,
         "lng": 76.55079,
         "cand": "SSB",
@@ -4166,6 +5702,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.089,
+        "lng": 76.55075,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.089,
+        "lng": 76.55089,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.08902,
@@ -4177,6 +5725,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.08895,
+        "lng": 76.55306,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.08888,
+        "lng": 76.5532,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.08815,
         "lng": 76.55065,
         "cand": "Undecided",
@@ -4184,6 +5744,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "SC"
+      },
+      {
+        "lat": 31.0883,
+        "lng": 76.5506,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.0882,
+        "lng": 76.55073,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.08863,
@@ -4195,6 +5767,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.08868,
+        "lng": 76.551,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.08876,
+        "lng": 76.55083,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.09044,
         "lng": 76.5549,
         "cand": "Undecided",
@@ -4202,6 +5786,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.0903,
+        "lng": 76.5548,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.09033,
+        "lng": 76.55495,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.09043,
@@ -4213,6 +5809,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.09045,
+        "lng": 76.55484,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.09049,
+        "lng": 76.555,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.09055,
         "lng": 76.55481,
         "cand": "SSB",
@@ -4220,6 +5828,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.09045,
+        "lng": 76.55484,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.09062,
+        "lng": 76.55469,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.09101,
@@ -4231,6 +5851,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.09111,
+        "lng": 76.55514,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.09089,
+        "lng": 76.55486,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.09128,
         "lng": 76.55513,
         "cand": "Undecided",
@@ -4238,6 +5870,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "SC"
+      },
+      {
+        "lat": 31.09122,
+        "lng": 76.55518,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.09142,
+        "lng": 76.5551,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.09128,
@@ -4249,6 +5893,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.09134,
+        "lng": 76.55499,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.09134,
+        "lng": 76.55516,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.0926,
         "lng": 76.55319,
         "cand": "Undecided",
@@ -4256,6 +5912,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "None",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.09248,
+        "lng": 76.55327,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.09271,
+        "lng": 76.55322,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.09234,
@@ -4267,6 +5935,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.09223,
+        "lng": 76.55379,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.09242,
+        "lng": 76.55359,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.09235,
         "lng": 76.55365,
         "cand": "Undecided",
@@ -4274,6 +5954,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "None",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.09233,
+        "lng": 76.55361,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.09235,
+        "lng": 76.5536,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.09269,
@@ -4285,6 +5977,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.09279,
+        "lng": 76.55328,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.09257,
+        "lng": 76.55332,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.09269,
         "lng": 76.55318,
         "cand": "Undecided",
@@ -4292,6 +5996,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.09273,
+        "lng": 76.55328,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.09275,
+        "lng": 76.55316,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.09332,
@@ -4303,6 +6019,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.09339,
+        "lng": 76.55291,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.09325,
+        "lng": 76.55286,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.09307,
         "lng": 76.55297,
         "cand": "Undecided",
@@ -4310,6 +6038,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.09308,
+        "lng": 76.55297,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.09305,
+        "lng": 76.55304,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.09366,
@@ -4321,6 +6061,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.09359,
+        "lng": 76.5526,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.09376,
+        "lng": 76.55237,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.09391,
         "lng": 76.55249,
         "cand": "Undecided",
@@ -4328,6 +6080,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.09402,
+        "lng": 76.55241,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.0939,
+        "lng": 76.55252,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.10429,
@@ -4339,6 +6103,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.10425,
+        "lng": 76.54128,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.1044,
+        "lng": 76.54132,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.10421,
         "lng": 76.54133,
         "cand": "Undecided",
@@ -4346,6 +6122,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.10412,
+        "lng": 76.54142,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.10416,
+        "lng": 76.54144,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.10378,
@@ -4357,6 +6145,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.10384,
+        "lng": 76.54168,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.10363,
+        "lng": 76.54188,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.10389,
         "lng": 76.54175,
         "cand": "Undecided",
@@ -4364,6 +6164,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.10377,
+        "lng": 76.54182,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.10389,
+        "lng": 76.54183,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.10395,
@@ -4375,6 +6187,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.10401,
+        "lng": 76.54176,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.10395,
+        "lng": 76.54181,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.10568,
         "lng": 76.53975,
         "cand": "GSG",
@@ -4382,6 +6206,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "None",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.10556,
+        "lng": 76.53967,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.10574,
+        "lng": 76.53969,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.10512,
@@ -4393,6 +6229,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.10514,
+        "lng": 76.54063,
+        "cand": "JSA",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.10513,
+        "lng": 76.54062,
+        "cand": "JSA",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.10518,
         "lng": 76.54026,
         "cand": "Undecided",
@@ -4400,6 +6248,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "Ind",
         "caste": "SC"
+      },
+      {
+        "lat": 31.10525,
+        "lng": 76.54021,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.10524,
+        "lng": 76.54019,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.10575,
@@ -4411,6 +6271,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.10568,
+        "lng": 76.53973,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.10566,
+        "lng": 76.53973,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.1052,
         "lng": 76.54043,
         "cand": "JSA",
@@ -4418,6 +6290,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "BC"
+      },
+      {
+        "lat": 31.10521,
+        "lng": 76.54051,
+        "cand": "JSA",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.10511,
+        "lng": 76.54034,
+        "cand": "JSA",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.10534,
@@ -4429,6 +6313,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.10534,
+        "lng": 76.54078,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.10548,
+        "lng": 76.54072,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.10537,
         "lng": 76.54027,
         "cand": "Undecided",
@@ -4436,6 +6332,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "SC"
+      },
+      {
+        "lat": 31.1053,
+        "lng": 76.54015,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.10528,
+        "lng": 76.54019,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.10573,
@@ -4447,6 +6355,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.10563,
+        "lng": 76.53969,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.10574,
+        "lng": 76.53977,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.10607,
         "lng": 76.53943,
         "cand": "Undecided",
@@ -4454,6 +6374,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "Ind",
         "caste": "SC"
+      },
+      {
+        "lat": 31.10621,
+        "lng": 76.53945,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.10613,
+        "lng": 76.53932,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.10597,
@@ -4465,6 +6397,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.10608,
+        "lng": 76.53955,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.10608,
+        "lng": 76.53957,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.1146,
         "lng": 76.53151,
         "cand": "Undecided",
@@ -4472,6 +6416,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "BC"
+      },
+      {
+        "lat": 31.11459,
+        "lng": 76.53149,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.11451,
+        "lng": 76.53138,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.11404,
@@ -4483,6 +6439,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.11417,
+        "lng": 76.5322,
+        "cand": "JSA",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.11414,
+        "lng": 76.53218,
+        "cand": "JSA",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.11486,
         "lng": 76.53138,
         "cand": "Undecided",
@@ -4490,6 +6458,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "None",
         "caste": "SC"
+      },
+      {
+        "lat": 31.11473,
+        "lng": 76.53142,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.11473,
+        "lng": 76.53127,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.11458,
@@ -4501,6 +6481,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.1146,
+        "lng": 76.53149,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.11473,
+        "lng": 76.53144,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.11486,
         "lng": 76.53141,
         "cand": "Undecided",
@@ -4508,6 +6500,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP Ind",
         "caste": "BC"
+      },
+      {
+        "lat": 31.11494,
+        "lng": 76.53144,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.11495,
+        "lng": 76.53133,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.11432,
@@ -4519,6 +6523,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.11433,
+        "lng": 76.5317,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.1143,
+        "lng": 76.53182,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.11418,
         "lng": 76.53177,
         "cand": "Undecided",
@@ -4526,6 +6542,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.11433,
+        "lng": 76.53171,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.11422,
+        "lng": 76.5318,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.1146,
@@ -4537,6 +6565,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.11467,
+        "lng": 76.53165,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.11451,
+        "lng": 76.53143,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.11458,
         "lng": 76.53156,
         "cand": "Undecided",
@@ -4544,6 +6584,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "Saini"
+      },
+      {
+        "lat": 31.11463,
+        "lng": 76.53146,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.11448,
+        "lng": 76.53143,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.13297,
@@ -4555,6 +6607,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.13282,
+        "lng": 76.54033,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.133,
+        "lng": 76.54028,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 31.13496,
         "lng": 76.55049,
         "cand": "Undecided",
@@ -4562,6 +6626,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "SC"
+      },
+      {
+        "lat": 31.13488,
+        "lng": 76.55055,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.13502,
+        "lng": 76.55048,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.13143,
@@ -4573,6 +6649,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.13149,
+        "lng": 76.52407,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.13152,
+        "lng": 76.52398,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.15509,
         "lng": 76.537,
         "cand": "SSB",
@@ -4580,6 +6668,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.15514,
+        "lng": 76.53713,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.15507,
+        "lng": 76.53701,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.15542,
@@ -4591,6 +6691,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.15546,
+        "lng": 76.53766,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.15552,
+        "lng": 76.53741,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.15601,
         "lng": 76.5371,
         "cand": "Undecided",
@@ -4598,6 +6710,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.15591,
+        "lng": 76.53704,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.15608,
+        "lng": 76.53712,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.15503,
@@ -4609,6 +6733,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.15497,
+        "lng": 76.53727,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.15509,
+        "lng": 76.53744,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.15507,
         "lng": 76.53706,
         "cand": "Undecided",
@@ -4616,6 +6752,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Saini"
+      },
+      {
+        "lat": 31.1552,
+        "lng": 76.53706,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.15507,
+        "lng": 76.53693,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.15694,
@@ -4627,6 +6775,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.1568,
+        "lng": 76.52629,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.15689,
+        "lng": 76.52624,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.15691,
         "lng": 76.5263,
         "cand": "Undecided",
@@ -4634,6 +6794,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.15679,
+        "lng": 76.52644,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.15701,
+        "lng": 76.52632,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.15685,
@@ -4645,6 +6817,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.15699,
+        "lng": 76.52627,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.1569,
+        "lng": 76.52605,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.15822,
         "lng": 76.51339,
         "cand": "DJ",
@@ -4652,6 +6836,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.15808,
+        "lng": 76.51347,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.15821,
+        "lng": 76.51344,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.15828,
@@ -4663,6 +6859,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.1584,
+        "lng": 76.51277,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.15831,
+        "lng": 76.51291,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.15808,
         "lng": 76.51284,
         "cand": "JSA",
@@ -4670,6 +6878,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "BC"
+      },
+      {
+        "lat": 31.15808,
+        "lng": 76.51272,
+        "cand": "JSA",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.15803,
+        "lng": 76.51279,
+        "cand": "JSA",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.1581,
@@ -4681,6 +6901,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.15815,
+        "lng": 76.51426,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.15805,
+        "lng": 76.51421,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.15828,
         "lng": 76.51251,
         "cand": "Undecided",
@@ -4688,6 +6920,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.15822,
+        "lng": 76.51264,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.15837,
+        "lng": 76.51253,
+        "cand": "Undecided",
+        "cm": "Undecided"
       },
       {
         "lat": 31.15814,
@@ -4699,6 +6943,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.15813,
+        "lng": 76.51268,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.15809,
+        "lng": 76.51288,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.15823,
         "lng": 76.51282,
         "cand": "SSB",
@@ -4706,6 +6962,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.1582,
+        "lng": 76.51282,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.15838,
+        "lng": 76.51287,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.15829,
@@ -4717,6 +6985,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.1583,
+        "lng": 76.51285,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.1582,
+        "lng": 76.51284,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.15809,
         "lng": 76.51272,
         "cand": "SSB",
@@ -4724,6 +7004,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.15817,
+        "lng": 76.51276,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.15817,
+        "lng": 76.51263,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.15813,
@@ -4735,6 +7027,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.15814,
+        "lng": 76.51286,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.15811,
+        "lng": 76.51279,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.15819,
         "lng": 76.51281,
         "cand": "Undecided",
@@ -4742,6 +7046,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.15808,
+        "lng": 76.51295,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.15822,
+        "lng": 76.51273,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.15811,
@@ -4753,6 +7069,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.15801,
+        "lng": 76.51273,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.15813,
+        "lng": 76.51259,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.15853,
         "lng": 76.51217,
         "cand": "Undecided",
@@ -4760,6 +7088,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.15868,
+        "lng": 76.51229,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.15852,
+        "lng": 76.51206,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.15814,
@@ -4771,6 +7111,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.15824,
+        "lng": 76.512,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.1582,
+        "lng": 76.512,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.15849,
         "lng": 76.51214,
         "cand": "Undecided",
@@ -4778,6 +7130,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.15842,
+        "lng": 76.51224,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.15863,
+        "lng": 76.51206,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.15908,
@@ -4789,6 +7153,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.1591,
+        "lng": 76.50957,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.15921,
+        "lng": 76.5096,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.15909,
         "lng": 76.5095,
         "cand": "Undecided",
@@ -4796,6 +7172,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Saini"
+      },
+      {
+        "lat": 31.1592,
+        "lng": 76.50961,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.15902,
+        "lng": 76.50959,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.15909,
@@ -4807,6 +7195,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.15906,
+        "lng": 76.50956,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.15909,
+        "lng": 76.50953,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.15885,
         "lng": 76.50946,
         "cand": "Undecided",
@@ -4814,6 +7214,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "BC"
+      },
+      {
+        "lat": 31.15878,
+        "lng": 76.5094,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.15888,
+        "lng": 76.50961,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.1589,
@@ -4825,6 +7237,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.1589,
+        "lng": 76.50969,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.15891,
+        "lng": 76.50975,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.15909,
         "lng": 76.5095,
         "cand": "Undecided",
@@ -4832,6 +7256,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.15911,
+        "lng": 76.50951,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.15908,
+        "lng": 76.50945,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.16331,
@@ -4843,6 +7279,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.16322,
+        "lng": 76.48914,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16333,
+        "lng": 76.489,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.16368,
         "lng": 76.48892,
         "cand": "SSB",
@@ -4850,6 +7298,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16376,
+        "lng": 76.48878,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16375,
+        "lng": 76.48898,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.16614,
@@ -4861,6 +7321,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.16623,
+        "lng": 76.48109,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16619,
+        "lng": 76.48122,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.16583,
         "lng": 76.48224,
         "cand": "SSB",
@@ -4868,6 +7340,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "SC"
+      },
+      {
+        "lat": 31.16597,
+        "lng": 76.48224,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16569,
+        "lng": 76.48224,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.16612,
@@ -4879,6 +7363,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.16615,
+        "lng": 76.48142,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16623,
+        "lng": 76.48129,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.16622,
         "lng": 76.48089,
         "cand": "Undecided",
@@ -4886,6 +7382,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.16623,
+        "lng": 76.48088,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16629,
+        "lng": 76.48086,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.16636,
@@ -4897,6 +7405,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.16641,
+        "lng": 76.48068,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16635,
+        "lng": 76.48092,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.16626,
         "lng": 76.48019,
         "cand": "Undecided",
@@ -4904,6 +7424,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16621,
+        "lng": 76.48025,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.1663,
+        "lng": 76.4803,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.16614,
@@ -4915,6 +7447,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.16625,
+        "lng": 76.48034,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.1661,
+        "lng": 76.48017,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16624,
         "lng": 76.48001,
         "cand": "Undecided",
@@ -4922,6 +7466,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16631,
+        "lng": 76.48009,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16635,
+        "lng": 76.47987,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.16642,
@@ -4933,6 +7489,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16629,
+        "lng": 76.48003,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16655,
+        "lng": 76.48014,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16687,
         "lng": 76.47962,
         "cand": "Undecided",
@@ -4940,6 +7508,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "SC"
+      },
+      {
+        "lat": 31.16694,
+        "lng": 76.4796,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16675,
+        "lng": 76.47966,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16616,
@@ -4951,6 +7531,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16627,
+        "lng": 76.47982,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16622,
+        "lng": 76.47996,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.1669,
         "lng": 76.47958,
         "cand": "GSG",
@@ -4958,6 +7550,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "Unknown"
+      },
+      {
+        "lat": 31.16676,
+        "lng": 76.47967,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16684,
+        "lng": 76.47954,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16679,
@@ -4969,6 +7573,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.16668,
+        "lng": 76.4789,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.16681,
+        "lng": 76.47898,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.16608,
         "lng": 76.47977,
         "cand": "Undecided",
@@ -4976,6 +7592,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.16598,
+        "lng": 76.47964,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.16619,
+        "lng": 76.47981,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.16612,
@@ -4987,6 +7615,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.16604,
+        "lng": 76.47993,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16601,
+        "lng": 76.4798,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.16605,
         "lng": 76.47965,
         "cand": "Undecided",
@@ -4994,6 +7634,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "BC"
+      },
+      {
+        "lat": 31.16598,
+        "lng": 76.47958,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.1659,
+        "lng": 76.47974,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.16705,
@@ -5005,6 +7657,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16717,
+        "lng": 76.4789,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16695,
+        "lng": 76.47883,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.16606,
         "lng": 76.4797,
         "cand": "Undecided",
@@ -5012,6 +7676,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.16601,
+        "lng": 76.47973,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.1661,
+        "lng": 76.47968,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16713,
@@ -5023,6 +7699,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.16706,
+        "lng": 76.47886,
+        "cand": "SSB",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.16704,
+        "lng": 76.47873,
+        "cand": "SSB",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.16715,
         "lng": 76.47861,
         "cand": "Undecided",
@@ -5030,6 +7718,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP WPD Ind",
         "caste": "SC"
+      },
+      {
+        "lat": 31.16714,
+        "lng": 76.47853,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16717,
+        "lng": 76.47863,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.1661,
@@ -5041,6 +7741,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.16625,
+        "lng": 76.4797,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.16624,
+        "lng": 76.47981,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 31.16609,
         "lng": 76.47978,
         "cand": "SSB",
@@ -5050,6 +7762,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16602,
+        "lng": 76.4798,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16615,
+        "lng": 76.47985,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16615,
         "lng": 76.47984,
         "cand": "Undecided",
@@ -5057,6 +7781,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16601,
+        "lng": 76.47987,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.16615,
+        "lng": 76.47996,
+        "cand": "Undecided",
+        "cm": "Undecided"
       },
       {
         "lat": 31.16613,
@@ -5068,6 +7804,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.16607,
+        "lng": 76.4799,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16616,
+        "lng": 76.47977,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16613,
         "lng": 76.47982,
         "cand": "SSB",
@@ -5075,6 +7823,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16617,
+        "lng": 76.47986,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16618,
+        "lng": 76.47989,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16615,
@@ -5086,6 +7846,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.1662,
+        "lng": 76.47994,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16619,
+        "lng": 76.47996,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.1661,
         "lng": 76.47978,
         "cand": "Undecided",
@@ -5093,6 +7865,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16614,
+        "lng": 76.47972,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16608,
+        "lng": 76.4798,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16551,
@@ -5104,6 +7888,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.16558,
+        "lng": 76.4784,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16545,
+        "lng": 76.47859,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.23183,
         "lng": 76.39285,
         "cand": "Undecided",
@@ -5111,6 +7907,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.23173,
+        "lng": 76.39274,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.23184,
+        "lng": 76.39299,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.23234,
@@ -5122,6 +7930,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.23235,
+        "lng": 76.39263,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23244,
+        "lng": 76.39244,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.23183,
         "lng": 76.39291,
         "cand": "Undecided",
@@ -5129,6 +7949,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.23193,
+        "lng": 76.3929,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.23192,
+        "lng": 76.39298,
+        "cand": "Undecided",
+        "cm": "Undecided"
       },
       {
         "lat": 31.2318,
@@ -5140,6 +7972,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.23175,
+        "lng": 76.39285,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.23194,
+        "lng": 76.39286,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.23203,
         "lng": 76.39186,
         "cand": "SSB",
@@ -5147,6 +7991,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.23217,
+        "lng": 76.39197,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.2321,
+        "lng": 76.392,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.23181,
@@ -5158,6 +8014,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.23195,
+        "lng": 76.39309,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.23177,
+        "lng": 76.39309,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.23182,
         "lng": 76.39289,
         "cand": "Undecided",
@@ -5165,6 +8033,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "SC"
+      },
+      {
+        "lat": 31.23167,
+        "lng": 76.3929,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23181,
+        "lng": 76.39294,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.23196,
@@ -5176,6 +8056,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.23201,
+        "lng": 76.39229,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.23206,
+        "lng": 76.39239,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 31.2318,
         "lng": 76.39293,
         "cand": "SSB",
@@ -5183,6 +8075,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.23168,
+        "lng": 76.39285,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.23166,
+        "lng": 76.39305,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.23185,
@@ -5194,6 +8098,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.23187,
+        "lng": 76.39328,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23177,
+        "lng": 76.39303,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.23164,
         "lng": 76.39323,
         "cand": "Undecided",
@@ -5201,6 +8117,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.23174,
+        "lng": 76.39335,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23158,
+        "lng": 76.3932,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.20739,
@@ -5212,6 +8140,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.20728,
+        "lng": 76.41574,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.20733,
+        "lng": 76.41561,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.20746,
         "lng": 76.41528,
         "cand": "SSB",
@@ -5219,6 +8159,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.20734,
+        "lng": 76.4154,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20735,
+        "lng": 76.41527,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.20747,
@@ -5230,6 +8182,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.20752,
+        "lng": 76.41558,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.2076,
+        "lng": 76.41549,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 31.20675,
         "lng": 76.41756,
         "cand": "Undecided",
@@ -5237,6 +8201,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.20682,
+        "lng": 76.41746,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.20672,
+        "lng": 76.41744,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.2074,
@@ -5248,6 +8224,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.2074,
+        "lng": 76.41557,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20754,
+        "lng": 76.41546,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.20691,
         "lng": 76.41739,
         "cand": "Undecided",
@@ -5255,6 +8243,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "BC"
+      },
+      {
+        "lat": 31.20687,
+        "lng": 76.41737,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20705,
+        "lng": 76.4175,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.20869,
@@ -5266,6 +8266,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.20857,
+        "lng": 76.41399,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.2087,
+        "lng": 76.41407,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.20733,
         "lng": 76.41567,
         "cand": "Undecided",
@@ -5273,6 +8285,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "SC"
+      },
+      {
+        "lat": 31.20729,
+        "lng": 76.41564,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20724,
+        "lng": 76.41556,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.20643,
@@ -5284,6 +8308,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.20653,
+        "lng": 76.41685,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20648,
+        "lng": 76.4169,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.20731,
         "lng": 76.41568,
         "cand": "Undecided",
@@ -5291,6 +8327,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "SC"
+      },
+      {
+        "lat": 31.20734,
+        "lng": 76.41554,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.2074,
+        "lng": 76.4156,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.20714,
@@ -5302,6 +8350,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.20703,
+        "lng": 76.41596,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20701,
+        "lng": 76.41602,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.20636,
         "lng": 76.41682,
         "cand": "Undecided",
@@ -5309,6 +8369,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "BC"
+      },
+      {
+        "lat": 31.20627,
+        "lng": 76.41673,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.20647,
+        "lng": 76.41677,
+        "cand": "Undecided",
+        "cm": "Undecided"
       },
       {
         "lat": 31.20733,
@@ -5320,6 +8392,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.20722,
+        "lng": 76.41583,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20718,
+        "lng": 76.41582,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.20642,
         "lng": 76.41682,
         "cand": "Undecided",
@@ -5327,6 +8411,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "BC"
+      },
+      {
+        "lat": 31.20631,
+        "lng": 76.41671,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20635,
+        "lng": 76.41672,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.20705,
@@ -5338,6 +8434,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.2071,
+        "lng": 76.41592,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.2069,
+        "lng": 76.41615,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.20695,
         "lng": 76.41606,
         "cand": "DJ",
@@ -5345,6 +8453,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.20687,
+        "lng": 76.41601,
+        "cand": "DJ",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.20685,
+        "lng": 76.41593,
+        "cand": "DJ",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.20823,
@@ -5356,6 +8476,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.2083,
+        "lng": 76.41433,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.2083,
+        "lng": 76.41431,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.20691,
         "lng": 76.41614,
         "cand": "Undecided",
@@ -5363,6 +8495,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "None",
         "caste": "BC"
+      },
+      {
+        "lat": 31.20699,
+        "lng": 76.41614,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.20679,
+        "lng": 76.41614,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.20643,
@@ -5374,6 +8518,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.20656,
+        "lng": 76.41669,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.20651,
+        "lng": 76.41694,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.20693,
         "lng": 76.41626,
         "cand": "DJ",
@@ -5381,6 +8537,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.20694,
+        "lng": 76.41625,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.20707,
+        "lng": 76.41613,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.20693,
@@ -5393,12 +8561,36 @@ VALUES (
       },
       {
         "lat": 31.20692,
+        "lng": 76.41623,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20699,
+        "lng": 76.41626,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20692,
         "lng": 76.41627,
         "cand": "Undecided",
         "cm": "Charanjeet Channi",
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.20704,
+        "lng": 76.41614,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20679,
+        "lng": 76.4163,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.20695,
@@ -5410,6 +8602,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.20682,
+        "lng": 76.41618,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20699,
+        "lng": 76.41626,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.20675,
         "lng": 76.41638,
         "cand": "Undecided",
@@ -5417,6 +8621,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.2067,
+        "lng": 76.41653,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.20676,
+        "lng": 76.41637,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.20669,
@@ -5428,6 +8644,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.20672,
+        "lng": 76.4164,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20675,
+        "lng": 76.41663,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.20675,
         "lng": 76.41648,
         "cand": "Undecided",
@@ -5435,6 +8663,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.2068,
+        "lng": 76.41656,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20682,
+        "lng": 76.41639,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.20648,
@@ -5446,6 +8686,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.20647,
+        "lng": 76.41674,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20643,
+        "lng": 76.41681,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.20485,
         "lng": 76.41949,
         "cand": "SSB",
@@ -5453,6 +8705,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.20482,
+        "lng": 76.41937,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20483,
+        "lng": 76.41954,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.20484,
@@ -5464,6 +8728,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.2048,
+        "lng": 76.4194,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20497,
+        "lng": 76.41937,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.20327,
         "lng": 76.42182,
         "cand": "Undecided",
@@ -5471,6 +8747,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "None",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.20337,
+        "lng": 76.4217,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.20315,
+        "lng": 76.42189,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.20462,
@@ -5482,6 +8770,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.20471,
+        "lng": 76.41976,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.20465,
+        "lng": 76.41976,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 31.2046,
         "lng": 76.41968,
         "cand": "Undecided",
@@ -5489,6 +8789,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "None",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.20455,
+        "lng": 76.41957,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20456,
+        "lng": 76.41973,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.20311,
@@ -5500,6 +8812,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.20319,
+        "lng": 76.42169,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.20318,
+        "lng": 76.42172,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.20308,
         "lng": 76.42158,
         "cand": "Undecided",
@@ -5507,6 +8831,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "None",
         "caste": "BC"
+      },
+      {
+        "lat": 31.20311,
+        "lng": 76.42154,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.2031,
+        "lng": 76.42149,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.20358,
@@ -5518,6 +8854,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.20363,
+        "lng": 76.42046,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20346,
+        "lng": 76.42064,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.20401,
         "lng": 76.42051,
         "cand": "SSB",
@@ -5525,6 +8873,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.20397,
+        "lng": 76.42059,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.20403,
+        "lng": 76.4206,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.20361,
@@ -5536,6 +8896,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.20371,
+        "lng": 76.42106,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.20371,
+        "lng": 76.42095,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 31.20346,
         "lng": 76.421,
         "cand": "Undecided",
@@ -5543,6 +8915,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "None",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.2035,
+        "lng": 76.42086,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20359,
+        "lng": 76.4211,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.20362,
@@ -5554,6 +8938,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.20355,
+        "lng": 76.4208,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20368,
+        "lng": 76.42084,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.20342,
         "lng": 76.42102,
         "cand": "Undecided",
@@ -5561,6 +8957,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "None",
         "caste": "SC"
+      },
+      {
+        "lat": 31.20337,
+        "lng": 76.42087,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.20353,
+        "lng": 76.42104,
+        "cand": "Undecided",
+        "cm": "Undecided"
       },
       {
         "lat": 31.20323,
@@ -5572,6 +8980,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.2032,
+        "lng": 76.42132,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20327,
+        "lng": 76.42129,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.20321,
         "lng": 76.42153,
         "cand": "Undecided",
@@ -5579,6 +8999,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.20328,
+        "lng": 76.42144,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20319,
+        "lng": 76.42148,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.20311,
@@ -5590,6 +9022,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.20307,
+        "lng": 76.42165,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.20319,
+        "lng": 76.4216,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.20308,
         "lng": 76.42184,
         "cand": "Undecided",
@@ -5597,6 +9041,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "BC"
+      },
+      {
+        "lat": 31.20296,
+        "lng": 76.42171,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20298,
+        "lng": 76.42188,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.20326,
@@ -5608,6 +9064,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.20331,
+        "lng": 76.4218,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20331,
+        "lng": 76.42187,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.20323,
         "lng": 76.42152,
         "cand": "Undecided",
@@ -5615,6 +9083,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.20321,
+        "lng": 76.42145,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20331,
+        "lng": 76.4214,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.20232,
@@ -5626,6 +9106,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.2023,
+        "lng": 76.42277,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20237,
+        "lng": 76.42284,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.20123,
         "lng": 76.42472,
         "cand": "Undecided",
@@ -5633,6 +9125,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "None",
         "caste": "BC"
+      },
+      {
+        "lat": 31.20128,
+        "lng": 76.42458,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.2012,
+        "lng": 76.42475,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.20204,
@@ -5644,6 +9148,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.20189,
+        "lng": 76.42316,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20195,
+        "lng": 76.42311,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.20145,
         "lng": 76.42357,
         "cand": "Undecided",
@@ -5651,6 +9167,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.20138,
+        "lng": 76.42352,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.2013,
+        "lng": 76.42364,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.20122,
@@ -5662,6 +9190,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.20112,
+        "lng": 76.42418,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.20128,
+        "lng": 76.42422,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.20227,
         "lng": 76.4228,
         "cand": "Undecided",
@@ -5669,6 +9209,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.20237,
+        "lng": 76.42289,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.20214,
+        "lng": 76.42291,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.20185,
@@ -5680,6 +9232,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.20171,
+        "lng": 76.42356,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.20198,
+        "lng": 76.42381,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.2018,
         "lng": 76.42353,
         "cand": "Undecided",
@@ -5687,6 +9251,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.20182,
+        "lng": 76.42355,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.20186,
+        "lng": 76.42351,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.20185,
@@ -5698,6 +9274,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.20173,
+        "lng": 76.42354,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.2018,
+        "lng": 76.42377,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 31.19208,
         "lng": 76.44025,
         "cand": "SSB",
@@ -5707,6 +9295,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.19212,
+        "lng": 76.44035,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.19221,
+        "lng": 76.44013,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.19124,
         "lng": 76.44078,
         "cand": "Undecided",
@@ -5714,6 +9314,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.19134,
+        "lng": 76.4407,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.19127,
+        "lng": 76.44079,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.19083,
@@ -5725,6 +9337,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.1908,
+        "lng": 76.44026,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.19078,
+        "lng": 76.44027,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.19124,
         "lng": 76.44078,
         "cand": "SSB",
@@ -5732,6 +9356,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.19114,
+        "lng": 76.44078,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.19112,
+        "lng": 76.44078,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.19118,
@@ -5743,6 +9379,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.1913,
+        "lng": 76.44084,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.19125,
+        "lng": 76.44099,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.19109,
         "lng": 76.44103,
         "cand": "JSA",
@@ -5750,6 +9398,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "None",
         "caste": "SC"
+      },
+      {
+        "lat": 31.19118,
+        "lng": 76.44095,
+        "cand": "JSA",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.19098,
+        "lng": 76.44094,
+        "cand": "JSA",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.19097,
@@ -5761,6 +9421,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.191,
+        "lng": 76.44131,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.19102,
+        "lng": 76.44113,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.19095,
         "lng": 76.44204,
         "cand": "DJ",
@@ -5768,6 +9440,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "None",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.19103,
+        "lng": 76.44204,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.19103,
+        "lng": 76.44212,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.19098,
@@ -5779,6 +9463,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.19096,
+        "lng": 76.4422,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.191,
+        "lng": 76.44211,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.19098,
         "lng": 76.44127,
         "cand": "Undecided",
@@ -5786,6 +9482,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.19102,
+        "lng": 76.44138,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.19102,
+        "lng": 76.44117,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.19116,
@@ -5797,6 +9505,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.19103,
+        "lng": 76.44199,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.1911,
+        "lng": 76.44194,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.19166,
         "lng": 76.44184,
         "cand": "Undecided",
@@ -5804,6 +9524,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.19153,
+        "lng": 76.44184,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.1916,
+        "lng": 76.44183,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.19107,
@@ -5815,6 +9547,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.19094,
+        "lng": 76.44199,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.19094,
+        "lng": 76.442,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.17448,
         "lng": 76.46913,
         "cand": "Undecided",
@@ -5822,6 +9566,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.17459,
+        "lng": 76.46916,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.17448,
+        "lng": 76.46912,
+        "cand": "Undecided",
+        "cm": "Undecided"
       },
       {
         "lat": 31.17314,
@@ -5833,6 +9589,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.17316,
+        "lng": 76.47216,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.17326,
+        "lng": 76.47205,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.17314,
         "lng": 76.47211,
         "cand": "DJ",
@@ -5840,6 +9608,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.17323,
+        "lng": 76.47216,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17309,
+        "lng": 76.4721,
+        "cand": "DJ",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.17344,
@@ -5851,6 +9631,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.17334,
+        "lng": 76.47079,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.17332,
+        "lng": 76.47104,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.17359,
         "lng": 76.47091,
         "cand": "Undecided",
@@ -5858,6 +9650,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.17354,
+        "lng": 76.47097,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.17359,
+        "lng": 76.47081,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.17371,
@@ -5869,6 +9673,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.17363,
+        "lng": 76.47095,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17369,
+        "lng": 76.47098,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.17274,
         "lng": 76.47316,
         "cand": "SSB",
@@ -5876,6 +9692,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.17264,
+        "lng": 76.47312,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.17267,
+        "lng": 76.47313,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.1728,
@@ -5887,6 +9715,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.17275,
+        "lng": 76.47307,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17289,
+        "lng": 76.47308,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.17339,
         "lng": 76.47144,
         "cand": "Undecided",
@@ -5896,6 +9736,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.17326,
+        "lng": 76.47132,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17344,
+        "lng": 76.47138,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.1734,
         "lng": 76.47143,
         "cand": "Undecided",
@@ -5903,6 +9755,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.17347,
+        "lng": 76.47148,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17352,
+        "lng": 76.47154,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.17256,
@@ -5914,6 +9778,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.17251,
+        "lng": 76.47329,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.17245,
+        "lng": 76.47322,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.1734,
         "lng": 76.47143,
         "cand": "SSB",
@@ -5921,6 +9797,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.17354,
+        "lng": 76.47149,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.17337,
+        "lng": 76.47146,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.17244,
@@ -5932,6 +9820,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.17257,
+        "lng": 76.47325,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.1724,
+        "lng": 76.4734,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 31.17314,
         "lng": 76.47209,
         "cand": "SSB",
@@ -5939,6 +9839,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.17323,
+        "lng": 76.47214,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17324,
+        "lng": 76.47216,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.17243,
@@ -5950,6 +9862,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.17249,
+        "lng": 76.47332,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17247,
+        "lng": 76.47329,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.1725,
         "lng": 76.47337,
         "cand": "SSB",
@@ -5957,6 +9881,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.17246,
+        "lng": 76.47333,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.1724,
+        "lng": 76.47328,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.17229,
@@ -5968,6 +9904,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.17242,
+        "lng": 76.47386,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17221,
+        "lng": 76.47375,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.17257,
         "lng": 76.47334,
         "cand": "Undecided",
@@ -5975,6 +9923,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.17244,
+        "lng": 76.47344,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17245,
+        "lng": 76.47342,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.17231,
@@ -5986,6 +9946,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.17241,
+        "lng": 76.47403,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.17217,
+        "lng": 76.47386,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
         "lat": 31.17236,
         "lng": 76.47345,
         "cand": "Undecided",
@@ -5993,6 +9965,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.17244,
+        "lng": 76.47334,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17232,
+        "lng": 76.47335,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.17236,
@@ -6004,6 +9988,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.17246,
+        "lng": 76.47396,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.17245,
+        "lng": 76.47378,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.17172,
         "lng": 76.47476,
         "cand": "SSB",
@@ -6011,6 +10007,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "BC"
+      },
+      {
+        "lat": 31.1717,
+        "lng": 76.47473,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.17177,
+        "lng": 76.47468,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.1719,
@@ -6022,6 +10030,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.17188,
+        "lng": 76.47471,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17197,
+        "lng": 76.47475,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.1718,
         "lng": 76.47475,
         "cand": "SSB",
@@ -6029,6 +10049,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.17181,
+        "lng": 76.47469,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17189,
+        "lng": 76.47474,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.17174,
@@ -6040,6 +10072,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.17184,
+        "lng": 76.47472,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17187,
+        "lng": 76.47491,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.17161,
         "lng": 76.47507,
         "cand": "Undecided",
@@ -6047,6 +10091,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.1716,
+        "lng": 76.475,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17157,
+        "lng": 76.47508,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.17137,
@@ -6058,6 +10114,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.17151,
+        "lng": 76.47631,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17146,
+        "lng": 76.4761,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.17147,
         "lng": 76.47473,
         "cand": "Undecided",
@@ -6065,6 +10133,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.1714,
+        "lng": 76.47477,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17158,
+        "lng": 76.47475,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.17138,
@@ -6076,6 +10156,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.17126,
+        "lng": 76.47572,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17149,
+        "lng": 76.47556,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.17066,
         "lng": 76.47742,
         "cand": "Undecided",
@@ -6083,6 +10175,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "SC"
+      },
+      {
+        "lat": 31.17074,
+        "lng": 76.47735,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17078,
+        "lng": 76.47731,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.17123,
@@ -6094,6 +10198,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.17121,
+        "lng": 76.47573,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17115,
+        "lng": 76.47559,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.17002,
         "lng": 76.47795,
         "cand": "Undecided",
@@ -6101,6 +10217,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16997,
+        "lng": 76.47781,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.16989,
+        "lng": 76.47795,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.17055,
@@ -6112,6 +10240,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.17047,
+        "lng": 76.47758,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17051,
+        "lng": 76.47729,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.17049,
         "lng": 76.47745,
         "cand": "SSB",
@@ -6119,6 +10259,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "SC"
+      },
+      {
+        "lat": 31.17062,
+        "lng": 76.47755,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.17053,
+        "lng": 76.47754,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.17041,
@@ -6130,6 +10282,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.1703,
+        "lng": 76.47749,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.17051,
+        "lng": 76.47761,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.17003,
         "lng": 76.47796,
         "cand": "Undecided",
@@ -6137,6 +10301,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16992,
+        "lng": 76.47802,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17001,
+        "lng": 76.47781,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.16962,
@@ -6148,6 +10324,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.16949,
+        "lng": 76.47838,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16972,
+        "lng": 76.47846,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.1705,
         "lng": 76.47754,
         "cand": "Undecided",
@@ -6155,6 +10343,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "Saini"
+      },
+      {
+        "lat": 31.17057,
+        "lng": 76.47755,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17038,
+        "lng": 76.47748,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.16992,
@@ -6166,6 +10366,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.16986,
+        "lng": 76.47801,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.1699,
+        "lng": 76.47824,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.16979,
         "lng": 76.47816,
         "cand": "GSG",
@@ -6173,6 +10385,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.16978,
+        "lng": 76.47804,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16991,
+        "lng": 76.47819,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.16934,
@@ -6184,6 +10408,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.16919,
+        "lng": 76.47861,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.16926,
+        "lng": 76.4785,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.1693,
         "lng": 76.4785,
         "cand": "Undecided",
@@ -6191,6 +10427,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16928,
+        "lng": 76.47853,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16922,
+        "lng": 76.47847,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16892,
@@ -6202,6 +10450,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16897,
+        "lng": 76.47813,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16906,
+        "lng": 76.47812,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.16918,
         "lng": 76.4784,
         "cand": "Undecided",
@@ -6211,6 +10471,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16919,
+        "lng": 76.4784,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16933,
+        "lng": 76.47842,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.16914,
         "lng": 76.47849,
         "cand": "Undecided",
@@ -6218,6 +10490,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16911,
+        "lng": 76.47848,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.16918,
+        "lng": 76.47863,
+        "cand": "Undecided",
+        "cm": "Undecided"
       },
       {
         "lat": 31.16891,
@@ -6229,6 +10513,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16884,
+        "lng": 76.47815,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.169,
+        "lng": 76.47825,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.16914,
         "lng": 76.47849,
         "cand": "Undecided",
@@ -6236,6 +10532,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "Saini"
+      },
+      {
+        "lat": 31.16921,
+        "lng": 76.47853,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16922,
+        "lng": 76.47856,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.1689,
@@ -6247,6 +10555,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16885,
+        "lng": 76.47812,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16891,
+        "lng": 76.47835,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.16914,
         "lng": 76.47848,
         "cand": "Undecided",
@@ -6254,6 +10574,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.16904,
+        "lng": 76.47856,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16913,
+        "lng": 76.47854,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.1697,
@@ -6265,6 +10597,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16974,
+        "lng": 76.47831,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16957,
+        "lng": 76.4783,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16887,
         "lng": 76.47824,
         "cand": "DJ",
@@ -6272,6 +10616,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.16886,
+        "lng": 76.47818,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16873,
+        "lng": 76.47815,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16913,
@@ -6283,6 +10639,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16899,
+        "lng": 76.47861,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16913,
+        "lng": 76.47863,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16885,
         "lng": 76.47839,
         "cand": "Undecided",
@@ -6290,6 +10658,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "BC"
+      },
+      {
+        "lat": 31.16886,
+        "lng": 76.47832,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16893,
+        "lng": 76.4783,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16891,
@@ -6301,6 +10681,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16887,
+        "lng": 76.47841,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16902,
+        "lng": 76.47828,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.1688,
         "lng": 76.47868,
         "cand": "Undecided",
@@ -6308,6 +10700,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "BC"
+      },
+      {
+        "lat": 31.16869,
+        "lng": 76.47864,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16892,
+        "lng": 76.47875,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16878,
@@ -6319,6 +10723,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.1689,
+        "lng": 76.47865,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16892,
+        "lng": 76.47868,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.16876,
         "lng": 76.47867,
         "cand": "GSG",
@@ -6326,6 +10742,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.16876,
+        "lng": 76.4788,
+        "cand": "GSG",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16877,
+        "lng": 76.47876,
+        "cand": "GSG",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.16856,
@@ -6337,6 +10765,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.16863,
+        "lng": 76.47773,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16859,
+        "lng": 76.47796,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16836,
         "lng": 76.47824,
         "cand": "Undecided",
@@ -6344,6 +10784,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "BC"
+      },
+      {
+        "lat": 31.16837,
+        "lng": 76.47819,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16823,
+        "lng": 76.47829,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16832,
@@ -6355,6 +10807,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.16826,
+        "lng": 76.47848,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.1683,
+        "lng": 76.47851,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.16843,
         "lng": 76.47827,
         "cand": "Undecided",
@@ -6362,6 +10826,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.16839,
+        "lng": 76.47813,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16854,
+        "lng": 76.47823,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.16826,
@@ -6373,6 +10849,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.16841,
+        "lng": 76.47733,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.1684,
+        "lng": 76.47753,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.16806,
         "lng": 76.47739,
         "cand": "SSB",
@@ -6380,6 +10868,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.16793,
+        "lng": 76.47743,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16802,
+        "lng": 76.47748,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.16806,
@@ -6391,6 +10891,18 @@ VALUES (
         "caste": "Saini"
       },
       {
+        "lat": 31.16811,
+        "lng": 76.47755,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16795,
+        "lng": 76.47744,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.16762,
         "lng": 76.47483,
         "cand": "SSB",
@@ -6398,6 +10910,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Saini"
+      },
+      {
+        "lat": 31.1677,
+        "lng": 76.47469,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16749,
+        "lng": 76.47491,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16735,
@@ -6409,6 +10933,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.16731,
+        "lng": 76.47422,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16737,
+        "lng": 76.47429,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16752,
         "lng": 76.47381,
         "cand": "Undecided",
@@ -6416,6 +10952,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.16757,
+        "lng": 76.47394,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16748,
+        "lng": 76.47389,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16718,
@@ -6427,6 +10975,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.1672,
+        "lng": 76.4738,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16715,
+        "lng": 76.47383,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.16718,
         "lng": 76.47381,
         "cand": "Undecided",
@@ -6434,6 +10994,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "SC"
+      },
+      {
+        "lat": 31.1671,
+        "lng": 76.47369,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16725,
+        "lng": 76.47381,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.16665,
@@ -6445,6 +11017,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.16662,
+        "lng": 76.47364,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16658,
+        "lng": 76.47355,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.1672,
         "lng": 76.47384,
         "cand": "SSB",
@@ -6452,6 +11036,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "SC"
+      },
+      {
+        "lat": 31.16718,
+        "lng": 76.47399,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16714,
+        "lng": 76.47396,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.17109,
@@ -6463,6 +11059,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.17109,
+        "lng": 76.44145,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.1712,
+        "lng": 76.44155,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.17134,
         "lng": 76.44086,
         "cand": "Undecided",
@@ -6470,6 +11078,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.17146,
+        "lng": 76.44084,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.17122,
+        "lng": 76.44091,
+        "cand": "Undecided",
+        "cm": "Undecided"
       },
       {
         "lat": 31.17109,
@@ -6481,6 +11101,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.17119,
+        "lng": 76.44007,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17104,
+        "lng": 76.43999,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.1713,
         "lng": 76.43968,
         "cand": "JSA",
@@ -6488,6 +11120,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.17131,
+        "lng": 76.4398,
+        "cand": "JSA",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17141,
+        "lng": 76.43974,
+        "cand": "JSA",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.17123,
@@ -6499,6 +11143,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.17136,
+        "lng": 76.44042,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.17132,
+        "lng": 76.44038,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.17117,
         "lng": 76.43895,
         "cand": "Undecided",
@@ -6506,6 +11162,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.17106,
+        "lng": 76.43886,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17106,
+        "lng": 76.43904,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.17114,
@@ -6517,6 +11185,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.171,
+        "lng": 76.43771,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.1711,
+        "lng": 76.43778,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.17111,
         "lng": 76.43766,
         "cand": "DJ",
@@ -6524,6 +11204,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.17113,
+        "lng": 76.43769,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17099,
+        "lng": 76.4376,
+        "cand": "DJ",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.17122,
@@ -6535,6 +11227,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.17137,
+        "lng": 76.43761,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17123,
+        "lng": 76.43762,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.17118,
         "lng": 76.43775,
         "cand": "JSA",
@@ -6544,6 +11248,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.17128,
+        "lng": 76.43762,
+        "cand": "JSA",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.17132,
+        "lng": 76.43779,
+        "cand": "JSA",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.17633,
         "lng": 76.41212,
         "cand": "SSB",
@@ -6551,6 +11267,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "SC"
+      },
+      {
+        "lat": 31.17631,
+        "lng": 76.41217,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17628,
+        "lng": 76.41223,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.17633,
@@ -6562,6 +11290,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.17641,
+        "lng": 76.41216,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.17623,
+        "lng": 76.41226,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.17632,
         "lng": 76.41211,
         "cand": "Undecided",
@@ -6569,6 +11309,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.1763,
+        "lng": 76.41223,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.17619,
+        "lng": 76.412,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.17806,
@@ -6580,6 +11332,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.17796,
+        "lng": 76.41028,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.17801,
+        "lng": 76.41044,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.23802,
         "lng": 76.36325,
         "cand": "SSB",
@@ -6587,6 +11351,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.23797,
+        "lng": 76.36338,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.23814,
+        "lng": 76.36335,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.23804,
@@ -6598,6 +11374,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.23797,
+        "lng": 76.36327,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.23806,
+        "lng": 76.36312,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.23809,
         "lng": 76.36323,
         "cand": "Undecided",
@@ -6605,6 +11393,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "None",
         "caste": "SC"
+      },
+      {
+        "lat": 31.23803,
+        "lng": 76.36324,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23809,
+        "lng": 76.36313,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.23775,
@@ -6616,6 +11416,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.23788,
+        "lng": 76.36309,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.2378,
+        "lng": 76.36326,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.23809,
         "lng": 76.36326,
         "cand": "Undecided",
@@ -6625,6 +11437,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.23812,
+        "lng": 76.36336,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.23811,
+        "lng": 76.36336,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.23785,
         "lng": 76.36244,
         "cand": "Undecided",
@@ -6632,6 +11456,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "None",
         "caste": "BC"
+      },
+      {
+        "lat": 31.23771,
+        "lng": 76.3623,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23789,
+        "lng": 76.36246,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.23798,
@@ -6644,12 +11480,36 @@ VALUES (
       },
       {
         "lat": 31.23803,
+        "lng": 76.36316,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.23795,
+        "lng": 76.36312,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.23803,
         "lng": 76.3632,
         "cand": "SSB",
         "cm": "Amritpal Singh",
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "BC"
+      },
+      {
+        "lat": 31.23803,
+        "lng": 76.36324,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.23797,
+        "lng": 76.36334,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.23791,
@@ -6661,6 +11521,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.2379,
+        "lng": 76.36369,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23797,
+        "lng": 76.36354,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.23798,
         "lng": 76.36584,
         "cand": "Undecided",
@@ -6668,6 +11540,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.23785,
+        "lng": 76.36571,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23796,
+        "lng": 76.36584,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.23811,
@@ -6679,6 +11563,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.23802,
+        "lng": 76.36585,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23805,
+        "lng": 76.36589,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.23787,
         "lng": 76.36683,
         "cand": "Undecided",
@@ -6686,6 +11582,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "WPD",
         "caste": "OBC"
+      },
+      {
+        "lat": 31.23794,
+        "lng": 76.36694,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23801,
+        "lng": 76.36672,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.23802,
@@ -6697,6 +11605,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.23798,
+        "lng": 76.36637,
+        "cand": "GSG",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.23797,
+        "lng": 76.36634,
+        "cand": "GSG",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.23785,
         "lng": 76.36685,
         "cand": "Undecided",
@@ -6706,6 +11626,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.23778,
+        "lng": 76.36677,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.23773,
+        "lng": 76.36679,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.23797,
         "lng": 76.3667,
         "cand": "Undecided",
@@ -6713,6 +11645,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.23794,
+        "lng": 76.36673,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23789,
+        "lng": 76.36681,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.23797,
@@ -6724,6 +11668,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.23787,
+        "lng": 76.36662,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23799,
+        "lng": 76.36661,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.23796,
         "lng": 76.36689,
         "cand": "Undecided",
@@ -6731,6 +11687,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "BC"
+      },
+      {
+        "lat": 31.23804,
+        "lng": 76.36689,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.23796,
+        "lng": 76.36689,
+        "cand": "Undecided",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.23796,
@@ -6742,6 +11710,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.2379,
+        "lng": 76.36656,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23809,
+        "lng": 76.3667,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.23807,
         "lng": 76.36691,
         "cand": "GSG",
@@ -6749,6 +11729,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.23821,
+        "lng": 76.36682,
+        "cand": "GSG",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.23803,
+        "lng": 76.36678,
+        "cand": "GSG",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.23804,
@@ -6760,6 +11752,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.23804,
+        "lng": 76.36694,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.23809,
+        "lng": 76.36682,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.23782,
         "lng": 76.36701,
         "cand": "Undecided",
@@ -6767,6 +11771,18 @@ VALUES (
         "zone": "North (Kiratpur / Nangal belt)",
         "party": "BJP",
         "caste": "BC"
+      },
+      {
+        "lat": 31.23783,
+        "lng": 76.36711,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.2378,
+        "lng": 76.36712,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.23789,
@@ -6778,6 +11794,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.23796,
+        "lng": 76.36793,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.23785,
+        "lng": 76.36782,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.16528,
         "lng": 76.48008,
         "cand": "Undecided",
@@ -6785,6 +11813,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.1653,
+        "lng": 76.47999,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.1653,
+        "lng": 76.47995,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.16592,
@@ -6796,6 +11836,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16592,
+        "lng": 76.47927,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16585,
+        "lng": 76.47934,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.16358,
         "lng": 76.48269,
         "cand": "Undecided",
@@ -6803,6 +11855,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "BC"
+      },
+      {
+        "lat": 31.16363,
+        "lng": 76.48258,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.16372,
+        "lng": 76.48266,
+        "cand": "Undecided",
+        "cm": "Undecided"
       },
       {
         "lat": 31.16529,
@@ -6814,6 +11878,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.16538,
+        "lng": 76.48002,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16542,
+        "lng": 76.48015,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.16586,
         "lng": 76.47931,
         "cand": "SSB",
@@ -6821,6 +11897,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16577,
+        "lng": 76.47931,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16586,
+        "lng": 76.47917,
+        "cand": "SSB",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.1641,
@@ -6832,6 +11920,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16399,
+        "lng": 76.48208,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16409,
+        "lng": 76.48212,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.165,
         "lng": 76.48076,
         "cand": "Undecided",
@@ -6839,6 +11939,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "Ind",
         "caste": "SC"
+      },
+      {
+        "lat": 31.16503,
+        "lng": 76.48076,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16495,
+        "lng": 76.48079,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.16501,
@@ -6850,6 +11962,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.16491,
+        "lng": 76.48092,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.16508,
+        "lng": 76.48071,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.16374,
         "lng": 76.48324,
         "cand": "Undecided",
@@ -6857,6 +11981,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.16369,
+        "lng": 76.48334,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16375,
+        "lng": 76.4833,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.16508,
@@ -6868,6 +12004,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.16502,
+        "lng": 76.48078,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16504,
+        "lng": 76.48074,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.16569,
         "lng": 76.47935,
         "cand": "Undecided",
@@ -6875,6 +12023,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.16583,
+        "lng": 76.47938,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16578,
+        "lng": 76.47942,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16507,
@@ -6886,6 +12046,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.16513,
+        "lng": 76.48066,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16506,
+        "lng": 76.48094,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16449,
         "lng": 76.48164,
         "cand": "Undecided",
@@ -6893,6 +12065,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16457,
+        "lng": 76.48172,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16451,
+        "lng": 76.48171,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.16507,
@@ -6904,6 +12088,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.1651,
+        "lng": 76.48078,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16511,
+        "lng": 76.48092,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16465,
         "lng": 76.48117,
         "cand": "SSB",
@@ -6911,6 +12107,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.16475,
+        "lng": 76.48106,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.1647,
+        "lng": 76.48103,
+        "cand": "SSB",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.16494,
@@ -6922,6 +12130,18 @@ VALUES (
         "caste": "OBC"
       },
       {
+        "lat": 31.16507,
+        "lng": 76.48097,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.1648,
+        "lng": 76.48103,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16509,
         "lng": 76.48138,
         "cand": "Undecided",
@@ -6929,6 +12149,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "None",
         "caste": "BC"
+      },
+      {
+        "lat": 31.16499,
+        "lng": 76.48144,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16506,
+        "lng": 76.48146,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.16515,
@@ -6940,6 +12172,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.16528,
+        "lng": 76.48097,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16522,
+        "lng": 76.48073,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.16525,
         "lng": 76.48096,
         "cand": "SSB",
@@ -6947,6 +12191,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16514,
+        "lng": 76.48087,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.1652,
+        "lng": 76.48101,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.16405,
@@ -6958,6 +12214,18 @@ VALUES (
         "caste": "Gujjar"
       },
       {
+        "lat": 31.16406,
+        "lng": 76.48218,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16395,
+        "lng": 76.48236,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.16389,
         "lng": 76.48223,
         "cand": "Undecided",
@@ -6965,6 +12233,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "BJP",
         "caste": "Unknown"
+      },
+      {
+        "lat": 31.16384,
+        "lng": 76.48219,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16397,
+        "lng": 76.4823,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.1655,
@@ -6976,6 +12256,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.16554,
+        "lng": 76.48095,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16553,
+        "lng": 76.4808,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.16359,
         "lng": 76.48267,
         "cand": "Undecided",
@@ -6983,6 +12275,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.16351,
+        "lng": 76.48269,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16351,
+        "lng": 76.48281,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.1636,
@@ -6994,6 +12298,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.16354,
+        "lng": 76.48261,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.16351,
+        "lng": 76.48273,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.16359,
         "lng": 76.48268,
         "cand": "Undecided",
@@ -7003,6 +12319,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.16354,
+        "lng": 76.48263,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.16372,
+        "lng": 76.48277,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.1636,
         "lng": 76.48268,
         "cand": "GSG",
@@ -7010,6 +12338,18 @@ VALUES (
         "zone": "North-Central (Nurpur Bedi belt)",
         "party": "WPD",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.16353,
+        "lng": 76.48257,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.16365,
+        "lng": 76.48264,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.15595,
@@ -7021,6 +12361,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.15609,
+        "lng": 76.53142,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.15609,
+        "lng": 76.53141,
+        "cand": "SSB",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.02724,
         "lng": 76.59344,
         "cand": "Undecided",
@@ -7028,6 +12380,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.02718,
+        "lng": 76.59338,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.0273,
+        "lng": 76.59339,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.02644,
@@ -7039,6 +12403,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.02642,
+        "lng": 76.59289,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.02643,
+        "lng": 76.59287,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.02662,
         "lng": 76.59302,
         "cand": "GSG",
@@ -7046,6 +12422,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "Ind",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.02663,
+        "lng": 76.59315,
+        "cand": "GSG",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.02668,
+        "lng": 76.59291,
+        "cand": "GSG",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.02531,
@@ -7057,6 +12445,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.02534,
+        "lng": 76.59301,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.02523,
+        "lng": 76.59303,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.02626,
         "lng": 76.59309,
         "cand": "Undecided",
@@ -7064,6 +12464,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.02627,
+        "lng": 76.59313,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.02613,
+        "lng": 76.59306,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.02005,
@@ -7075,6 +12487,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.02012,
+        "lng": 76.5919,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.02013,
+        "lng": 76.59187,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.02002,
         "lng": 76.59206,
         "cand": "SSB",
@@ -7082,6 +12506,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.02004,
+        "lng": 76.59219,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.01999,
+        "lng": 76.59219,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.02009,
@@ -7093,6 +12529,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.0202,
+        "lng": 76.59238,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.02,
+        "lng": 76.59253,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.02002,
         "lng": 76.59229,
         "cand": "DJ",
@@ -7100,6 +12548,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "SC"
+      },
+      {
+        "lat": 31.01997,
+        "lng": 76.59233,
+        "cand": "DJ",
+        "cm": "Sukhbir Badal"
+      },
+      {
+        "lat": 31.02014,
+        "lng": 76.59217,
+        "cand": "DJ",
+        "cm": "Sukhbir Badal"
       },
       {
         "lat": 31.02043,
@@ -7111,6 +12571,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.02045,
+        "lng": 76.59289,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.0205,
+        "lng": 76.59301,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.02006,
         "lng": 76.59238,
         "cand": "Undecided",
@@ -7118,6 +12590,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.02018,
+        "lng": 76.59228,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.02017,
+        "lng": 76.59228,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.02027,
@@ -7129,6 +12613,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.0204,
+        "lng": 76.59281,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.02024,
+        "lng": 76.59266,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.02042,
         "lng": 76.59292,
         "cand": "Undecided",
@@ -7136,6 +12632,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.02055,
+        "lng": 76.59306,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.02055,
+        "lng": 76.59303,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.02025,
@@ -7147,6 +12655,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.0201,
+        "lng": 76.59265,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.02013,
+        "lng": 76.59277,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.02047,
         "lng": 76.59301,
         "cand": "Undecided",
@@ -7154,6 +12674,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "SC"
+      },
+      {
+        "lat": 31.02041,
+        "lng": 76.59316,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.02048,
+        "lng": 76.59301,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.02026,
@@ -7165,6 +12697,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.02039,
+        "lng": 76.59274,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.02025,
+        "lng": 76.59254,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.02035,
         "lng": 76.59287,
         "cand": "GSG",
@@ -7174,6 +12718,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.02023,
+        "lng": 76.59277,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.02034,
+        "lng": 76.5928,
+        "cand": "GSG",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.02194,
         "lng": 76.59313,
         "cand": "Undecided",
@@ -7181,6 +12737,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.02185,
+        "lng": 76.5932,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.02203,
+        "lng": 76.59315,
+        "cand": "Undecided",
+        "cm": "Undecided"
       },
       {
         "lat": 31.02138,
@@ -7192,6 +12760,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.02146,
+        "lng": 76.59166,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.02149,
+        "lng": 76.59188,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.0219,
         "lng": 76.59313,
         "cand": "Undecided",
@@ -7199,6 +12779,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "None",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.022,
+        "lng": 76.59313,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.02178,
+        "lng": 76.59318,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.02108,
@@ -7210,6 +12802,18 @@ VALUES (
         "caste": "SC"
       },
       {
+        "lat": 31.02099,
+        "lng": 76.59362,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.02103,
+        "lng": 76.59365,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
         "lat": 31.02165,
         "lng": 76.59332,
         "cand": "Undecided",
@@ -7217,6 +12821,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "None",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.02158,
+        "lng": 76.59324,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.02173,
+        "lng": 76.59346,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.02163,
@@ -7228,6 +12844,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.02157,
+        "lng": 76.59329,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.02148,
+        "lng": 76.59327,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.02191,
         "lng": 76.59309,
         "cand": "Undecided",
@@ -7235,6 +12863,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.02197,
+        "lng": 76.59296,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.0218,
+        "lng": 76.59303,
+        "cand": "Undecided",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.02165,
@@ -7246,6 +12886,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.02162,
+        "lng": 76.59287,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.02177,
+        "lng": 76.59293,
+        "cand": "DJ",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.02075,
         "lng": 76.59341,
         "cand": "JSA",
@@ -7253,6 +12905,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Saini"
+      },
+      {
+        "lat": 31.02069,
+        "lng": 76.5933,
+        "cand": "JSA",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.02087,
+        "lng": 76.59335,
+        "cand": "JSA",
+        "cm": "Bhagwant Mann"
       },
       {
         "lat": 31.02189,
@@ -7264,6 +12928,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.02192,
+        "lng": 76.59297,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.02178,
+        "lng": 76.59295,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
         "lat": 31.02194,
         "lng": 76.59311,
         "cand": "Undecided",
@@ -7271,6 +12947,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gujjar"
+      },
+      {
+        "lat": 31.02201,
+        "lng": 76.59314,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.02191,
+        "lng": 76.59312,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
       },
       {
         "lat": 31.0216,
@@ -7282,6 +12970,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.02159,
+        "lng": 76.593,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
+        "lat": 31.02165,
+        "lng": 76.59291,
+        "cand": "GSG",
+        "cm": "Bhagwant Mann"
+      },
+      {
         "lat": 31.02179,
         "lng": 76.59194,
         "cand": "Undecided",
@@ -7289,6 +12989,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "BJP",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.02171,
+        "lng": 76.59202,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
+      },
+      {
+        "lat": 31.0219,
+        "lng": 76.59181,
+        "cand": "Undecided",
+        "cm": "Charanjeet Channi"
       },
       {
         "lat": 31.02201,
@@ -7300,6 +13012,18 @@ VALUES (
         "caste": "BC"
       },
       {
+        "lat": 31.02199,
+        "lng": 76.59193,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.02188,
+        "lng": 76.59189,
+        "cand": "SSB",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.02086,
         "lng": 76.5935,
         "cand": "Undecided",
@@ -7309,6 +13033,18 @@ VALUES (
         "caste": "Gen"
       },
       {
+        "lat": 31.02073,
+        "lng": 76.59351,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
+        "lat": 31.02086,
+        "lng": 76.59352,
+        "cand": "Undecided",
+        "cm": "Amritpal Singh"
+      },
+      {
         "lat": 31.02185,
         "lng": 76.59324,
         "cand": "Undecided",
@@ -7316,6 +13052,18 @@ VALUES (
         "zone": "Central (Ghanauli / Ropar Rural)",
         "party": "WPD",
         "caste": "Gen"
+      },
+      {
+        "lat": 31.02174,
+        "lng": 76.59319,
+        "cand": "Undecided",
+        "cm": "Undecided"
+      },
+      {
+        "lat": 31.02186,
+        "lng": 76.59312,
+        "cand": "Undecided",
+        "cm": "Undecided"
       }
     ]
   }
